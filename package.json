@@ -1,0 +1,26 @@
+{
+    "name": "avataaars-pure-js",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/forceuser/avataaars-pure-js.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/forceuser/avataaars-pure-js/issues"
+    },
+    "homepage": "https://github.com/forceuser/avataaars-pure-js#readme",
+    "dependencies": {
+        "colors": "^1.1.2",
+        "fs-extra": "^3.0.1",
+        "globby": "^6.1.0",        
+        "shelljs": "^0.7.7",
+        "yargs": "^8.0.2"
+    }
+}
