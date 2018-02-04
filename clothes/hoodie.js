@@ -1,28 +1,29 @@
 import {uid} from "../utils";
 import makeColor from "./make-color";
+import colors from "./colors";
 
 const id = {
-    path: uid("path-"),
-    mask: uid("mask-"),
+	path: uid("path-"),
+	mask: uid("mask-"),
 };
 
-export {
-    defs: [
-        `
+export default {
+	defs: [
+		`
             <path
                 id="${id.path}"
                 d="M108,13.0708856 C90.0813006,15.075938 76.2798424,20.5518341 76.004203,34.6449676 C50.1464329,45.5680933 32,71.1646257 32,100.999485 L32,100.999485 L32,110 L232,110 L232,100.999485 C232,71.1646257 213.853567,45.5680933 187.995797,34.6449832 C187.720158,20.5518341 173.918699,15.075938 156,13.0708856 L156,32 L156,32 C156,45.254834 145.254834,56 132,56 L132,56 C118.745166,56 108,45.254834 108,32 L108,13.0708856 Z"/>
         `,
-        `
+		`
             <mask id="${id.mask}" fill="white">
                 <use xlink:href="#${id.path}"/>
             </mask>
         `,
-    ],
-    main: ({dressColor}) => `
+	],
+	main: ({color}) => `
         <g class="clothing--hoodie" transform="translate(0.000000, 170.000000)">
             <use class="hoodie" fill="#B7C1DB" fill-rule="evenodd" xlink:href="#${id.path}"/>
-            ${makeColor(dressColor, id.mask)}            
+            ${makeColor(color, id.mask)}
             <path
                 id="class"
                 d="M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z"
@@ -38,5 +39,5 @@ export {
                 mask="url(#${id.mask})"/>
         </g>
     `,
-    attrs: {"dressColor": "color"}
+	attrs: {"color": colors},
 };

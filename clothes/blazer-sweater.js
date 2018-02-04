@@ -1,24 +1,24 @@
 import {uid} from "../utils";
 
 const id = {
-    path: uid("path-"),
-    mask: uid("mask-"),
+	path: uid("path-"),
+	mask: uid("mask-"),
 };
 
-export {
-    defs: [
-        `
+export default {
+	defs: [
+		`
             <path
                 id="${id.path}"
                 d="M105.192402,29.0517235 L104,29.0517235 L104,29.0517235 C64.235498,29.0517235 32,61.2872215 32,101.051724 L32,110 L232,110 L232,101.051724 C232,61.2872215 199.764502,29.0517235 160,29.0517235 L160,29.0517235 L158.807598,29.0517235 C158.934638,30.0353144 159,31.0364513 159,32.0517235 C159,45.8588423 146.911688,57.0517235 132,57.0517235 C117.088312,57.0517235 105,45.8588423 105,32.0517235 C105,31.0364513 105.065362,30.0353144 105.192402,29.0517235 Z"/>
         `,
-        `
+		`
             <mask id="${id.mask}" fill="white">
                 <use xlink:href="#${id.path}"/>
             </mask>
         `,
-    ],
-    main: `
+	],
+	main: `
         <g class="clothing--blazer-sweater" transform="translate(0.000000, 170.000000)">
             <use class="clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#${id.path}"/>
             <g class="color--palette-black" mask="url(#${id.mask})" fill-rule="evenodd" fill="#262E33">
@@ -43,5 +43,5 @@ export {
                 fill="#F2F2F2"
                 fill-rule="evenodd"/>
         </g>
-    `
+    `,
 };

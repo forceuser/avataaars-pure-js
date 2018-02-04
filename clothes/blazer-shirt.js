@@ -1,29 +1,29 @@
 import {uid} from "../utils";
 
 const id = {
-    path: uid("path-"),
-    mask: uid("mask-"),
+	path: uid("path-"),
+	mask: uid("mask-"),
 };
 
-export {
-    defs: [
-        `
+export default {
+	defs: [
+		`
             <path
                 id="${id.path}"
                 d="M133.960472,0.294916112 C170.936473,3.32499816 200,34.2942856 200,72.0517235 L200,81 L0,81 L0,72.0517235 C1.22536245e-14,33.9525631 29.591985,2.76498122 67.0454063,0.219526408 C67.0152598,0.593114549 67,0.969227185 67,1.34762511 C67,13.2107177 81.9984609,22.8276544 100.5,22.8276544 C119.001539,22.8276544 134,13.2107177 134,1.34762511 C134,0.994669088 133.986723,0.64370138 133.960472,0.294916112 Z"/>
         `,
-        `
+		`
             <mask id="${id.mask}" fill="white">
                 <use xlink:href="#${id.path}"/>
-            </mask>       
+            </mask>
         `,
-    ],
-    main: `
+	],
+	main: `
         <g class="clothing--blazer-shirt" transform="translate(0.000000, 170.000000)">
 
             <g id="shirt" transform="translate(32.000000, 29.000000)">
                 <use class="clothes" fill="#E6E6E6" xlink:href="#${id.path}"/>
-                <g class="color--palette--black" mask="url(#${mask1})" fill="#262E33">
+                <g class="color--palette--black" mask="url(#${id.mask})" fill="#262E33">
                     <g class="fill" transform="translate(-32.000000, -29.000000)">
                         <rect x="0" y="0" width="264" height="110"/>
                     </g>
@@ -48,5 +48,5 @@ export {
                     transform="translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000)"/>
             </g>
         </g>
-    `
+    `,
 };

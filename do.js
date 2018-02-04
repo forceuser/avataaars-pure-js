@@ -12,5 +12,5 @@ const camelToKebab = str => str.replace(/([a-z])([A-Z\d])/g, "$1-$2").toLowerCas
 const kebabToCamel = str => str.toLowerCase().replace(/-(.)/g, (match, group1) => group1.toUpperCase());
 
 globby.sync(["./**/*.tsx"]).forEach(name => {
-    fs.moveSync(name, name.replace(".tsx", "").split("/").map(i => camelToKebab(i)).join("/") + ".js");    
+	fs.moveSync(name, name.replace(".tsx", "").split("/").map(i => camelToKebab(i)).join("/") + ".js");
 });

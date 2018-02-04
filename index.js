@@ -1,3 +1,28 @@
+import clothes from "clothes/index";
+import accesories from "accesories/index";
+import faces from "faces/index";
+import top from "./top/index";
+import skins from "./skins";
+import avatarStyles from "./avatar-styles";
+
+export default {
+	defs: [
+
+	],
+	main () {
+
+	},
+	attrs: {
+		clothes,
+		accesories,
+		faces,
+		top,
+		skins,
+		avatarStyles
+	}
+};
+
+
 import * as React from "react"
 
 import Accesories from "./top/accessories"
