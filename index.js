@@ -11,7 +11,7 @@ const id = {
 	bodyPath: uid("path-"),
 	contentMask: uid("mask-"),
 	contentPath: uid("path-"),
-	cicleMask: uid("mask-"),
+	circleMask: uid("mask-"),
 	circlePath: uid("path-"),
 };
 
@@ -28,7 +28,7 @@ const avatar = new AvatarPart({
 					fill="#E6E6E6"
 					xlink:href="#${id.circlePath}"
 				/>
-				<g mask="url(#${id.cicleMask})" fill="#65C9FF">
+				<g mask="url(#${id.circleMask})" fill="#65C9FF">
 					<rect x="0" y="0" width="240" height="240" />
 				</g>
 			</g>`;
@@ -57,7 +57,7 @@ const avatar = new AvatarPart({
 		return `
 		<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
-				${defs.join("\n")}
+				%defs%
 			</defs>
 			<g class="avataaar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 				<g class="avataaar-circle" transform="translate(-825.000000, -1100.000000)">
@@ -78,7 +78,7 @@ const avatar = new AvatarPart({
 				  	</g>
 				</g>
 			</g>
-		</svg>`;
+		</svg>`.replace("%defs%", defs.join("\n"));
 	},
 	attrs: {
 		skin: body.attr("color"),
@@ -94,8 +94,8 @@ const avatar = new AvatarPart({
 export function render () {
 	return avatar
 		.set({
-			skin: "red",
-			clothe: clothes.Hoodie.set({color: "#FF488E"}),
+			skin: body.attr("color").brown,
+			clothe: clothes.ShirtCrewNeck.set({color: "#FF488E"}),
 			avatarStyle: avatar.attr("avatarStyle")[1],
 		})
 		.render();

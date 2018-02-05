@@ -1,19 +1,24 @@
-import * as React from "react"
+import {AvatarPart, uid} from "../common";
+import eyebrow from "./eyebrow/index";
+import eyes from "./eyes/index";
+import mouth from "./mouth/index";
+import nose from "./nose/index";
 
-import Eyebrow from "./eyebrow"
-import Eyes from "./eyes"
-import Mouth from "./mouth"
-import Nose from "./nose/Default"
-
-export default class Face extends React.Component {
-  render () {
-    return (
-      <g id="Face" transform="translate(76.000000, 82.000000)" fill="#000000">
-        <Mouth />
-        <Nose />
-        <Eyes />
-        <Eyebrow />
-      </g>
-    )
-  }
-}
+export default new AvatarPart({
+	render () {
+		return `
+		<g class="face" transform="translate(76.000000, 82.000000)" fill="#000000">
+			${this.include(eyebrow)}
+			${this.include(eyes)}
+			${this.include(mouth)}
+			${this.include(nose)}
+		</g>
+		`;
+	},
+	attrs: {
+		eyebrow,
+		eyes,
+		mouth,
+		nose,
+	},
+});

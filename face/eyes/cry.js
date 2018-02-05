@@ -1,3 +1,13 @@
+import {AvatarPart, uid} from "../../common";
+
+export default new AvatarPart({
+	render () {
+		return `
+
+		`;
+	}
+});
+
 import * as React from "react"
 
 export default class Cry extends React.Component {
