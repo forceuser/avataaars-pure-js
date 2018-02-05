@@ -1,4 +1,4 @@
-import {uid} from "../utils";
+import {AvatarPart, uid} from "../common";
 import makeColor from "./make-color";
 import colors from "./colors";
 
@@ -7,7 +7,7 @@ const id = {
 	mask: uid("mask-"),
 };
 
-export default {
+export default new AvatarPart({
 	defs: [
 		`
             <path
@@ -20,13 +20,15 @@ export default {
             </mask>
         `,
 	],
-	main: ({color}) => `
-        <g class="clothing--overall" transform="translate(0.000000, 170.000000)">
-            <use class="overall" fill="#B7C1DB" fill-rule="evenodd" xlink:href="#${id.path}"/>
-            ${makeColor(color, id.mask)}
-            <circle class="button" fill="#F4F4F4" fill-rule="evenodd" cx="81" cy="83" r="5"/>
-            <circle class="button" fill="#F4F4F4" fill-rule="evenodd" cx="183" cy="83" r="5"/>
-        </g>
-    `,
+	render ({color}) {
+		return `
+	        <g class="clothing--overall" transform="translate(0.000000, 170.000000)">
+	            <use class="overall" fill="#B7C1DB" fill-rule="evenodd" xlink:href="#${id.path}"/>
+	            ${makeColor(color, id.mask)}
+	            <circle class="clothing--button" fill="#F4F4F4" fill-rule="evenodd" cx="81" cy="83" r="5"/>
+	            <circle class="clothing--button" fill="#F4F4F4" fill-rule="evenodd" cx="183" cy="83" r="5"/>
+	        </g>
+	    `;
+	},
 	attrs: {"color": colors},
-};
+});

@@ -1,27 +1,39 @@
 {
-    "name": "avataaars-pure-js",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-		"fix": "eslint --fix ."
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/forceuser/avataaars-pure-js.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/forceuser/avataaars-pure-js/issues"
-    },
-    "homepage": "https://github.com/forceuser/avataaars-pure-js#readme",
-    "dependencies": {
-        "colors": "^1.1.2",
-        "fs-extra": "^3.0.1",
-        "globby": "^6.1.0",
-        "shelljs": "^0.7.7",
-        "yargs": "^8.0.2"
-    }
+  "name": "avataaars-pure-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server -a localhost -p 8061",
+    "build": "webpack --config ./build.config.js",
+    "fix": "eslint --fix ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forceuser/avataaars-pure-js.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/forceuser/avataaars-pure-js/issues"
+  },
+  "homepage": "https://github.com/forceuser/avataaars-pure-js#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "eslint": "^4.17.0",
+    "fs-extra": "^3.0.1",
+    "globby": "^6.1.0",
+    "shelljs": "^0.7.7",
+    "yargs": "^8.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "http-server": "^0.11.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0"
+  }
 }
