@@ -1,19 +1,19 @@
-import BlazerShirt from "./blazer-shirt";
-import BlazerSweater from "./blazer-sweater";
-import CollarShirt from "./collar-sweater";
-import Hoodie from "./hoodie";
-import Overall from "./overall";
-import ShirtCrewNeck from "./shirt-crew-neck";
-import ShirtScoopNeck from "./shirt-scoop-neck";
-import ShirtVNeck from "./shirt-v-neck";
+import blazerShirt from "./blazer-shirt";
+import blazerSweater from "./blazer-sweater";
+import collarShirt from "./collar-sweater";
+import hoodie from "./hoodie";
+import overall from "./overall";
+import shirtCrewNeck from "./shirt-crew-neck";
+import shirtScoopNeck from "./shirt-scoop-neck";
+import shirtVNeck from "./shirt-v-neck";
 
 export default {
-	BlazerShirt,
-	BlazerSweater,
-	CollarShirt,
-	Hoodie,
-	Overall,
-	ShirtCrewNeck,
-	ShirtScoopNeck,
-	ShirtVNeck,
+	blazerShirt,
+	blazerSweater,
+	collarShirt,
+	hoodie,
+	overall,
+	shirtCrewNeck,
+	shirtScoopNeck,
+	shirtVNeck,
 };

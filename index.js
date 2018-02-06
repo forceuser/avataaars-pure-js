@@ -1,7 +1,7 @@
 import clothes from "./clothes/index";
-// import accessories from "accessories/index";
-// import faces from "faces/index";
-// import facialHair from "facial-hair/index";
+import accessories from "./accessories/index";
+// import faces from "./faces/index";
+import facialHair from "./facial-hair/index";
 // import top from "./top/index";
 import body from "./body";
 import {AvatarPart, uid} from "./common";
@@ -69,11 +69,11 @@ const avatar = new AvatarPart({
 							fill-rule="evenodd"
 							mask="url(#${id.contentMask})">
 							${this.include(body.set({maskID: id.bodyMask, color: skin}))}
-							${this.include(clothe)/*}
-							${this.include(face)}
+							${this.include(clothe)}
+							${false && this.include(face)}
 							${this.include(facialHair)}
 							${this.include(accessory)}
-							${this.include(top)*/}
+							${false && this.include(top)}
 						</g>
 				  	</g>
 				</g>
@@ -83,8 +83,8 @@ const avatar = new AvatarPart({
 	attrs: {
 		skin: body.attr("color"),
 		clothe: clothes,
-		// accesory: accessories,
-		// facialHair,
+		accessory: accessories,
+		facialHair,
 		// face: faces,
 		// top,
 		avatarStyle: ["none", "circle"],
@@ -95,7 +95,9 @@ export function render () {
 	return avatar
 		.set({
 			skin: body.attr("color").brown,
-			clothe: clothes.ShirtCrewNeck.set({color: "#FF488E"}),
+			clothe: clothes.shirtCrewNeck.set({color: "#FF488E"}),
+			facialHair: facialHair.beardLight.set({color: facialHair.beardLight.attr("color").blonde}),
+			accessory: accessories.eyepatch,
 			avatarStyle: avatar.attr("avatarStyle")[1],
 		})
 		.render();
