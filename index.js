@@ -2,17 +2,18 @@ import clothes from "./clothes/index";
 import accessories from "./accessories/index";
 // import faces from "./faces/index";
 import facialHair from "./facial-hair/index";
-// import top from "./top/index";
+import top from "./top/index";
 import body from "./body";
 import {AvatarPart, uid} from "./common";
+import {fabricColors, hairColors, skinColors} from "./colors";
 
 const id = {
-	bodyMask: uid("mask-"),
-	bodyPath: uid("path-"),
-	contentMask: uid("mask-"),
-	contentPath: uid("path-"),
-	circleMask: uid("mask-"),
-	circlePath: uid("path-"),
+	bodyMask: "bodyMask",
+	bodyPath: "bodyPath",
+	contentMask: "contentMask",
+	contentPath: "contentPath",
+	circleMask: "cirecleMask",
+	circlePath: "circlePath",
 };
 
 const avatar = new AvatarPart({
@@ -34,7 +35,12 @@ const avatar = new AvatarPart({
 			</g>`;
 	},
 	defs: [
+		`<rect id="framePath" x="0" y="0" width="264" height="280"/>`,
+		`<mask id="frameMask" fill="white">
+			<use xlink:href="#framePath"/>
+		</mask>`,
 		`<path
+			class="body-path"
 			id="${id.bodyPath}"
 			d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z"
 		/>`,
@@ -59,21 +65,21 @@ const avatar = new AvatarPart({
 			<defs>
 				%defs%
 			</defs>
-			<g class="avataaar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-				<g class="avataaar-circle" transform="translate(-825.000000, -1100.000000)">
+			<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+				<g transform="translate(-825.000000, -1100.000000)">
 				  	<g transform="translate(825.000000, 1100.000000)">
 						${avatarStyle === "circle" ? circle() : ""}
 						<g
 							class="avataaar-content"
 							stroke-width="1"
 							fill-rule="evenodd"
-							mask="url(#${id.contentMask})">
+							mask="${avatarStyle === "circle" ? `url(#${id.contentMask})` : ""}">
 							${this.include(body.set({maskID: id.bodyMask, color: skin}))}
 							${this.include(clothe)}
-							${false && this.include(face)}
+							${this.include(face)}
 							${this.include(facialHair)}
 							${this.include(accessory)}
-							${false && this.include(top)}
+							${this.include(top)}
 						</g>
 				  	</g>
 				</g>
@@ -86,7 +92,7 @@ const avatar = new AvatarPart({
 		accessory: accessories,
 		facialHair,
 		// face: faces,
-		// top,
+		top,
 		avatarStyle: ["none", "circle"],
 	},
 });
@@ -94,11 +100,12 @@ const avatar = new AvatarPart({
 export function render () {
 	return avatar
 		.set({
-			skin: body.attr("color").brown,
-			clothe: clothes.shirtCrewNeck.set({color: "#FF488E"}),
-			facialHair: facialHair.beardLight.set({color: facialHair.beardLight.attr("color").blonde}),
-			accessory: accessories.eyepatch,
-			avatarStyle: avatar.attr("avatarStyle")[1],
+			skin: skinColors.brown,
+			clothe: clothes.shirtCrewNeck.set({color: fabricColors.green}),
+			// facialHair: facialHair.beardLight.set({color: hairColors.brownDark}),
+			accessory: accessories.kurt.set({color: fabricColors.yellow}),
+			top: top.longHairNotTooLong.set({color: hairColors.black}),
+			avatarStyle: "circle",
 		})
 		.render();
 }

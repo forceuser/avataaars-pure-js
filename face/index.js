@@ -7,7 +7,7 @@ import nose from "./nose/index";
 export default new AvatarPart({
 	render () {
 		return `
-		<g class="face" transform="translate(76.000000, 82.000000)" fill="#000000">
+		<g transform="translate(76.000000, 82.000000)" fill="#000000">
 			${this.include(eyebrow)}
 			${this.include(eyes)}
 			${this.include(mouth)}

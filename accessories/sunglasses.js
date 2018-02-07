@@ -37,8 +37,8 @@ export default new AvatarPart({
 	],
 	render () {
 		return `
-			<g class="accesories" fill="none" transform="translate(62.000000, 85.000000)" stroke-width="1">
-				<g class="sunglasses" filter="url(#${id.filter})" transform="translate(8.000000, 8.000000)">
+			<g fill="none" transform="translate(62.000000, 85.000000)" stroke-width="1">
+				<g filter="url(#${id.filter})" transform="translate(8.000000, 8.000000)">
 					<g>
 						<use fill-opacity="0.700000048" fill="#000000" xlink:href="#${id.path1}"/>
 						<use fill="url(#${id.linearGradient1})" style="mixBlendMode: screen;" xlink:href="#${id.path1}"/>

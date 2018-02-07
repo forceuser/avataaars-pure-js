@@ -19,7 +19,7 @@ export default new AvatarPart({
 	render () {
 		return `
 			<g fill="none" transform="translate(62.000000, 85.000000)">
-				<g class="lennon-glasses">
+				<g>
 					<use fill="black" fill-opacity="1" filter="url(#${id.filter}" xlink:href="#${id.path}"/>
 					<use fill="#252C2F" fill-rule="evenodd" xlink:href="#${id.path}"/>
 				</g>

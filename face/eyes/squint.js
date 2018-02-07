@@ -28,36 +28,36 @@ export default class Squint extends React.Component {
         <defs>
           <path
             d="M14,14.0481187 C23.6099827,14.0481187 28,18.4994466 28,11.5617716 C28,4.62409673 21.7319865,0 14,0 C6.2680135,0 0,4.62409673 0,11.5617716 C0,18.4994466 4.39001726,14.0481187 14,14.0481187 Z"
-            id={path1}
+            id="${id.path1}"
           />
           <path
             d="M14,14.0481187 C23.6099827,14.0481187 28,18.4994466 28,11.5617716 C28,4.62409673 21.7319865,0 14,0 C6.2680135,0 0,4.62409673 0,11.5617716 C0,18.4994466 4.39001726,14.0481187 14,14.0481187 Z"
-            id={path2}
+            id="${id.path2}"
           />
         </defs>
         <g id="Eye" transform="translate(16.000000, 13.000000)">
-          <mask id={mask1} fill="white">
-            <use xlink:href={"#" + path1} />
+          <mask id="${id.mask1}" fill="white">
+            <use xlink:href="#${id.path1}" />
           </mask>
-          <use id="The-white-stuff" fill="#FFFFFF" xlink:href={"#" + path1} />
+          <use id="The-white-stuff" fill="#FFFFFF" xlink:href="#${id.path1}" />
           <circle
             fill-opacity="0.699999988"
             fill="#000000"
-            mask={`url(#${mask1})`}
+            mask="url(#${id.mask1})"
             cx="14"
             cy="10"
             r="6"
           />
         </g>
         <g id="Eye" transform="translate(68.000000, 13.000000)">
-          <mask id={mask2} fill="white">
-            <use xlink:href={"#" + path2} />
+          <mask id="${id.mask2}" fill="white">
+            <use xlink:href="#${id.path2}" />
           </mask>
-          <use id="Eyeball-Mask" fill="#FFFFFF" xlink:href={"#" + path2} />
+          <use id="Eyeball-Mask" fill="#FFFFFF" xlink:href="#${id.path2}" />
           <circle
             fill-opacity="0.699999988"
             fill="#000000"
-            mask={`url(#${mask2})`}
+            mask="url(#${id.mask2})"
             cx="14"
             cy="10"
             r="6"

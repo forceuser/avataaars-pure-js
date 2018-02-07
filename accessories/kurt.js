@@ -1,4 +1,5 @@
 import {AvatarPart, uid} from "../common";
+import {fabricColors} from "../colors";
 
 const id = {
 	filter: uid("filter-"),
@@ -15,12 +16,12 @@ export default new AvatarPart({
 			</feMerge>
 		</filter>`,
 	],
-	render () {
+	render ({color = fabricColors.white}) {
 		return `
-			<g class="accessories" fill="none" transform="translate(62.000000, 85.000000)" stroke-width="1">
-				<g class="accessories-kurt" filter="url(#${id.filter})" transform="translate(5.000000, 2.000000)">
+			<g fill="none" transform="translate(62.000000, 85.000000)" stroke-width="1">
+				<g filter="url(#${id.filter})" transform="translate(5.000000, 2.000000)">
 					<path
-						fill="#F4F4F4"
+						fill="${color}"
 						fill-rule="nonzero"
 						d="M66,11.1111111 C54.9625586,11.1111111 53.3705645,2.0266011 30.6705882,0.740740741 C7.98552275,-0.283199952 0.815225204,6.4494855 0.776470588,11.1111111 C0.813236892,15.4042795 -0.352293566,26.5612661 14.3647059,39.6296296 C29.1367705,55.1420807 44.2704162,49.8818301 49.6941176,44.8148148 C55.1352081,42.4731118 61.3403442,21.4596351 66,21.4814815 C70.6596558,21.5033279 76.8647919,42.4731118 82.3058824,44.8148148 C87.7295838,49.8818301 102.86323,55.1420807 117.635294,39.6296296 C132.352294,26.5612661 131.186763,15.4042795 131.223529,11.1111111 C131.184775,6.4494855 124.014477,-0.283199952 101.329412,0.740740741 C78.6294355,2.0266011 77.0374414,11.1111111 66,11.1111111 Z"
 						/>
@@ -39,6 +40,6 @@ export default new AvatarPart({
 		`;
 	},
 	attrs: {
-
+		colors: fabricColors,
 	},
 });

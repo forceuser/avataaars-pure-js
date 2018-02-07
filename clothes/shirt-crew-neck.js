@@ -1,6 +1,6 @@
 import {AvatarPart, uid} from "../common";
-import makeColor from "./make-color";
-import colors from "./colors";
+import makeColor from "../make-color";
+import {fabricColors} from "../colors";
 
 const id = {
 	path: uid("path-"),
@@ -19,10 +19,9 @@ export default new AvatarPart({
 	],
 	render ({color}) {
 		return `
-	        <g class="clothing--shirt-crew-neck" transform="translate(0.000000, 170.000000)">
-	            <use class="clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#${id.path}"/>
-	            ${makeColor(color, id.mask)}
-	            <g class="shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#${id.mask})" fill-opacity="0.16" fill="#000000">
+	        <g transform="translate(0.000000, 170.000000)">
+	            <use fill="${color}" fill-rule="evenodd" xlink:href="#${id.path}"/>
+	            <g opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#${id.mask})" fill-opacity="0.16" fill="#000000">
 	                <g transform="translate(92.000000, 4.000000)">
 	                    <ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"/>
 	                </g>
@@ -30,5 +29,5 @@ export default new AvatarPart({
 	        </g>
 	    `;
 	},
-	attrs: {"color": colors},
+	attrs: {"color": fabricColors},
 });

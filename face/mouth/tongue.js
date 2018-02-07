@@ -29,24 +29,24 @@ export default class Tongue extends React.Component {
         <defs>
           <path
             d="M29,15.6086957 C30.410031,25.2313711 41.062182,33 54,33 C66.9681454,33 77.6461342,25.183301 79,14.7391304 C79.1012093,14.3397326 78.775269,13 76.826087,13 C56.838426,13 41.7395748,13 31.173913,13 C29.3833142,13 28.870211,14.2404669 29,15.6086957 Z"
-            id={path1}
+            id="${id.path1}"
           />
         </defs>
-        <mask id={mask1} fill="white">
-          <use xlink:href={"#" + path1} />
+        <mask id="${id.mask1}" fill="white">
+          <use xlink:href="#${id.path1}" />
         </mask>
         <use
           id="Mouth"
           fill-opacity="0.699999988"
           fill="#000000"
           fill-rule="evenodd"
-          xlink:href={"#" + path1}
+          xlink:href="#${id.path1}"
         />
         <rect
           id="Teeth"
           fill="#FFFFFF"
           fill-rule="evenodd"
-          mask={`url(#${mask1})`}
+          mask="url(#${id.mask1})"
           x="39"
           y="2"
           width="31"

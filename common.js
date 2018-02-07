@@ -23,8 +23,11 @@ export class AvatarPart {
 		return this.data.render;
 	}
 	include (part, options) {
-		this.data.defs.push(...(part.data.defs || []));
-		return part.render();
+		if (part) {
+			this.data.defs.push(...(part.data.defs || []));
+			return part.render();
+		}
+		return "";
 	}
 }
 

@@ -1,9 +1,10 @@
 import {AvatarPart, uid} from "./common";
+import {skinColors} from "./colors";
 
 export default new AvatarPart({
 	render ({maskID, color}) {
 		return `
-		<g class="body" transform="translate(32.000000, 36.000000)">
+		<g transform="translate(32.000000, 36.000000)">
 			<g
 				class="skin"
 				mask="url(#${maskID})"
@@ -22,14 +23,6 @@ export default new AvatarPart({
 		</g>`;
 	},
 	attrs: {
-		color: {
-			"tanned": "#FD9841",
-			"yellow": "#F8D25C",
-			"pale": "#FFDBB4",
-			"light": "#EDB98A",
-			"brown": "#D08B5B",
-			"dark-brown": "#AE5D29",
-			"black": "#614335",
-		},
+		color: skinColors,
 	},
 });

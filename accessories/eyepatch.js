@@ -14,8 +14,8 @@ export default new AvatarPart({
 	],
 	render () {
 		return `
-		<g class="accesories" stroke-width="1" fill-rule="evenodd">
-			<g class="accesories-eyepatch" mask="url(#${id.mask})">
+		<g stroke-width="1" fill-rule="evenodd">
+			<g mask="url(#${id.mask})">
 				<g transform="translate(-1.000000, 0.000000)">
 					<path
 						class="badass-eyepatch"
