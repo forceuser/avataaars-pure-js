@@ -19,7 +19,7 @@ export default new AvatarPart({
 		return `
 	        <g transform="translate(0.000000, 170.000000)">
 
-	            <g id="shirt" transform="translate(32.000000, 29.000000)">
+	            <g  transform="translate(32.000000, 29.000000)">
 	                <use fill="#E6E6E6" xlink:href="#${id.path}"/>
 	                <g mask="url(#${id.mask})" fill="#262E33">
 	                    <g transform="translate(-32.000000, -29.000000)">

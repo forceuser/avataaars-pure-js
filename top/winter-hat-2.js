@@ -26,7 +26,7 @@ export default new AvatarPart({
 							<rect x="8" y="0" width="2" height="58"/>
 						</g>
 						<g transform="translate(126.000000, 168.000000)" fill="#F4F4F4">
-							<circle id="puff" cx="9" cy="65" r="9"/>
+							<circle  cx="9" cy="65" r="9"/>
 							<rect x="8" y="0" width="2" height="58"/>
 						</g>
 						<circle fill="#F4F4F4" cx="72" cy="20" r="20"/>

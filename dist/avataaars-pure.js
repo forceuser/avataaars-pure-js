@@ -131,10 +131,11 @@ var AvatarPart = exports.AvatarPart = function () {
 		}
 	}, {
 		key: "include",
-		value: function include(part, options) {
+		value: function include(part) {
 			if (part) {
 				var _data$defs;
 
+				this.data.defs = this.data.defs || [];
 				(_data$defs = this.data.defs).push.apply(_data$defs, _toConsumableArray(part.data.defs || []));
 				return part.render();
 			}
@@ -232,81 +233,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.render = render;
 
-var _index = __webpack_require__(4);
-
-var _index2 = _interopRequireDefault(_index);
-
-var _index3 = __webpack_require__(13);
-
-var _index4 = _interopRequireDefault(_index3);
-
-var _index5 = __webpack_require__(22);
-
-var _index6 = _interopRequireDefault(_index5);
-
-var _index7 = __webpack_require__(29);
-
-var _index8 = _interopRequireDefault(_index7);
-
-var _body = __webpack_require__(49);
-
-var _body2 = _interopRequireDefault(_body);
-
-var _common = __webpack_require__(0);
-
 var _colors = __webpack_require__(1);
+
+var _avatar = __webpack_require__(4);
+
+var _avatar2 = _interopRequireDefault(_avatar);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var id = {
-	bodyMask: "bodyMask",
-	bodyPath: "bodyPath",
-	contentMask: "contentMask",
-	contentPath: "contentPath",
-	circleMask: "cirecleMask",
-	circlePath: "circlePath"
-};
-// import faces from "./faces/index";
-
-
-var avatar = new _common.AvatarPart({
-	circle: function circle() {
-		return "\n\t\t\t<g\n\t\t\t\tclass=\"circle\"\n\t\t\t\tstroke-width=\"1\"\n\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\ttransform=\"translate(12.000000, 40.000000)\">\n\t\t\t\t<use\n\t\t\t\t\tclass=\"circle-background\"\n\t\t\t\t\tfill=\"#E6E6E6\"\n\t\t\t\t\txlink:href=\"#" + id.circlePath + "\"\n\t\t\t\t/>\n\t\t\t\t<g mask=\"url(#" + id.circleMask + ")\" fill=\"#65C9FF\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"240\" height=\"240\" />\n\t\t\t\t</g>\n\t\t\t</g>";
-	},
-
-	defs: ["<rect id=\"framePath\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<mask id=\"frameMask\" fill=\"white\">\n\t\t\t<use xlink:href=\"#framePath\"/>\n\t\t</mask>", "<path\n\t\t\tclass=\"body-path\"\n\t\t\tid=\"" + id.bodyPath + "\"\n\t\t\td=\"M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z\"\n\t\t/>", "<mask id=\"" + id.bodyMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.bodyPath + "\" />\n\t\t</mask>", "<circle id=\"" + id.circlePath + "\" cx=\"120\" cy=\"120\" r=\"120\" />", "<mask id=\"" + id.circleMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.circlePath + "\" />\n\t\t</mask>", "<path\n\t\t\tid=\"" + id.contentPath + "\"\n\t\t\td=\"M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z\"\n\t\t/>", "<mask id=\"" + id.contentMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.contentPath + "\" />\n\t\t</mask>"],
-	render: function render(_ref) {
-		var defs = _ref.defs,
-		    clothe = _ref.clothe,
-		    accessory = _ref.accessory,
-		    face = _ref.face,
-		    top = _ref.top,
-		    skin = _ref.skin,
-		    facialHair = _ref.facialHair,
-		    avatarStyle = _ref.avatarStyle,
-		    circle = _ref.circle;
-
-		return ("\n\t\t<svg width=\"264px\" height=\"280px\" viewBox=\"0 0 264 280\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n\t\t\t<defs>\n\t\t\t\t%defs%\n\t\t\t</defs>\n\t\t\t<g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n\t\t\t\t<g transform=\"translate(-825.000000, -1100.000000)\">\n\t\t\t\t  \t<g transform=\"translate(825.000000, 1100.000000)\">\n\t\t\t\t\t\t" + (avatarStyle === "circle" ? circle() : "") + "\n\t\t\t\t\t\t<g\n\t\t\t\t\t\t\tclass=\"avataaar-content\"\n\t\t\t\t\t\t\tstroke-width=\"1\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"" + (avatarStyle === "circle" ? "url(#" + id.contentMask + ")" : "") + "\">\n\t\t\t\t\t\t\t" + this.include(_body2.default.set({ maskID: id.bodyMask, color: skin })) + "\n\t\t\t\t\t\t\t" + this.include(clothe) + "\n\t\t\t\t\t\t\t" + this.include(face) + "\n\t\t\t\t\t\t\t" + this.include(facialHair) + "\n\t\t\t\t\t\t\t" + this.include(accessory) + "\n\t\t\t\t\t\t\t" + this.include(top) + "\n\t\t\t\t\t\t</g>\n\t\t\t\t  \t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</svg>").replace("%defs%", defs.join("\n"));
-	},
-
-	attrs: {
-		skin: _body2.default.attr("color"),
-		clothe: _index2.default,
-		accessory: _index4.default,
-		facialHair: _index6.default,
-		// face: faces,
-		top: _index8.default,
-		avatarStyle: ["none", "circle"]
-	}
-});
-
 function render() {
-	return avatar.set({
+	return _avatar2.default.set({
 		skin: _colors.skinColors.brown,
-		clothe: _index2.default.shirtCrewNeck.set({ color: _colors.fabricColors.green }),
+		clothe: _avatar2.default.attr("clothe").shirtCrewNeck.set({ color: _colors.fabricColors.green }),
 		// facialHair: facialHair.beardLight.set({color: hairColors.brownDark}),
-		accessory: _index4.default.kurt.set({ color: _colors.fabricColors.yellow }),
-		top: _index8.default.longHairNotTooLong.set({ color: _colors.hairColors.black }),
+		accessory: _avatar2.default.attr("accessory").kurt.set({ color: _colors.fabricColors.yellow }),
+		top: _avatar2.default.attr("top").shortHairShaggyMullet.set({ color: _colors.hairColors.platinum }),
 		avatarStyle: "circle"
 	}).render();
 }
@@ -322,35 +263,112 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _blazerShirt = __webpack_require__(5);
+var _common = __webpack_require__(0);
+
+var _index = __webpack_require__(5);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(14);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = __webpack_require__(23);
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _index7 = __webpack_require__(28);
+
+var _index8 = _interopRequireDefault(_index7);
+
+var _index9 = __webpack_require__(35);
+
+var _index10 = _interopRequireDefault(_index9);
+
+var _body = __webpack_require__(71);
+
+var _body2 = _interopRequireDefault(_body);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var id = {
+	bodyMask: "bodyMask",
+	bodyPath: "bodyPath",
+	contentMask: "contentMask",
+	contentPath: "contentPath",
+	circleMask: "cirecleMask",
+	circlePath: "circlePath"
+};
+
+exports.default = new _common.AvatarPart({
+	circle: function circle() {
+		return "\n\t\t\t<g\n\n\t\t\t\tstroke-width=\"1\"\n\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\ttransform=\"translate(12.000000, 40.000000)\">\n\t\t\t\t<use\n\n\t\t\t\t\tfill=\"#E6E6E6\"\n\t\t\t\t\txlink:href=\"#" + id.circlePath + "\"\n\t\t\t\t/>\n\t\t\t\t<g mask=\"url(#" + id.circleMask + ")\" fill=\"#65C9FF\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"240\" height=\"240\" />\n\t\t\t\t</g>\n\t\t\t</g>";
+	},
+
+	defs: ["<rect  x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<mask  fill=\"white\">\n\t\t\t<use xlink:href=\"#framePath\"/>\n\t\t</mask>", "<path\n\n\t\t\tid=\"" + id.bodyPath + "\"\n\t\t\td=\"M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z\"\n\t\t/>", "<mask id=\"" + id.bodyMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.bodyPath + "\" />\n\t\t</mask>", "<circle id=\"" + id.circlePath + "\" cx=\"120\" cy=\"120\" r=\"120\" />", "<mask id=\"" + id.circleMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.circlePath + "\" />\n\t\t</mask>", "<path\n\t\t\tid=\"" + id.contentPath + "\"\n\t\t\td=\"M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z\"\n\t\t/>", "<mask id=\"" + id.contentMask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.contentPath + "\" />\n\t\t</mask>"],
+	render: function render(_ref) {
+		var defs = _ref.defs,
+		    clothe = _ref.clothe,
+		    accessory = _ref.accessory,
+		    top = _ref.top,
+		    skin = _ref.skin,
+		    facialHair = _ref.facialHair,
+		    avatarStyle = _ref.avatarStyle,
+		    circle = _ref.circle;
+
+		return ("\n\t\t<svg width=\"264px\" height=\"280px\" viewBox=\"0 0 264 280\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n\t\t\t<defs>\n\t\t\t\t%defs%\n\t\t\t</defs>\n\t\t\t<g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n\t\t\t\t<g transform=\"translate(-825.000000, -1100.000000)\">\n\t\t\t\t  \t<g transform=\"translate(825.000000, 1100.000000)\">\n\t\t\t\t\t\t" + (avatarStyle === "circle" ? circle() : "") + "\n\t\t\t\t\t\t<g\n\n\t\t\t\t\t\t\tstroke-width=\"1\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"" + (avatarStyle === "circle" ? "url(#" + id.contentMask + ")" : "") + "\">\n\t\t\t\t\t\t\t" + this.include(_body2.default.set({ maskID: id.bodyMask, color: skin })) + "\n\t\t\t\t\t\t\t" + this.include(clothe) + "\n\t\t\t\t\t\t\t" + this.include(_index6.default) + "\n\t\t\t\t\t\t\t" + this.include(facialHair) + "\n\t\t\t\t\t\t\t" + this.include(accessory) + "\n\t\t\t\t\t\t\t" + this.include(top) + "\n\t\t\t\t\t\t</g>\n\t\t\t\t  \t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</svg>").replace("%defs%", defs.join("\n"));
+	},
+
+	attrs: {
+		skin: _body2.default.attr("color"),
+		clothe: _index2.default,
+		accessory: _index4.default,
+		facialHair: _index8.default,
+		top: _index10.default,
+		avatarStyle: ["none", "circle"]
+	}
+});
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _blazerShirt = __webpack_require__(6);
 
 var _blazerShirt2 = _interopRequireDefault(_blazerShirt);
 
-var _blazerSweater = __webpack_require__(6);
+var _blazerSweater = __webpack_require__(7);
 
 var _blazerSweater2 = _interopRequireDefault(_blazerSweater);
 
-var _collarSweater = __webpack_require__(7);
+var _collarSweater = __webpack_require__(8);
 
 var _collarSweater2 = _interopRequireDefault(_collarSweater);
 
-var _hoodie = __webpack_require__(8);
+var _hoodie = __webpack_require__(9);
 
 var _hoodie2 = _interopRequireDefault(_hoodie);
 
-var _overall = __webpack_require__(9);
+var _overall = __webpack_require__(10);
 
 var _overall2 = _interopRequireDefault(_overall);
 
-var _shirtCrewNeck = __webpack_require__(10);
+var _shirtCrewNeck = __webpack_require__(11);
 
 var _shirtCrewNeck2 = _interopRequireDefault(_shirtCrewNeck);
 
-var _shirtScoopNeck = __webpack_require__(11);
+var _shirtScoopNeck = __webpack_require__(12);
 
 var _shirtScoopNeck2 = _interopRequireDefault(_shirtScoopNeck);
 
-var _shirtVNeck = __webpack_require__(12);
+var _shirtVNeck = __webpack_require__(13);
 
 var _shirtVNeck2 = _interopRequireDefault(_shirtVNeck);
 
@@ -368,7 +386,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -388,12 +406,12 @@ var id = {
 exports.default = new _common.AvatarPart({
 	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M133.960472,0.294916112 C170.936473,3.32499816 200,34.2942856 200,72.0517235 L200,81 L0,81 L0,72.0517235 C1.22536245e-14,33.9525631 29.591985,2.76498122 67.0454063,0.219526408 C67.0152598,0.593114549 67,0.969227185 67,1.34762511 C67,13.2107177 81.9984609,22.8276544 100.5,22.8276544 C119.001539,22.8276544 134,13.2107177 134,1.34762511 C134,0.994669088 133.986723,0.64370138 133.960472,0.294916112 Z\"/>\n        ", "<mask id=\"" + id.mask + "\" fill=\"white\">\n            <use xlink:href=\"#" + id.path + "\"/>\n        </mask>"],
 	render: function render() {
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\n\t            <g id=\"shirt\" transform=\"translate(32.000000, 29.000000)\">\n\t                <use fill=\"#E6E6E6\" xlink:href=\"#" + id.path + "\"/>\n\t                <g mask=\"url(#" + id.mask + ")\" fill=\"#262E33\">\n\t                    <g transform=\"translate(-32.000000, -29.000000)\">\n\t                        <rect x=\"0\" y=\"0\" width=\"264\" height=\"110\"/>\n\t                    </g>\n\t                </g>\n\t                <g opacity=\"0.599999964\" mask=\"url(#" + id.mask + ")\" fill-opacity=\"0.16\" fill=\"#000000\">\n\t                    <g transform=\"translate(60.000000, -25.000000)\">\n\t                        <ellipse cx=\"40.5\" cy=\"27.8476251\" rx=\"39.6351047\" ry=\"26.9138272\"/>\n\t                    </g>\n\t                </g>\n\t            </g>\n\t            <g transform=\"translate(32.000000, 28.000000)\">\n\t                <path\n\n\t                    d=\"M68.784807,1.12222847 C30.512317,2.80409739 -1.89486556e-14,34.3646437 -1.42108547e-14,73.0517235 L0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z\"\n\t                    fill=\"#3A4C5A\"/>\n\t                <path d=\"M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z\" fill=\"#E6E6E6\"/>\n\t                <path d=\"M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z\" fill=\"#2F4351\"/>\n\t                <path\n\n\t                    d=\"M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z\"\n\t                    fill=\"#2F4351\"\n\t                    transform=\"translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000)\"/>\n\t            </g>\n\t        </g>\n\t    ";
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\n\t            <g  transform=\"translate(32.000000, 29.000000)\">\n\t                <use fill=\"#E6E6E6\" xlink:href=\"#" + id.path + "\"/>\n\t                <g mask=\"url(#" + id.mask + ")\" fill=\"#262E33\">\n\t                    <g transform=\"translate(-32.000000, -29.000000)\">\n\t                        <rect x=\"0\" y=\"0\" width=\"264\" height=\"110\"/>\n\t                    </g>\n\t                </g>\n\t                <g opacity=\"0.599999964\" mask=\"url(#" + id.mask + ")\" fill-opacity=\"0.16\" fill=\"#000000\">\n\t                    <g transform=\"translate(60.000000, -25.000000)\">\n\t                        <ellipse cx=\"40.5\" cy=\"27.8476251\" rx=\"39.6351047\" ry=\"26.9138272\"/>\n\t                    </g>\n\t                </g>\n\t            </g>\n\t            <g transform=\"translate(32.000000, 28.000000)\">\n\t                <path\n\n\t                    d=\"M68.784807,1.12222847 C30.512317,2.80409739 -1.89486556e-14,34.3646437 -1.42108547e-14,73.0517235 L0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z\"\n\t                    fill=\"#3A4C5A\"/>\n\t                <path d=\"M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z\" fill=\"#E6E6E6\"/>\n\t                <path d=\"M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z\" fill=\"#2F4351\"/>\n\t                <path\n\n\t                    d=\"M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z\"\n\t                    fill=\"#2F4351\"\n\t                    transform=\"translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000)\"/>\n\t            </g>\n\t        </g>\n\t    ";
 	}
 });
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -418,7 +436,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,7 +472,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -484,14 +502,14 @@ exports.default = new _common.AvatarPart({
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\t                id=\"class\"\n\t                d=\"M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z\"\n\t                fill=\"#F4F4F4\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t            <path\n\n\t                d=\"M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z\"\n\t                fill-opacity=\"0.16\"\n\t                fill=\"#000000\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t        </g>\n\t    ";
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\t                \n\t                d=\"M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z\"\n\t                fill=\"#F4F4F4\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t            <path\n\n\t                d=\"M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z\"\n\t                fill-opacity=\"0.16\"\n\t                fill=\"#000000\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t        </g>\n\t    ";
 	},
 
 	attrs: { "color": _colors.fabricColors }
 });
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -527,7 +545,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -564,7 +582,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -600,7 +618,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -636,7 +654,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -646,35 +664,35 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _blank = __webpack_require__(14);
+var _blank = __webpack_require__(15);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _eyepatch = __webpack_require__(15);
+var _eyepatch = __webpack_require__(16);
 
 var _eyepatch2 = _interopRequireDefault(_eyepatch);
 
-var _kurt = __webpack_require__(16);
+var _kurt = __webpack_require__(17);
 
 var _kurt2 = _interopRequireDefault(_kurt);
 
-var _prescription = __webpack_require__(17);
+var _prescription = __webpack_require__(18);
 
 var _prescription2 = _interopRequireDefault(_prescription);
 
-var _prescription3 = __webpack_require__(18);
+var _prescription3 = __webpack_require__(19);
 
 var _prescription4 = _interopRequireDefault(_prescription3);
 
-var _round = __webpack_require__(19);
+var _round = __webpack_require__(20);
 
 var _round2 = _interopRequireDefault(_round);
 
-var _sunglasses = __webpack_require__(20);
+var _sunglasses = __webpack_require__(21);
 
 var _sunglasses2 = _interopRequireDefault(_sunglasses);
 
-var _wayfarers = __webpack_require__(21);
+var _wayfarers = __webpack_require__(22);
 
 var _wayfarers2 = _interopRequireDefault(_wayfarers);
 
@@ -692,7 +710,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -714,7 +732,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -734,14 +752,14 @@ var id = {
 exports.default = new _common.AvatarPart({
 	defs: ["<rect id=\"" + id.path + "\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<mask id=\"" + id.mask + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path + "\"/>\n\t\t</mask>"],
 	render: function render() {
-		return "\n\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t<g mask=\"url(#" + id.mask + ")\">\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<path\n\t\t\t\t\t\tclass=\"badass-eyepatch\"\n\t\t\t\t\t\tfill=\"#28354B\"\n\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\td=\"M160.395307,39.7810237 C157.318088,36.6927979 154.11865,43.6386608 152.623361,45.4281124 C149.013122,49.7486528 145.540256,54.182935 141.868413,58.4518947 C134.616309,66.8823544 127.439316,75.3743141 120.233991,83.8401528 C119.140279,85.1257012 119.27271,85.2649028 117.837048,85.3885641 C116.88598,85.4708947 115.563312,84.9802173 114.5737,84.9256608 C111.823607,84.774556 109.112057,85.2348141 106.435756,85.8227012 C101.091389,86.9961608 95.4264863,88.9291124 90.7890799,91.898306 C89.5718308,92.677306 88.7874545,93.5971608 87.4670933,93.841177 C86.3183659,94.0534512 84.794416,93.6295641 83.622299,93.5194592 C81.5412806,93.3237173 78.5378542,92.4726366 76.4953793,92.9137173 C73.9027538,93.4738302 72.9174244,96.6109915 75.5604528,98.0003624 C77.570314,99.0564431 81.5706,98.4761608 83.8235816,98.6447899 C86.3971,98.8372253 85.6120649,98.704306 85.2473843,101.164306 C84.7239177,104.69758 85.5985582,108.646475 87.0885766,111.878201 C90.5482655,119.383185 100.122861,127.335201 108.8551,126.603153 C116.142123,125.992451 122.526834,119.413274 125.519389,113.099935 C127.050916,109.868871 127.954546,106.192096 128.250376,102.628403 C128.438811,100.36183 128.333722,97.9580399 127.684083,95.7632173 C127.362888,94.6783705 126.853916,93.5554995 126.308378,92.5695157 C125.866281,91.7710076 123.908799,89.9203866 123.788886,89.1165882 C123.556307,87.5602415 127.973324,83.3874995 128.816339,82.3443141 C132.788953,77.4276205 136.780344,72.5320882 140.721662,67.5889431 C144.603353,62.7201931 148.506456,57.8640076 152.489612,53.0785802 C154.294237,50.9098786 163.318023,42.7148382 160.395307,39.7810237\"\n\t\t\t\t\t\t/>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</g>";
+		return "\n\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t<g mask=\"url(#" + id.mask + ")\">\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<path\n\t\t\t\t\t\t\n\t\t\t\t\t\tfill=\"#28354B\"\n\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\td=\"M160.395307,39.7810237 C157.318088,36.6927979 154.11865,43.6386608 152.623361,45.4281124 C149.013122,49.7486528 145.540256,54.182935 141.868413,58.4518947 C134.616309,66.8823544 127.439316,75.3743141 120.233991,83.8401528 C119.140279,85.1257012 119.27271,85.2649028 117.837048,85.3885641 C116.88598,85.4708947 115.563312,84.9802173 114.5737,84.9256608 C111.823607,84.774556 109.112057,85.2348141 106.435756,85.8227012 C101.091389,86.9961608 95.4264863,88.9291124 90.7890799,91.898306 C89.5718308,92.677306 88.7874545,93.5971608 87.4670933,93.841177 C86.3183659,94.0534512 84.794416,93.6295641 83.622299,93.5194592 C81.5412806,93.3237173 78.5378542,92.4726366 76.4953793,92.9137173 C73.9027538,93.4738302 72.9174244,96.6109915 75.5604528,98.0003624 C77.570314,99.0564431 81.5706,98.4761608 83.8235816,98.6447899 C86.3971,98.8372253 85.6120649,98.704306 85.2473843,101.164306 C84.7239177,104.69758 85.5985582,108.646475 87.0885766,111.878201 C90.5482655,119.383185 100.122861,127.335201 108.8551,126.603153 C116.142123,125.992451 122.526834,119.413274 125.519389,113.099935 C127.050916,109.868871 127.954546,106.192096 128.250376,102.628403 C128.438811,100.36183 128.333722,97.9580399 127.684083,95.7632173 C127.362888,94.6783705 126.853916,93.5554995 126.308378,92.5695157 C125.866281,91.7710076 123.908799,89.9203866 123.788886,89.1165882 C123.556307,87.5602415 127.973324,83.3874995 128.816339,82.3443141 C132.788953,77.4276205 136.780344,72.5320882 140.721662,67.5889431 C144.603353,62.7201931 148.506456,57.8640076 152.489612,53.0785802 C154.294237,50.9098786 163.318023,42.7148382 160.395307,39.7810237\"\n\t\t\t\t\t\t/>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</g>";
 	},
 
 	attrs: {}
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -774,7 +792,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -800,7 +818,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -826,7 +844,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -853,7 +871,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -883,7 +901,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -912,7 +930,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -922,27 +940,124 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _beardLight = __webpack_require__(23);
+var _common = __webpack_require__(0);
+
+var _index = __webpack_require__(24);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(25);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _index5 = __webpack_require__(26);
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _index7 = __webpack_require__(27);
+
+var _index8 = _interopRequireDefault(_index7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = new _common.AvatarPart({
+	render: function render(_ref) {
+		var eyebrow = _ref.eyebrow,
+		    eyes = _ref.eyes,
+		    mouth = _ref.mouth,
+		    nose = _ref.nose;
+
+		return "\n\t\t<g class=\"face\" transform=\"translate(76.000000, 82.000000)\" fill=\"#000000\">\n\t\t\t" + this.include(eyebrow) + "\n\t\t\t" + this.include(eyes) + "\n\t\t\t" + this.include(mouth) + "\n\t\t\t" + this.include(nose) + "\n\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		eyebrow: _index2.default,
+		eyes: _index4.default,
+		mouth: _index6.default,
+		nose: _index8.default
+	}
+});
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {};
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {};
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {};
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {};
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _beardLight = __webpack_require__(29);
 
 var _beardLight2 = _interopRequireDefault(_beardLight);
 
-var _beardMagestic = __webpack_require__(24);
+var _beardMagestic = __webpack_require__(30);
 
 var _beardMagestic2 = _interopRequireDefault(_beardMagestic);
 
-var _beardMedium = __webpack_require__(25);
+var _beardMedium = __webpack_require__(31);
 
 var _beardMedium2 = _interopRequireDefault(_beardMedium);
 
-var _blank = __webpack_require__(26);
+var _blank = __webpack_require__(32);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _moustacheFancy = __webpack_require__(27);
+var _moustacheFancy = __webpack_require__(33);
 
 var _moustacheFancy2 = _interopRequireDefault(_moustacheFancy);
 
-var _moustacheMagnum = __webpack_require__(28);
+var _moustacheMagnum = __webpack_require__(34);
 
 var _moustacheMagnum2 = _interopRequireDefault(_moustacheMagnum);
 
@@ -958,7 +1073,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 23 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -996,7 +1111,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 24 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1034,7 +1149,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 25 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1062,267 +1177,6 @@ exports.default = new _common.AvatarPart({
 
 	attrs: {
 		color: _colors.hairColors
-	}
-});
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-exports.default = new _common.AvatarPart({
-	defs: [],
-	render: function render() {
-		return "\n\n\t\t";
-	},
-
-	attrs: {}
-});
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-var _colors = __webpack_require__(1);
-
-var id = {
-	path: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<path\n\t\t\tid=\"" + id.path + "\"\n\t\t\td=\"M84.0002865,69.2970648 C77.2083681,65.7112456 67.5782013,65.1489138 62.3885276,67.1316942 C56.6144416,69.3374281 51.5052994,75.5829845 42.6388201,72.8283797 C42.2699314,72.7136458 41.9094725,73.0449523 42.0204089,73.408662 C43.3937943,77.9183313 51.0278347,81.0068878 53.6221945,81.1080652 C64.961124,81.549609 74.0949802,72.8302891 84.0002865,72.1614794 C93.9055921,72.8302891 103.03945,81.549609 114.378714,81.1080652 C116.972736,81.0068878 124.607113,77.9183313 125.980498,73.408662 C126.091098,73.0449523 125.730639,72.7136458 125.36175,72.8283797 C116.495271,75.5829845 111.386129,69.3374281 105.612044,67.1316942 C100.422371,65.1489138 90.7922044,65.7112456 84.0002865,69.2970648 Z\"\n\t\t\t/>"],
-	render: function render(_ref) {
-		var color = _ref.color;
-
-		return "\n\t\t\t<g transform=\"translate(49.000000, 72.000000)\">\n\t\t\t\t<use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t\t\t</g>\n\t\t";
-	},
-
-	attrs: {
-		color: _colors.hairColors
-	}
-});
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-var _colors = __webpack_require__(1);
-
-var id = {
-	path: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<path\n\t\t\tid=\"" + id.path + "\"\n\t\t\td=\"M83.9980103,74.839711 C83.4569991,75.6087366 82.761047,76.2496937 81.949688,76.6891498 C73.0477917,81.5102869 63.8767499,77.3322546 58.8763101,77.6298353 C56.459601,77.7739966 53.3405442,79.4153191 52.2155358,77.6791014 C50.9768736,75.7669804 55.0680827,65.2207224 64.7214121,63.4643353 C71.7310704,62.1893309 81.4972391,63.6024033 83.9980103,66.9380109 C86.4987814,63.6024033 96.2649453,62.1893309 103.274279,63.4643353 C112.927938,65.2207224 117.019147,75.7669804 115.780485,77.6791014 C114.655476,79.4153191 111.53642,77.7739966 109.119711,77.6298353 C104.118941,77.3322546 94.948229,81.5102869 86.0463327,76.6891498 C85.2349736,76.2496937 84.5390216,75.6087366 83.9980103,74.839711 Z\"\n\t\t\t/>"],
-	render: function render(_ref) {
-		var color = _ref.color;
-
-		return "\n\t\t\t<g transform=\"translate(49.000000, 72.000000)\">\n\t\t\t\t<use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t\t\t</g>\n\t\t";
-	},
-
-	attrs: {
-		color: _colors.hairColors
-	}
-});
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _hat = __webpack_require__(30);
-
-var _hat2 = _interopRequireDefault(_hat);
-
-var _hijab = __webpack_require__(31);
-
-var _hijab2 = _interopRequireDefault(_hijab);
-
-var _blank = __webpack_require__(32);
-
-var _blank2 = _interopRequireDefault(_blank);
-
-var _turban = __webpack_require__(33);
-
-var _turban2 = _interopRequireDefault(_turban);
-
-var _winterHat = __webpack_require__(34);
-
-var _winterHat2 = _interopRequireDefault(_winterHat);
-
-var _winterHat3 = __webpack_require__(35);
-
-var _winterHat4 = _interopRequireDefault(_winterHat3);
-
-var _winterHat5 = __webpack_require__(36);
-
-var _winterHat6 = _interopRequireDefault(_winterHat5);
-
-var _winterHat7 = __webpack_require__(37);
-
-var _winterHat8 = _interopRequireDefault(_winterHat7);
-
-var _longHairBig = __webpack_require__(38);
-
-var _longHairBig2 = _interopRequireDefault(_longHairBig);
-
-var _longHairBob = __webpack_require__(39);
-
-var _longHairBob2 = _interopRequireDefault(_longHairBob);
-
-var _longHairBun = __webpack_require__(40);
-
-var _longHairBun2 = _interopRequireDefault(_longHairBun);
-
-var _longHairCurly = __webpack_require__(41);
-
-var _longHairCurly2 = _interopRequireDefault(_longHairCurly);
-
-var _longHairCurvy = __webpack_require__(42);
-
-var _longHairCurvy2 = _interopRequireDefault(_longHairCurvy);
-
-var _longHairDreads = __webpack_require__(43);
-
-var _longHairDreads2 = _interopRequireDefault(_longHairDreads);
-
-var _longHairFrida = __webpack_require__(44);
-
-var _longHairFrida2 = _interopRequireDefault(_longHairFrida);
-
-var _longHairFroBand = __webpack_require__(45);
-
-var _longHairFroBand2 = _interopRequireDefault(_longHairFroBand);
-
-var _longHairFro = __webpack_require__(46);
-
-var _longHairFro2 = _interopRequireDefault(_longHairFro);
-
-var _longHairMiaWallace = __webpack_require__(47);
-
-var _longHairMiaWallace2 = _interopRequireDefault(_longHairMiaWallace);
-
-var _longHairNotTooLong = __webpack_require__(48);
-
-var _longHairNotTooLong2 = _interopRequireDefault(_longHairNotTooLong);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = {
-	blank: _blank2.default,
-	hat: _hat2.default,
-	hijab: _hijab2.default,
-	turban: _turban2.default,
-	winterHat1: _winterHat2.default,
-	winterHat2: _winterHat4.default,
-	winterHat3: _winterHat6.default,
-	winterHat4: _winterHat8.default,
-	longHairBig: _longHairBig2.default,
-	longHairBob: _longHairBob2.default,
-	longHairBun: _longHairBun2.default,
-	longHairCurly: _longHairCurly2.default,
-	longHairCurvy: _longHairCurvy2.default,
-	longHairDreads: _longHairDreads2.default,
-	longHairFrida: _longHairFrida2.default,
-	longHairFroBand: _longHairFroBand2.default,
-	longHairFro: _longHairFro2.default,
-	longHairMiaWallace: _longHairMiaWallace2.default,
-	longHairNotTooLong: _longHairNotTooLong2.default
-};
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-var id = {
-	mask1: (0, _common.uid)("mask-"),
-	mask2: (0, _common.uid)("mask-"),
-	path1: (0, _common.uid)("path-"),
-	path2: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<rect id=\"" + id.path1 + "\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<path\n\t\t\tid=\"" + id.path2 + "\"\n\t\t\td=\"M156,180.610951 C173.530782,172.282984 186.048193,155.114792 187.791419,134.867187 C193.569129,134.002364 198,129.018625 198,123 L198,110 C198,104.054007 193.675427,99.1180731 188,98.1659169 L188,92 C188,84.0546578 186.345324,76.495786 183.361772,69.6491845 C173.434911,53 89.3126235,53.8033992 80.7098777,69.4854816 C77.6811789,76.3752214 76,83.9912805 76,92 L76,98.1659169 C70.3245733,99.1180731 66,104.054007 66,110 L66,123 C66,129.018625 70.4308707,134.002364 76.2085808,134.867187 C77.9518066,155.114792 90.4692178,172.282984 108,180.610951 L108,199 L104,199 L104,199 C64.235498,199 32,231.235498 32,271 L32,280 L232,280 L232,271 C232,231.235498 199.764502,199 160,199 L156,199 L156,180.610951 Z M0,5.68434189e-14 L264,5.68434189e-14 L264,280 L0,280 L0,5.68434189e-14 Z\"\n\t\t\t/>", "<mask id=\"" + id.mask1 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path1 + "\"/>\n\t\t</mask>", "<mask id=\"" + id.mask2 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path2 + "\"/>\n\t\t</mask>"],
-	render: function render() {
-		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(1.000000, 0.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#1F333C\"\n\t\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\t\td=\"M123.182388,2 L141.817612,2 L141.817612,2 C160.609055,2 176.866947,15.0804442 180.890118,33.4361631 L190,75 L75,75 L84.1098821,33.4361631 L84.1098821,33.4361631 C88.1330533,15.0804442 104.390945,2 123.182388,2 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<ellipse fill=\"#1F333C\" mask=\"url(#" + id.mask2 + ")\" cx=\"132\" cy=\"87.5\" rx=\"122\" ry=\"57.5\"/>\n\t\t\t\t\t\t\t<ellipse fill=\"#15232A\" mask=\"url(#" + id.mask2 + ")\" cx=\"132\" cy=\"82\" rx=\"62\" ry=\"25\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>";
-	},
-
-	attrs: {}
-});
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-var _colors = __webpack_require__(1);
-
-var id = {
-	mask1: (0, _common.uid)("mask-"),
-	mask2: (0, _common.uid)("mask-"),
-	path1: (0, _common.uid)("path-"),
-	path2: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<rect id=\"" + id.path1 + "\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<path\n\t\t\tid=\"" + id.path2 + "\"\n\t\t\td=\"M66.0421575,77.0749852 C71.6795257,45.2058307 99.5129755,21 133,21 L133,21 L133,21 C170.555363,21 201,51.444637 201,89 L201,119.751022 C201.875211,129.554379 202.693946,136.422143 203.456205,140.354314 C204.833317,147.458254 209.150269,145.115419 209.150269,155.220201 C209.150269,165.324983 204.822005,168.720206 204.803237,177.705482 C204.784469,186.690758 220.200444,193.836185 220.200444,205.242606 C220.200444,216.649027 213.126079,270.475928 142.577598,270.475928 C127.507235,270.475928 114.670509,266.188589 104.06742,257.613911 C104.750275,264.103957 105.394468,271.565987 106,280 L59,280 C59.9324304,256.228591 51.7156549,242.936205 51.7156549,216.44564 C51.7156549,189.955074 65.3525844,151.427541 65,142 C65.019981,141.417741 65.0406721,140.728417 65.0620734,139.932027 C65.0208303,138.959828 65,137.982347 65,137 L65,89 L65,89 C65,85.0240875 65.3412247,81.1278723 65.9959868,77.3390417 C65.9973236,77.2261704 65.9986613,77.1131564 66,77 C66.0140661,77.0249783 66.0281186,77.0499734 66.0421575,77.0749852 Z M132.5,53 L132.5,53 C102.400481,53 78,77.4004811 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,107.5 C188,77.4004811 163.599519,53 133.5,53 L133.5,53 L132.5,53 Z\"\n\t\t\t/>", "<mask id=\"" + id.mask1 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path1 + "\"/>\n\t\t</mask>", "<mask id=\"" + id.mask2 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path2 + "\"/>\n\t\t</mask>"],
-	render: function render(_ref) {
-		var color = _ref.color;
-
-		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path2 + "\"/>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tstroke=\"none\"\n\t\t\t\t\t\t\tfill-opacity=\"0.5\"\n\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\td=\"M72.0744416,104.959767 C71.3690172,101.246903 71,97.4161983 71,93.5 C71,59.5344879 98.7583455,32 133,32 C167.241654,32 195,59.5344879 195,93.5 C195,97.4161983 194.630983,101.246903 193.925558,104.959767 C192.341315,72.6827942 165.669927,47 133,47 C100.330073,47 73.6586845,72.6827942 72.0744428,104.959774 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tstroke=\"none\"\n\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\topacity=\"0.899999976\"\n\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\td=\"M187.929085,104.69543 C188.631457,108.187732 189,111.800827 189,115.5 L189,138.5 C189,168.599519 164.599519,193 134.5,193 L131.5,193 C101.400481,193 77,168.599519 77,138.5 L77,115.5 L77,115.5 C77,111.800827 77.3685433,108.187732 78.0709154,104.69543 C78.0238287,105.624341 78,106.559388 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,130.5 L188,107.5 C188,106.559388 187.976171,105.624341 187.929085,104.69543 Z M114.16682,206.995462 C120.651206,211.981028 135.663493,213.708321 152.404574,210.756416 C169.145655,207.804512 182.661822,201.046883 187.049987,194.144193 C187.118291,194.396526 187.175421,194.652296 187.221114,194.911435 C188.930607,204.606451 173.985409,215.345413 153.84008,218.897578 C133.694752,222.449742 115.977919,217.469978 114.268426,207.774963 C114.222732,207.515823 114.188938,207.255938 114.166824,206.995464 Z M126.034638,235.921439 C134.227056,241.574977 150.421729,241.843835 167.103682,235.772101 C183.785635,229.700366 196.018656,219.084674 198.660388,209.487828 C198.803116,209.80837 198.935124,210.134883 199.056117,210.46731 C203.582768,222.904181 190.979008,238.909268 170.904831,246.215671 C150.830654,253.522074 130.887742,249.363007 126.361091,236.926135 C126.240098,236.593709 126.131343,236.258733 126.034643,235.921442 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
-	},
-
-	attrs: {
-		"color": _colors.fabricColors
 	}
 });
 
@@ -1364,6 +1218,347 @@ var _common = __webpack_require__(0);
 var _colors = __webpack_require__(1);
 
 var id = {
+	path: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path + "\"\n\t\t\td=\"M84.0002865,69.2970648 C77.2083681,65.7112456 67.5782013,65.1489138 62.3885276,67.1316942 C56.6144416,69.3374281 51.5052994,75.5829845 42.6388201,72.8283797 C42.2699314,72.7136458 41.9094725,73.0449523 42.0204089,73.408662 C43.3937943,77.9183313 51.0278347,81.0068878 53.6221945,81.1080652 C64.961124,81.549609 74.0949802,72.8302891 84.0002865,72.1614794 C93.9055921,72.8302891 103.03945,81.549609 114.378714,81.1080652 C116.972736,81.0068878 124.607113,77.9183313 125.980498,73.408662 C126.091098,73.0449523 125.730639,72.7136458 125.36175,72.8283797 C116.495271,75.5829845 111.386129,69.3374281 105.612044,67.1316942 C100.422371,65.1489138 90.7922044,65.7112456 84.0002865,69.2970648 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g transform=\"translate(49.000000, 72.000000)\">\n\t\t\t\t<use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path + "\"\n\t\t\td=\"M83.9980103,74.839711 C83.4569991,75.6087366 82.761047,76.2496937 81.949688,76.6891498 C73.0477917,81.5102869 63.8767499,77.3322546 58.8763101,77.6298353 C56.459601,77.7739966 53.3405442,79.4153191 52.2155358,77.6791014 C50.9768736,75.7669804 55.0680827,65.2207224 64.7214121,63.4643353 C71.7310704,62.1893309 81.4972391,63.6024033 83.9980103,66.9380109 C86.4987814,63.6024033 96.2649453,62.1893309 103.274279,63.4643353 C112.927938,65.2207224 117.019147,75.7669804 115.780485,77.6791014 C114.655476,79.4153191 111.53642,77.7739966 109.119711,77.6298353 C104.118941,77.3322546 94.948229,81.5102869 86.0463327,76.6891498 C85.2349736,76.2496937 84.5390216,75.6087366 83.9980103,74.839711 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g transform=\"translate(49.000000, 72.000000)\">\n\t\t\t\t<use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _hat = __webpack_require__(36);
+
+var _hat2 = _interopRequireDefault(_hat);
+
+var _hijab = __webpack_require__(37);
+
+var _hijab2 = _interopRequireDefault(_hijab);
+
+var _blank = __webpack_require__(38);
+
+var _blank2 = _interopRequireDefault(_blank);
+
+var _turban = __webpack_require__(39);
+
+var _turban2 = _interopRequireDefault(_turban);
+
+var _winterHat = __webpack_require__(40);
+
+var _winterHat2 = _interopRequireDefault(_winterHat);
+
+var _winterHat3 = __webpack_require__(41);
+
+var _winterHat4 = _interopRequireDefault(_winterHat3);
+
+var _winterHat5 = __webpack_require__(42);
+
+var _winterHat6 = _interopRequireDefault(_winterHat5);
+
+var _winterHat7 = __webpack_require__(43);
+
+var _winterHat8 = _interopRequireDefault(_winterHat7);
+
+var _longHairBig = __webpack_require__(44);
+
+var _longHairBig2 = _interopRequireDefault(_longHairBig);
+
+var _longHairBob = __webpack_require__(45);
+
+var _longHairBob2 = _interopRequireDefault(_longHairBob);
+
+var _longHairBun = __webpack_require__(46);
+
+var _longHairBun2 = _interopRequireDefault(_longHairBun);
+
+var _longHairCurly = __webpack_require__(47);
+
+var _longHairCurly2 = _interopRequireDefault(_longHairCurly);
+
+var _longHairCurvy = __webpack_require__(48);
+
+var _longHairCurvy2 = _interopRequireDefault(_longHairCurvy);
+
+var _longHairDreads = __webpack_require__(49);
+
+var _longHairDreads2 = _interopRequireDefault(_longHairDreads);
+
+var _longHairFrida = __webpack_require__(50);
+
+var _longHairFrida2 = _interopRequireDefault(_longHairFrida);
+
+var _longHairFroBand = __webpack_require__(51);
+
+var _longHairFroBand2 = _interopRequireDefault(_longHairFroBand);
+
+var _longHairFro = __webpack_require__(52);
+
+var _longHairFro2 = _interopRequireDefault(_longHairFro);
+
+var _longHairMiaWallace = __webpack_require__(53);
+
+var _longHairMiaWallace2 = _interopRequireDefault(_longHairMiaWallace);
+
+var _longHairNotTooLong = __webpack_require__(54);
+
+var _longHairNotTooLong2 = _interopRequireDefault(_longHairNotTooLong);
+
+var _longHairShavedSides = __webpack_require__(55);
+
+var _longHairShavedSides2 = _interopRequireDefault(_longHairShavedSides);
+
+var _longHairStraight = __webpack_require__(56);
+
+var _longHairStraight2 = _interopRequireDefault(_longHairStraight);
+
+var _longHairStraight3 = __webpack_require__(57);
+
+var _longHairStraight4 = _interopRequireDefault(_longHairStraight3);
+
+var _longHairStraightStrand = __webpack_require__(58);
+
+var _longHairStraightStrand2 = _interopRequireDefault(_longHairStraightStrand);
+
+var _shortHairDreads = __webpack_require__(59);
+
+var _shortHairDreads2 = _interopRequireDefault(_shortHairDreads);
+
+var _shortHairDreads3 = __webpack_require__(60);
+
+var _shortHairDreads4 = _interopRequireDefault(_shortHairDreads3);
+
+var _shortHairFrizzle = __webpack_require__(61);
+
+var _shortHairFrizzle2 = _interopRequireDefault(_shortHairFrizzle);
+
+var _shortHairShaggyMullet = __webpack_require__(62);
+
+var _shortHairShaggyMullet2 = _interopRequireDefault(_shortHairShaggyMullet);
+
+var _shortHairShaggy = __webpack_require__(63);
+
+var _shortHairShaggy2 = _interopRequireDefault(_shortHairShaggy);
+
+var _shortHairShortCurly = __webpack_require__(64);
+
+var _shortHairShortCurly2 = _interopRequireDefault(_shortHairShortCurly);
+
+var _shortHairShortFlat = __webpack_require__(65);
+
+var _shortHairShortFlat2 = _interopRequireDefault(_shortHairShortFlat);
+
+var _shortHairShortRound = __webpack_require__(66);
+
+var _shortHairShortRound2 = _interopRequireDefault(_shortHairShortRound);
+
+var _shortHairShortWaved = __webpack_require__(67);
+
+var _shortHairShortWaved2 = _interopRequireDefault(_shortHairShortWaved);
+
+var _shortHairSides = __webpack_require__(68);
+
+var _shortHairSides2 = _interopRequireDefault(_shortHairSides);
+
+var _shortHairTheCaesarSidePart = __webpack_require__(69);
+
+var _shortHairTheCaesarSidePart2 = _interopRequireDefault(_shortHairTheCaesarSidePart);
+
+var _shortHairTheCaesar = __webpack_require__(70);
+
+var _shortHairTheCaesar2 = _interopRequireDefault(_shortHairTheCaesar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+	blank: _blank2.default,
+	hat: _hat2.default,
+	hijab: _hijab2.default,
+	turban: _turban2.default,
+	winterHat1: _winterHat2.default,
+	winterHat2: _winterHat4.default,
+	winterHat3: _winterHat6.default,
+	winterHat4: _winterHat8.default,
+	longHairBig: _longHairBig2.default,
+	longHairBob: _longHairBob2.default,
+	longHairBun: _longHairBun2.default,
+	longHairCurly: _longHairCurly2.default,
+	longHairCurvy: _longHairCurvy2.default,
+	longHairDreads: _longHairDreads2.default,
+	longHairFrida: _longHairFrida2.default,
+	longHairFroBand: _longHairFroBand2.default,
+	longHairFro: _longHairFro2.default,
+	longHairMiaWallace: _longHairMiaWallace2.default,
+	longHairNotTooLong: _longHairNotTooLong2.default,
+	longHairShavedSides: _longHairShavedSides2.default,
+	longHairStraight01: _longHairStraight2.default,
+	longHairStraight02: _longHairStraight4.default,
+	longHairStraightStrand: _longHairStraightStrand2.default,
+	shortHairDreads01: _shortHairDreads2.default,
+	shortHairDreads02: _shortHairDreads4.default,
+	shortHairFrizzle: _shortHairFrizzle2.default,
+	shortHairShaggyMullet: _shortHairShaggyMullet2.default,
+	shortHairShaggy: _shortHairShaggy2.default,
+	shortHairShortCurly: _shortHairShortCurly2.default,
+	shortHairShortFlat: _shortHairShortFlat2.default,
+	shortHairShortRound: _shortHairShortRound2.default,
+	shortHairShortWaved: _shortHairShortWaved2.default,
+	shortHairSides: _shortHairSides2.default,
+	shortHairTheCaesarSidePart: _shortHairTheCaesarSidePart2.default,
+	shortHairTheCaesar: _shortHairTheCaesar2.default
+};
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var id = {
+	mask1: (0, _common.uid)("mask-"),
+	mask2: (0, _common.uid)("mask-"),
+	path1: (0, _common.uid)("path-"),
+	path2: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<rect id=\"" + id.path1 + "\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<path\n\t\t\tid=\"" + id.path2 + "\"\n\t\t\td=\"M156,180.610951 C173.530782,172.282984 186.048193,155.114792 187.791419,134.867187 C193.569129,134.002364 198,129.018625 198,123 L198,110 C198,104.054007 193.675427,99.1180731 188,98.1659169 L188,92 C188,84.0546578 186.345324,76.495786 183.361772,69.6491845 C173.434911,53 89.3126235,53.8033992 80.7098777,69.4854816 C77.6811789,76.3752214 76,83.9912805 76,92 L76,98.1659169 C70.3245733,99.1180731 66,104.054007 66,110 L66,123 C66,129.018625 70.4308707,134.002364 76.2085808,134.867187 C77.9518066,155.114792 90.4692178,172.282984 108,180.610951 L108,199 L104,199 L104,199 C64.235498,199 32,231.235498 32,271 L32,280 L232,280 L232,271 C232,231.235498 199.764502,199 160,199 L156,199 L156,180.610951 Z M0,5.68434189e-14 L264,5.68434189e-14 L264,280 L0,280 L0,5.68434189e-14 Z\"\n\t\t\t/>", "<mask id=\"" + id.mask1 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path1 + "\"/>\n\t\t</mask>", "<mask id=\"" + id.mask2 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path2 + "\"/>\n\t\t</mask>"],
+	render: function render() {
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(1.000000, 0.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#1F333C\"\n\t\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\t\td=\"M123.182388,2 L141.817612,2 L141.817612,2 C160.609055,2 176.866947,15.0804442 180.890118,33.4361631 L190,75 L75,75 L84.1098821,33.4361631 L84.1098821,33.4361631 C88.1330533,15.0804442 104.390945,2 123.182388,2 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<ellipse fill=\"#1F333C\" mask=\"url(#" + id.mask2 + ")\" cx=\"132\" cy=\"87.5\" rx=\"122\" ry=\"57.5\"/>\n\t\t\t\t\t\t\t<ellipse fill=\"#15232A\" mask=\"url(#" + id.mask2 + ")\" cx=\"132\" cy=\"82\" rx=\"62\" ry=\"25\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>";
+	},
+
+	attrs: {}
+});
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	mask1: (0, _common.uid)("mask-"),
+	mask2: (0, _common.uid)("mask-"),
+	path1: (0, _common.uid)("path-"),
+	path2: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<rect id=\"" + id.path1 + "\" x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>", "<path\n\t\t\tid=\"" + id.path2 + "\"\n\t\t\td=\"M66.0421575,77.0749852 C71.6795257,45.2058307 99.5129755,21 133,21 L133,21 L133,21 C170.555363,21 201,51.444637 201,89 L201,119.751022 C201.875211,129.554379 202.693946,136.422143 203.456205,140.354314 C204.833317,147.458254 209.150269,145.115419 209.150269,155.220201 C209.150269,165.324983 204.822005,168.720206 204.803237,177.705482 C204.784469,186.690758 220.200444,193.836185 220.200444,205.242606 C220.200444,216.649027 213.126079,270.475928 142.577598,270.475928 C127.507235,270.475928 114.670509,266.188589 104.06742,257.613911 C104.750275,264.103957 105.394468,271.565987 106,280 L59,280 C59.9324304,256.228591 51.7156549,242.936205 51.7156549,216.44564 C51.7156549,189.955074 65.3525844,151.427541 65,142 C65.019981,141.417741 65.0406721,140.728417 65.0620734,139.932027 C65.0208303,138.959828 65,137.982347 65,137 L65,89 L65,89 C65,85.0240875 65.3412247,81.1278723 65.9959868,77.3390417 C65.9973236,77.2261704 65.9986613,77.1131564 66,77 C66.0140661,77.0249783 66.0281186,77.0499734 66.0421575,77.0749852 Z M132.5,53 L132.5,53 C102.400481,53 78,77.4004811 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,107.5 C188,77.4004811 163.599519,53 133.5,53 L133.5,53 L132.5,53 Z\"\n\t\t\t/>", "<mask id=\"" + id.mask1 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path1 + "\"/>\n\t\t</mask>", "<mask id=\"" + id.mask2 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path2 + "\"/>\n\t\t</mask>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path2 + "\"/>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tstroke=\"none\"\n\t\t\t\t\t\t\tfill-opacity=\"0.5\"\n\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\td=\"M72.0744416,104.959767 C71.3690172,101.246903 71,97.4161983 71,93.5 C71,59.5344879 98.7583455,32 133,32 C167.241654,32 195,59.5344879 195,93.5 C195,97.4161983 194.630983,101.246903 193.925558,104.959767 C192.341315,72.6827942 165.669927,47 133,47 C100.330073,47 73.6586845,72.6827942 72.0744428,104.959774 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tstroke=\"none\"\n\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\topacity=\"0.899999976\"\n\t\t\t\t\t\t\tmask=\"url(#" + id.mask2 + ")\"\n\t\t\t\t\t\t\td=\"M187.929085,104.69543 C188.631457,108.187732 189,111.800827 189,115.5 L189,138.5 C189,168.599519 164.599519,193 134.5,193 L131.5,193 C101.400481,193 77,168.599519 77,138.5 L77,115.5 L77,115.5 C77,111.800827 77.3685433,108.187732 78.0709154,104.69543 C78.0238287,105.624341 78,106.559388 78,107.5 L78,107.5 L78,130.5 C78,160.599519 102.400481,185 132.5,185 L133.5,185 C163.599519,185 188,160.599519 188,130.5 L188,130.5 L188,107.5 C188,106.559388 187.976171,105.624341 187.929085,104.69543 Z M114.16682,206.995462 C120.651206,211.981028 135.663493,213.708321 152.404574,210.756416 C169.145655,207.804512 182.661822,201.046883 187.049987,194.144193 C187.118291,194.396526 187.175421,194.652296 187.221114,194.911435 C188.930607,204.606451 173.985409,215.345413 153.84008,218.897578 C133.694752,222.449742 115.977919,217.469978 114.268426,207.774963 C114.222732,207.515823 114.188938,207.255938 114.166824,206.995464 Z M126.034638,235.921439 C134.227056,241.574977 150.421729,241.843835 167.103682,235.772101 C183.785635,229.700366 196.018656,219.084674 198.660388,209.487828 C198.803116,209.80837 198.935124,210.134883 199.056117,210.46731 C203.582768,222.904181 190.979008,238.909268 170.904831,246.215671 C150.830654,253.522074 130.887742,249.363007 126.361091,236.926135 C126.240098,236.593709 126.131343,236.258733 126.034643,235.921442 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		"color": _colors.fabricColors
+	}
+});
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+exports.default = new _common.AvatarPart({
+	defs: [],
+	render: function render() {
+		return "\n\n\t\t";
+	},
+
+	attrs: {}
+});
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
 	mask1: (0, _common.uid)("mask-")
 };
 
@@ -1381,7 +1576,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 34 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1418,7 +1613,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 35 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1442,7 +1637,7 @@ exports.default = new _common.AvatarPart({
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t\t\t<g>\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(61.000000, 0.000000)\">\n\t\t\t\t\t\t<g transform=\"translate(0.000000, 176.000000)\" fill=\"#F4F4F4\">\n\t\t\t\t\t\t\t<circle cx=\"9\" cy=\"65\" r=\"9\"/>\n\t\t\t\t\t\t\t<rect x=\"8\" y=\"0\" width=\"2\" height=\"58\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(126.000000, 168.000000)\" fill=\"#F4F4F4\">\n\t\t\t\t\t\t\t<circle id=\"puff\" cx=\"9\" cy=\"65\" r=\"9\"/>\n\t\t\t\t\t\t\t<rect x=\"8\" y=\"0\" width=\"2\" height=\"58\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<circle fill=\"#F4F4F4\" cx=\"72\" cy=\"20\" r=\"20\"/>\n\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t<rect fill-opacity=\"0.2\" fill=\"#000000\" x=\"-1\" y=\"21\" width=\"146\" height=\"46\" mask=\"url(#" + id.mask1 + ")\"/>\n\t\t\t\t\t\t<g transform=\"translate(29.000000, 32.000000)\" fill=\"#FFFFFF\" fill-opacity=\"0.5\">\n\t\t\t\t\t\t\t<polygon transform=\"translate(12.500000, 9.000000) rotate(180.000000) translate(-12.500000, -9.000000)\" points=\"12.5 0 25 18 0 18\"/>\n\t\t\t\t\t\t\t<polygon transform=\"translate(43.500000, 9.000000) rotate(180.000000) translate(-43.500000, -9.000000)\" points=\"43.5 0 56 18 31 18\"/>\n\t\t\t\t\t\t\t<polygon transform=\"translate(74.500000, 9.000000) rotate(180.000000) translate(-74.500000, -9.000000)\" points=\"74.5 0 87 18 62 18\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(13.000000, 41.000000)\" fill=\"#000000\" fill-opacity=\"0.5\">\n\t\t\t\t\t\t\t<polygon points=\"12.5 0 25 18 0 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"43.5 0 56 18 31 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"74.5 0 87 18 62 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"105.5 0 118 18 93 18\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+		return "\n\t\t\t<g>\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(61.000000, 0.000000)\">\n\t\t\t\t\t\t<g transform=\"translate(0.000000, 176.000000)\" fill=\"#F4F4F4\">\n\t\t\t\t\t\t\t<circle cx=\"9\" cy=\"65\" r=\"9\"/>\n\t\t\t\t\t\t\t<rect x=\"8\" y=\"0\" width=\"2\" height=\"58\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(126.000000, 168.000000)\" fill=\"#F4F4F4\">\n\t\t\t\t\t\t\t<circle  cx=\"9\" cy=\"65\" r=\"9\"/>\n\t\t\t\t\t\t\t<rect x=\"8\" y=\"0\" width=\"2\" height=\"58\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<circle fill=\"#F4F4F4\" cx=\"72\" cy=\"20\" r=\"20\"/>\n\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t<rect fill-opacity=\"0.2\" fill=\"#000000\" x=\"-1\" y=\"21\" width=\"146\" height=\"46\" mask=\"url(#" + id.mask1 + ")\"/>\n\t\t\t\t\t\t<g transform=\"translate(29.000000, 32.000000)\" fill=\"#FFFFFF\" fill-opacity=\"0.5\">\n\t\t\t\t\t\t\t<polygon transform=\"translate(12.500000, 9.000000) rotate(180.000000) translate(-12.500000, -9.000000)\" points=\"12.5 0 25 18 0 18\"/>\n\t\t\t\t\t\t\t<polygon transform=\"translate(43.500000, 9.000000) rotate(180.000000) translate(-43.500000, -9.000000)\" points=\"43.5 0 56 18 31 18\"/>\n\t\t\t\t\t\t\t<polygon transform=\"translate(74.500000, 9.000000) rotate(180.000000) translate(-74.500000, -9.000000)\" points=\"74.5 0 87 18 62 18\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(13.000000, 41.000000)\" fill=\"#000000\" fill-opacity=\"0.5\">\n\t\t\t\t\t\t\t<polygon points=\"12.5 0 25 18 0 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"43.5 0 56 18 31 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"74.5 0 87 18 62 18\"/>\n\t\t\t\t\t\t\t<polygon points=\"105.5 0 118 18 93 18\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
 	},
 
 	attrs: {
@@ -1451,7 +1646,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 36 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1484,7 +1679,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 37 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1519,7 +1714,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 38 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1553,7 +1748,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 39 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1585,7 +1780,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 40 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1617,7 +1812,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 41 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1649,7 +1844,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 42 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1682,7 +1877,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 43 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1715,7 +1910,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 44 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1740,7 +1935,7 @@ exports.default = new _common.AvatarPart({
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(57.000000, 12.000000)\">\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tfill=\"" + color + "\"\n\t\t\t\t\t\t\td=\"M132,85.9365741 L132,86.1659169 C137.155374,87.0308248 141.196116,91.1828748 141.893354,96.3931952 C144.449672,93.4871212 146,89.6746099 146,85.5 C146,83.370043 145.596416,81.3343479 144.861548,79.4652142 C148.026608,76.4588698 150,72.2098901 150,67.5 C150,61.6639649 146.970105,56.5355997 142.397534,53.6021248 C143.424844,51.4510861 144,49.0427105 144,46.5 C144,38.865183 138.814518,32.4415002 131.77335,30.5587463 C131.922635,29.560863 132,28.5394662 132,27.5 C132,16.1781626 122.821837,7 111.5,7 C108.870853,7 106.357304,7.49493913 104.047446,8.3967274 C100.317449,3.30576666 94.2947759,0 87.5,0 C83.2377504,0 79.2793114,1.30076749 76,3.52698535 C72.7206886,1.30076749 68.7622496,0 64.5,0 C57.7052241,0 51.6825514,3.30576666 47.9525545,8.3967274 C45.6426956,7.49493913 43.1291474,7 40.5,7 C29.1781626,7 20,16.1781626 20,27.5 C20,28.5394662 20.0773647,29.560863 20.2266501,30.5587463 C13.1854816,32.4415002 8,38.865183 8,46.5 C8,48.6917361 8.4273349,50.7836628 9.20323008,52.6970055 C3.75045759,55.3899422 0,61.0069879 0,67.5 C0,72.9379417 2.63063706,77.7614652 6.68874609,80.7674054 C6.2406808,82.2665254 6,83.8551557 6,85.5 C6,89.6746099 7.55032816,93.4871212 10.1066457,96.3931952 C10.8038839,91.1828748 14.8446259,87.0308248 20,86.1659169 L20,85.9365741 C20.0276665,85.957925 20.0554443,85.9790669 20.0833333,86 C22.985911,38.8525302 68.5527463,55.7423492 76.000002,29.3361688 C83.4472619,55.7423461 129.014089,38.8525344 131.916667,86 C131.944556,85.9790669 131.972333,85.957925 132,85.9365741 Z M52,168.610951 L52,172.811832 C51.1847358,172.935746 50.3498715,173 49.5,173 C42.6790709,173 36.8248202,168.861157 34.3116389,162.957863 C25.7536314,162.348807 19,155.213101 19,146.5 C19,145.029028 19.1924867,143.603013 19.5536459,142.245771 C12.8575367,140.144362 8,133.88945 8,126.5 C8,122.755519 9.24731211,119.302363 11.3491137,116.533355 C13.0865598,119.870864 16.346706,122.289132 20.2085808,122.867187 C21.9518066,143.114792 34.4692178,160.282984 52,168.610951 Z M100,168.610951 L100,172.811832 C100.815264,172.935746 101.650128,173 102.5,173 C109.320929,173 115.17518,168.861157 117.688361,162.957863 C126.246369,162.348807 133,155.213101 133,146.5 C133,145.029028 132.807513,143.603013 132.446354,142.245771 C139.142463,140.144362 144,133.88945 144,126.5 C144,122.755519 142.752688,119.302363 140.650886,116.533355 C138.91344,119.870864 135.653294,122.289132 131.791419,122.867187 C130.048193,143.114792 117.530782,160.282984 100,168.610951 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(67.000000, 0.000000)\">\n\t\t\t\t\t\t<g opacity=\"0.899999976\" transform=\"translate(120.000000, 64.500000) scale(1, -1) rotate(-20.000000) translate(-120.000000, -64.500000) translate(107.000000, 57.000000)\" fill-rule=\"nonzero\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#5DD362\"\n\t\t\t\t\t\t\t\td=\"M3.61111111,10 C3.61111111,10 1.95,0 13,0 C20.2222222,0 25.2777778,5.71428571 25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C5.05555556,14.2857143 3.61111111,10 3.61111111,10 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#42BC53\"\n\t\t\t\t\t\t\t\td=\"M25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C7.22222222,14.2857143 5.12777778,12.3571429 4.18888889,11.0714286 C2.09444444,12.8571429 1.37222222,14.5 1.37222222,14.5714286 C1.3,14.8571429 1.01111111,15 0.722222222,15 C0.65,15 0.505555556,15 0.433333333,14.9285714 C0.0722222222,14.7857143 -0.0722222222,14.3571429 0.0722222222,14 C0.144444444,13.7857143 1.95,9.85714286 7.43888889,7.28571429 C15.3833333,3.14285714 25.2777778,5.71428571 25.2777778,5.71428571 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g id=\"hoja\" transform=\"translate(93.307368, 21.745191) scale(-1, -1) rotate(-120.000000) translate(-93.307368, -21.745191) translate(85.807368, 7.245191)\">\n\t\t\t\t\t\t\t<path fill=\"#5DD362\" d=\"M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z\" />\n\t\t\t\t\t\t\t<path fill=\"#42BC53\" d=\"M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g id=\"hoja\" transform=\"translate(29.307368, 59.745191) rotate(-120.000000) translate(-29.307368, -59.745191) translate(21.807368, 45.245191)\">\n\t\t\t\t\t\t\t<path fill=\"#5DD362\" d=\"M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z\"/>\n\t\t\t\t\t\t\t<path fill=\"#42BC53\" d=\"M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(13.000000, 42.000000) scale(-1, 1) translate(-13.000000, -42.000000) translate(0.000000, 29.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#4ACAD3\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M24.4244753,20.9561089 C25.2601813,19.8468762 25.6139026,18.4784184 25.4208747,17.1027473 C25.2278468,15.7270762 24.5099609,14.5094298 23.401533,13.6738657 C23.1024018,13.448127 22.7077101,13.2632031 22.2596302,13.1057873 C22.7130645,12.9646232 23.1137179,12.7934099 23.4204085,12.5786628 C25.7688628,10.9342574 26.3421384,7.68540233 24.6974016,5.33647474 C23.0526648,2.98754715 19.8036678,2.41507618 17.4552135,4.05948158 C17.148523,4.2742286 16.8506035,4.59216121 16.5623958,4.97030055 C16.5681989,4.4950724 16.5289465,4.06126726 16.4191304,3.70296871 C16.0132035,2.3748027 15.1137169,1.2836091 13.8873598,0.632188307 C12.6611446,-0.0200371698 11.2540931,-0.154883395 9.92559572,0.250570203 C7.18364131,1.0892266 5.6350141,4.00181908 6.47286581,6.7436316 C6.58216096,7.10017888 6.78669399,7.47891226 7.05541252,7.86771872 C6.6074755,7.71655089 6.18638481,7.62487741 5.81372806,7.61849197 C2.94678437,7.56848119 0.573854142,9.85989025 0.523370073,12.7271653 C0.504358584,13.8654889 0.853022045,14.9255192 1.46080913,15.7935291 C2.38423063,17.1113044 3.90375474,17.9869973 5.63218533,18.0167186 C6.00484208,18.0231041 6.42832327,17.945939 6.88109576,17.8108811 C6.59932552,18.1901555 6.38197496,18.5617056 6.2605192,18.9140724 C5.69762142,20.5489044 5.99965968,22.2756795 6.92293929,23.5942594 C7.53072638,24.4622693 8.40824188,25.1534041 9.48422896,25.5235908 C12.1953795,26.4571485 15.1603315,25.0102268 16.0934159,22.2994077 C16.2148717,21.947041 16.272275,21.5203224 16.2839005,21.0473654 C16.5573519,21.4328579 16.8436218,21.7550638 17.1409542,21.9792407 C18.2505182,22.81542 19.6186447,23.168668 20.9943157,22.9756401 C22.3707915,22.7827541 23.5887693,22.0653415 24.4244753,20.9561089 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M11.178297,8.63990176 C10.9452631,7.87696713 11.3743225,7.06939957 12.1372572,6.83636565 C12.9001918,6.60333173 13.7077594,7.03239119 13.9407933,7.79532582 C14.1738272,8.55826044 13.7087793,11.9767907 13.7087793,11.9767907 C13.7087793,11.9767907 11.4113309,9.40283638 11.178297,8.63990176 Z M8.9355486,14.4373723 C8.1377895,14.4232361 7.50243635,13.7656743 7.5165726,12.9679152 C7.53070884,12.1701561 8.18827062,11.534803 8.98602972,11.5489392 C9.78378882,11.5630754 12.8914353,13.0618808 12.8914353,13.0618808 C12.8914353,13.0618808 9.73297629,14.4510353 8.9355486,14.4373723 Z M14.9931854,12.4189898 C14.9931854,12.4189898 16.7313261,9.4385895 17.3849366,8.98092648 C18.0385471,8.52326347 18.9389925,8.68203629 19.3966555,9.33564681 C19.8543185,9.98925733 19.6955457,10.8897027 19.0419352,11.3473657 C18.3883247,11.8050287 14.9931854,12.4189898 14.9931854,12.4189898 Z M11.9202121,19.2569641 C11.1657288,18.9973982 10.7651265,18.1754621 11.0246924,17.4209789 C11.2842584,16.6664957 13.670556,14.1745805 13.670556,14.1745805 C13.670556,14.1745805 14.0160946,17.6074345 13.7565287,18.3619178 C13.4966313,19.1159277 12.6746953,19.5165301 11.9202121,19.2569641 Z M17.2395979,17.2963365 C16.6023761,16.8164172 14.9694239,13.7771777 14.9694239,13.7771777 C14.9694239,13.7771777 18.3408473,14.5093818 18.978069,14.9893011 C19.6152908,15.4692204 19.7426018,16.3753059 19.2623511,17.0120544 C18.7824319,17.6492761 17.8763463,17.7765872 17.2395979,17.2963365 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(20.000000, 16.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FDB599\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M30.5258511,33.0981022 L30.7843694,30.7838831 L33.0980227,30.5247992 C35.9451175,30.2051869 38.2084249,28.4080043 39.1519882,25.7142103 C40.2177395,22.6719541 39.217042,19.3553405 36.6052724,17.4325757 L34.7311566,16.052869 L35.6634061,13.9191036 C36.8915092,11.1127382 36.3082875,8.02353005 34.142278,5.85752056 C31.9762685,3.69151107 28.8870604,3.10828939 26.0801294,4.33582677 L23.9469296,5.26864203 L22.5666572,3.39396053 C20.6438924,0.78558504 17.3267131,-0.217940904 14.2844569,0.847810436 C11.5917943,1.79137373 9.79348029,4.05468111 9.4749994,6.90177585 L9.21591547,9.21542924 L6.90226208,9.47451317 C4.05460165,9.79355975 1.79129427,11.5918737 0.847730981,14.2845363 C-0.0896097682,16.9607941 0.549614762,19.8457897 2.51650298,21.812678 L2.51706867,21.8132437 C2.78576925,22.0819442 3.08049135,22.3348056 3.39388108,22.5656053 L5.26856258,23.9458777 L4.33518163,26.0796431 C3.10877562,28.8865742 3.6919973,31.9757823 5.85800679,34.1417918 C8.02401628,36.3078013 11.1132244,36.891023 13.9201555,35.664617 L16.0539209,34.731236 L17.4341933,36.6059175 C19.3513012,39.2165558 22.6741374,40.217819 25.7169593,39.1526333 C28.4096219,38.2079386 30.2073702,35.9451969 30.5258511,33.0981022 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M22.8816016,25.1907295 C23.087511,25.9589303 22.6315686,26.7486271 21.8633678,26.9545366 C21.095167,27.1604461 20.3049044,26.703938 20.0995606,25.9363028 C19.8942168,25.1686677 20,20 20,20 C20,20 17.50759,24.5288775 16.9452987,25.0911688 C16.3835731,25.6528945 15.4711225,25.6534601 14.9088312,25.0911688 C14.3465399,24.5288775 14.3471055,23.6164269 14.9088312,23.0547013 C15.4711225,22.49241 20,20 20,20 C20,20 14.831898,20.1063489 14.0636972,19.9004394 C13.2954963,19.6945299 12.8395539,18.904833 13.0454634,18.1366322 C13.2513729,17.3684314 14.0410697,16.912489 14.8092705,17.1183984 C15.5774713,17.3243079 20,20 20,20 C20,20 17.3243079,15.5774713 17.1183984,14.8092705 C16.912489,14.0410697 17.3684314,13.2513729 18.1366322,13.0454634 C18.904833,12.8395539 19.6945299,13.2954963 19.9004394,14.0636972 C20.1063489,14.831898 20,20 20,20 C20,20 22.49241,15.4711225 23.0547013,14.9088312 C23.6169926,14.3465399 24.5288775,14.3465399 25.0911688,14.9088312 C25.6534601,15.4711225 25.6534601,16.3830074 25.0911688,16.9452987 C24.5288775,17.50759 20,20 20,20 C20,20 25.1686677,19.8942168 25.9363028,20.0995606 C26.703938,20.3049044 27.1604461,21.095167 26.9545366,21.8633678 C26.7486271,22.6315686 25.9589303,23.087511 25.1907295,22.8816016 C24.4225287,22.6756921 20,20 20,20 C20,20 22.6751264,24.421963 22.8816016,25.1907295 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(89.000000, 26.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#F7D30C\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M34.7579072,29.8221549 C35.9471811,28.2436316 36.4505537,26.2962107 36.1758602,24.338525 C35.9011667,22.3808393 34.8795597,20.6480348 33.3021815,19.4589627 C32.8764948,19.1377192 32.3148182,18.8745582 31.6771661,18.6505434 C32.322438,18.4496561 32.8925986,18.2060063 33.3290428,17.9004048 C36.6710739,15.5602894 37.4868893,10.9369187 35.1463023,7.59421406 C32.8057153,4.25150941 28.1821427,3.43683918 24.8401115,5.77695456 C24.4036673,6.08255608 23.979705,6.53499864 23.5695632,7.07312001 C23.5778216,6.3968338 23.5219623,5.77949571 23.3656856,5.26960932 C22.7880204,3.37952692 21.5079818,1.82667448 19.7627813,0.899652591 C18.0177827,-0.0285144339 16.0154402,-0.220410986 14.1248862,0.356580673 C10.2228742,1.55005325 8.01905852,5.69489638 9.21138596,9.59670651 C9.36692136,10.1041007 9.6579876,10.6430675 10.0403947,11.196369 C9.40294591,10.9812455 8.80370145,10.8507871 8.27338223,10.8417001 C4.19350083,10.7705309 0.816638586,14.0313823 0.744795872,18.1117353 C0.717741062,19.7316573 1.21391599,21.2401619 2.07884376,22.4754068 C3.39294359,24.3507024 5.55534329,25.5968808 8.01503297,25.6391765 C8.54535219,25.6482635 9.14799849,25.5384516 9.79232859,25.3462538 C9.39134786,25.8859905 9.08204129,26.414735 8.9092004,26.9161799 C8.10815356,29.2426717 8.53797723,31.7000054 9.85187515,33.5764461 C10.7168029,34.811691 11.965575,35.7952289 13.4967874,36.322033 C17.3549631,37.6505575 21.5743179,35.5914767 22.9021688,31.7337725 C23.0750097,31.2323275 23.1566991,30.6250741 23.173243,29.95202 C23.5623854,30.5006054 23.9697696,30.9591293 24.3928963,31.2781502 C25.9718913,32.4680977 27.9188405,32.9707967 29.8765262,32.6961032 C31.8353571,32.4216117 33.5686332,31.4006783 34.7579072,29.8221549 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M15.9075765,12.2952448 C15.5759513,11.2095302 16.1865359,10.0602994 17.2722506,9.72867419 C18.3579653,9.397049 19.507196,10.0076336 19.8388212,11.0933483 C20.1704464,12.1790629 19.5086475,17.0438945 19.5086475,17.0438945 C19.5086475,17.0438945 16.2392017,13.3809595 15.9075765,12.2952448 Z M12.715973,20.5454914 C11.5807004,20.5253744 10.676544,19.5896134 10.696661,18.4543409 C10.716778,17.3190683 11.652539,16.4149119 12.7878115,16.4350289 C13.9230841,16.4551458 18.3455041,18.5880611 18.3455041,18.5880611 C18.3455041,18.5880611 13.850774,20.5649348 12.715973,20.5454914 Z M21.3364561,17.6731778 C21.3364561,17.6731778 23.8099641,13.4318389 24.7401021,12.7805492 C25.6702401,12.1292596 26.9516432,12.3552055 27.6029329,13.2853435 C28.2542225,14.2154816 28.0282766,15.4968846 27.0981386,16.1481743 C26.1680005,16.799464 21.3364561,17.6731778 21.3364561,17.6731778 Z M16.9633787,27.4041412 C15.889691,27.0347589 15.3196031,25.8650807 15.6889854,24.7913931 C16.0583677,23.7177054 19.4542528,20.1715184 19.4542528,20.1715184 C19.4542528,20.1715184 19.9459808,25.0567338 19.5765985,26.1304214 C19.2067446,27.2034356 18.0370664,27.7735236 16.9633787,27.4041412 Z M24.5332739,24.6140173 C23.6264583,23.9310553 21.3026416,19.6059836 21.3026416,19.6059836 C21.3026416,19.6059836 26.1004365,20.6479665 27.0072521,21.3309285 C27.9140676,22.0138905 28.095241,23.30332 27.4118074,24.209462 C26.7288453,25.1162776 25.4394159,25.297451 24.5332739,24.6140173 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(48.000000, 0.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FF7398\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M54.1379237,31.5464048 C55.9625462,24.5630399 48.1438056,19.13187 45.1845324,17.3616591 C45.6989766,14.4276922 46.8574047,4.80065356 40.7169237,1.24584505 C34.6121663,-2.28828261 26.9236153,3.44959091 24.6013353,5.39402404 C24.4009276,5.26871855 24.1656352,5.12587117 23.8977086,4.97076479 C20.8314374,3.19565841 13.1300975,-0.380512394 7.84990403,4.73636964 C2.20473848,10.2044755 5.53732179,18.7392794 6.80518652,21.4340926 C4.64577053,23.4449497 -1.57937327,30.0260297 0.986877047,37.024011 C1.69277097,38.9530347 2.99822799,40.4795811 4.86875265,41.5624535 C8.89955964,43.8959428 14.4760657,43.5196765 16.591707,43.2691852 C17.5849083,45.1496134 20.4220029,49.9813784 24.4796026,52.3303784 C26.1496784,53.2972082 27.8550402,53.7431811 29.5502657,53.6552686 C36.4552712,53.2971895 39.4664791,43.6601819 40.2201879,40.7426742 C43.0812084,40.3465884 52.3062726,38.5442744 54.1379237,31.5464048 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M27.7643057,25.6030632 C27.7643057,25.6030632 31.4492792,33.7908502 28.1176886,34.3138653 C24.7835165,34.8339614 26.6574825,25.7216143 26.6574825,25.7216143 C26.6574825,25.7216143 19.5457139,31.7290717 18.5074329,28.7503567 C17.4680864,25.7710249 26.208593,24.7024398 26.208593,24.7024398 C26.208593,24.7024398 18.2208741,20.0098596 20.8149072,17.8660564 C23.4089403,15.7222531 27.0309781,23.9576566 27.0309781,23.9576566 C27.0309781,23.9576566 28.975509,15.0385915 31.8514465,16.7035111 C34.727384,18.3684307 27.9942413,24.5153028 27.9942413,24.5153028 C27.9942413,24.5153028 36.8711392,23.5256765 36.3635103,26.8673556 C35.8586276,30.2092 27.7643057,25.6030632 27.7643057,25.6030632 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</g>";
+		return "\n\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t<g mask=\"url(#" + id.mask1 + ")\">\n\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(57.000000, 12.000000)\">\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tfill=\"" + color + "\"\n\t\t\t\t\t\t\td=\"M132,85.9365741 L132,86.1659169 C137.155374,87.0308248 141.196116,91.1828748 141.893354,96.3931952 C144.449672,93.4871212 146,89.6746099 146,85.5 C146,83.370043 145.596416,81.3343479 144.861548,79.4652142 C148.026608,76.4588698 150,72.2098901 150,67.5 C150,61.6639649 146.970105,56.5355997 142.397534,53.6021248 C143.424844,51.4510861 144,49.0427105 144,46.5 C144,38.865183 138.814518,32.4415002 131.77335,30.5587463 C131.922635,29.560863 132,28.5394662 132,27.5 C132,16.1781626 122.821837,7 111.5,7 C108.870853,7 106.357304,7.49493913 104.047446,8.3967274 C100.317449,3.30576666 94.2947759,0 87.5,0 C83.2377504,0 79.2793114,1.30076749 76,3.52698535 C72.7206886,1.30076749 68.7622496,0 64.5,0 C57.7052241,0 51.6825514,3.30576666 47.9525545,8.3967274 C45.6426956,7.49493913 43.1291474,7 40.5,7 C29.1781626,7 20,16.1781626 20,27.5 C20,28.5394662 20.0773647,29.560863 20.2266501,30.5587463 C13.1854816,32.4415002 8,38.865183 8,46.5 C8,48.6917361 8.4273349,50.7836628 9.20323008,52.6970055 C3.75045759,55.3899422 0,61.0069879 0,67.5 C0,72.9379417 2.63063706,77.7614652 6.68874609,80.7674054 C6.2406808,82.2665254 6,83.8551557 6,85.5 C6,89.6746099 7.55032816,93.4871212 10.1066457,96.3931952 C10.8038839,91.1828748 14.8446259,87.0308248 20,86.1659169 L20,85.9365741 C20.0276665,85.957925 20.0554443,85.9790669 20.0833333,86 C22.985911,38.8525302 68.5527463,55.7423492 76.000002,29.3361688 C83.4472619,55.7423461 129.014089,38.8525344 131.916667,86 C131.944556,85.9790669 131.972333,85.957925 132,85.9365741 Z M52,168.610951 L52,172.811832 C51.1847358,172.935746 50.3498715,173 49.5,173 C42.6790709,173 36.8248202,168.861157 34.3116389,162.957863 C25.7536314,162.348807 19,155.213101 19,146.5 C19,145.029028 19.1924867,143.603013 19.5536459,142.245771 C12.8575367,140.144362 8,133.88945 8,126.5 C8,122.755519 9.24731211,119.302363 11.3491137,116.533355 C13.0865598,119.870864 16.346706,122.289132 20.2085808,122.867187 C21.9518066,143.114792 34.4692178,160.282984 52,168.610951 Z M100,168.610951 L100,172.811832 C100.815264,172.935746 101.650128,173 102.5,173 C109.320929,173 115.17518,168.861157 117.688361,162.957863 C126.246369,162.348807 133,155.213101 133,146.5 C133,145.029028 132.807513,143.603013 132.446354,142.245771 C139.142463,140.144362 144,133.88945 144,126.5 C144,122.755519 142.752688,119.302363 140.650886,116.533355 C138.91344,119.870864 135.653294,122.289132 131.791419,122.867187 C130.048193,143.114792 117.530782,160.282984 100,168.610951 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(67.000000, 0.000000)\">\n\t\t\t\t\t\t<g opacity=\"0.899999976\" transform=\"translate(120.000000, 64.500000) scale(1, -1) rotate(-20.000000) translate(-120.000000, -64.500000) translate(107.000000, 57.000000)\" fill-rule=\"nonzero\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#5DD362\"\n\t\t\t\t\t\t\t\td=\"M3.61111111,10 C3.61111111,10 1.95,0 13,0 C20.2222222,0 25.2777778,5.71428571 25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C5.05555556,14.2857143 3.61111111,10 3.61111111,10 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#42BC53\"\n\t\t\t\t\t\t\t\td=\"M25.2777778,5.71428571 C25.2777778,5.71428571 19.8611111,14.2857143 11.5555556,14.2857143 C7.22222222,14.2857143 5.12777778,12.3571429 4.18888889,11.0714286 C2.09444444,12.8571429 1.37222222,14.5 1.37222222,14.5714286 C1.3,14.8571429 1.01111111,15 0.722222222,15 C0.65,15 0.505555556,15 0.433333333,14.9285714 C0.0722222222,14.7857143 -0.0722222222,14.3571429 0.0722222222,14 C0.144444444,13.7857143 1.95,9.85714286 7.43888889,7.28571429 C15.3833333,3.14285714 25.2777778,5.71428571 25.2777778,5.71428571 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g  transform=\"translate(93.307368, 21.745191) scale(-1, -1) rotate(-120.000000) translate(-93.307368, -21.745191) translate(85.807368, 7.245191)\">\n\t\t\t\t\t\t\t<path fill=\"#5DD362\" d=\"M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z\" />\n\t\t\t\t\t\t\t<path fill=\"#42BC53\" d=\"M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g  transform=\"translate(29.307368, 59.745191) rotate(-120.000000) translate(-29.307368, -59.745191) translate(21.807368, 45.245191)\">\n\t\t\t\t\t\t\t<path fill=\"#5DD362\" d=\"M15,12 C15,5.9 9,0 9,0 C9,0 1.7,4.3 1,13 C0.3,21.7 6.8,23.7 6.8,23.7 C6.8,23.7 15,20.8 15,12 Z\"/>\n\t\t\t\t\t\t\t<path fill=\"#42BC53\" d=\"M8,29 C8.1,29 8.2,29 8.3,28.9 C8.8,28.7 9.1,28.1 8.9,27.6 C8.4,26.1 8,24.7 7.8,23.2 C10,22.2 15,18.9 15,12 C15,5.9 9,0 9,0 C9,0 8.6,1.1 8,3 C8,3 8,3 8,3 C7.8,3.5 2.8,16.6 7.1,28.3 C7.2,28.7 7.6,29 8,29 Z\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(13.000000, 42.000000) scale(-1, 1) translate(-13.000000, -42.000000) translate(0.000000, 29.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#4ACAD3\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M24.4244753,20.9561089 C25.2601813,19.8468762 25.6139026,18.4784184 25.4208747,17.1027473 C25.2278468,15.7270762 24.5099609,14.5094298 23.401533,13.6738657 C23.1024018,13.448127 22.7077101,13.2632031 22.2596302,13.1057873 C22.7130645,12.9646232 23.1137179,12.7934099 23.4204085,12.5786628 C25.7688628,10.9342574 26.3421384,7.68540233 24.6974016,5.33647474 C23.0526648,2.98754715 19.8036678,2.41507618 17.4552135,4.05948158 C17.148523,4.2742286 16.8506035,4.59216121 16.5623958,4.97030055 C16.5681989,4.4950724 16.5289465,4.06126726 16.4191304,3.70296871 C16.0132035,2.3748027 15.1137169,1.2836091 13.8873598,0.632188307 C12.6611446,-0.0200371698 11.2540931,-0.154883395 9.92559572,0.250570203 C7.18364131,1.0892266 5.6350141,4.00181908 6.47286581,6.7436316 C6.58216096,7.10017888 6.78669399,7.47891226 7.05541252,7.86771872 C6.6074755,7.71655089 6.18638481,7.62487741 5.81372806,7.61849197 C2.94678437,7.56848119 0.573854142,9.85989025 0.523370073,12.7271653 C0.504358584,13.8654889 0.853022045,14.9255192 1.46080913,15.7935291 C2.38423063,17.1113044 3.90375474,17.9869973 5.63218533,18.0167186 C6.00484208,18.0231041 6.42832327,17.945939 6.88109576,17.8108811 C6.59932552,18.1901555 6.38197496,18.5617056 6.2605192,18.9140724 C5.69762142,20.5489044 5.99965968,22.2756795 6.92293929,23.5942594 C7.53072638,24.4622693 8.40824188,25.1534041 9.48422896,25.5235908 C12.1953795,26.4571485 15.1603315,25.0102268 16.0934159,22.2994077 C16.2148717,21.947041 16.272275,21.5203224 16.2839005,21.0473654 C16.5573519,21.4328579 16.8436218,21.7550638 17.1409542,21.9792407 C18.2505182,22.81542 19.6186447,23.168668 20.9943157,22.9756401 C22.3707915,22.7827541 23.5887693,22.0653415 24.4244753,20.9561089 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M11.178297,8.63990176 C10.9452631,7.87696713 11.3743225,7.06939957 12.1372572,6.83636565 C12.9001918,6.60333173 13.7077594,7.03239119 13.9407933,7.79532582 C14.1738272,8.55826044 13.7087793,11.9767907 13.7087793,11.9767907 C13.7087793,11.9767907 11.4113309,9.40283638 11.178297,8.63990176 Z M8.9355486,14.4373723 C8.1377895,14.4232361 7.50243635,13.7656743 7.5165726,12.9679152 C7.53070884,12.1701561 8.18827062,11.534803 8.98602972,11.5489392 C9.78378882,11.5630754 12.8914353,13.0618808 12.8914353,13.0618808 C12.8914353,13.0618808 9.73297629,14.4510353 8.9355486,14.4373723 Z M14.9931854,12.4189898 C14.9931854,12.4189898 16.7313261,9.4385895 17.3849366,8.98092648 C18.0385471,8.52326347 18.9389925,8.68203629 19.3966555,9.33564681 C19.8543185,9.98925733 19.6955457,10.8897027 19.0419352,11.3473657 C18.3883247,11.8050287 14.9931854,12.4189898 14.9931854,12.4189898 Z M11.9202121,19.2569641 C11.1657288,18.9973982 10.7651265,18.1754621 11.0246924,17.4209789 C11.2842584,16.6664957 13.670556,14.1745805 13.670556,14.1745805 C13.670556,14.1745805 14.0160946,17.6074345 13.7565287,18.3619178 C13.4966313,19.1159277 12.6746953,19.5165301 11.9202121,19.2569641 Z M17.2395979,17.2963365 C16.6023761,16.8164172 14.9694239,13.7771777 14.9694239,13.7771777 C14.9694239,13.7771777 18.3408473,14.5093818 18.978069,14.9893011 C19.6152908,15.4692204 19.7426018,16.3753059 19.2623511,17.0120544 C18.7824319,17.6492761 17.8763463,17.7765872 17.2395979,17.2963365 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(20.000000, 16.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FDB599\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M30.5258511,33.0981022 L30.7843694,30.7838831 L33.0980227,30.5247992 C35.9451175,30.2051869 38.2084249,28.4080043 39.1519882,25.7142103 C40.2177395,22.6719541 39.217042,19.3553405 36.6052724,17.4325757 L34.7311566,16.052869 L35.6634061,13.9191036 C36.8915092,11.1127382 36.3082875,8.02353005 34.142278,5.85752056 C31.9762685,3.69151107 28.8870604,3.10828939 26.0801294,4.33582677 L23.9469296,5.26864203 L22.5666572,3.39396053 C20.6438924,0.78558504 17.3267131,-0.217940904 14.2844569,0.847810436 C11.5917943,1.79137373 9.79348029,4.05468111 9.4749994,6.90177585 L9.21591547,9.21542924 L6.90226208,9.47451317 C4.05460165,9.79355975 1.79129427,11.5918737 0.847730981,14.2845363 C-0.0896097682,16.9607941 0.549614762,19.8457897 2.51650298,21.812678 L2.51706867,21.8132437 C2.78576925,22.0819442 3.08049135,22.3348056 3.39388108,22.5656053 L5.26856258,23.9458777 L4.33518163,26.0796431 C3.10877562,28.8865742 3.6919973,31.9757823 5.85800679,34.1417918 C8.02401628,36.3078013 11.1132244,36.891023 13.9201555,35.664617 L16.0539209,34.731236 L17.4341933,36.6059175 C19.3513012,39.2165558 22.6741374,40.217819 25.7169593,39.1526333 C28.4096219,38.2079386 30.2073702,35.9451969 30.5258511,33.0981022 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M22.8816016,25.1907295 C23.087511,25.9589303 22.6315686,26.7486271 21.8633678,26.9545366 C21.095167,27.1604461 20.3049044,26.703938 20.0995606,25.9363028 C19.8942168,25.1686677 20,20 20,20 C20,20 17.50759,24.5288775 16.9452987,25.0911688 C16.3835731,25.6528945 15.4711225,25.6534601 14.9088312,25.0911688 C14.3465399,24.5288775 14.3471055,23.6164269 14.9088312,23.0547013 C15.4711225,22.49241 20,20 20,20 C20,20 14.831898,20.1063489 14.0636972,19.9004394 C13.2954963,19.6945299 12.8395539,18.904833 13.0454634,18.1366322 C13.2513729,17.3684314 14.0410697,16.912489 14.8092705,17.1183984 C15.5774713,17.3243079 20,20 20,20 C20,20 17.3243079,15.5774713 17.1183984,14.8092705 C16.912489,14.0410697 17.3684314,13.2513729 18.1366322,13.0454634 C18.904833,12.8395539 19.6945299,13.2954963 19.9004394,14.0636972 C20.1063489,14.831898 20,20 20,20 C20,20 22.49241,15.4711225 23.0547013,14.9088312 C23.6169926,14.3465399 24.5288775,14.3465399 25.0911688,14.9088312 C25.6534601,15.4711225 25.6534601,16.3830074 25.0911688,16.9452987 C24.5288775,17.50759 20,20 20,20 C20,20 25.1686677,19.8942168 25.9363028,20.0995606 C26.703938,20.3049044 27.1604461,21.095167 26.9545366,21.8633678 C26.7486271,22.6315686 25.9589303,23.087511 25.1907295,22.8816016 C24.4225287,22.6756921 20,20 20,20 C20,20 22.6751264,24.421963 22.8816016,25.1907295 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(89.000000, 26.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#F7D30C\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M34.7579072,29.8221549 C35.9471811,28.2436316 36.4505537,26.2962107 36.1758602,24.338525 C35.9011667,22.3808393 34.8795597,20.6480348 33.3021815,19.4589627 C32.8764948,19.1377192 32.3148182,18.8745582 31.6771661,18.6505434 C32.322438,18.4496561 32.8925986,18.2060063 33.3290428,17.9004048 C36.6710739,15.5602894 37.4868893,10.9369187 35.1463023,7.59421406 C32.8057153,4.25150941 28.1821427,3.43683918 24.8401115,5.77695456 C24.4036673,6.08255608 23.979705,6.53499864 23.5695632,7.07312001 C23.5778216,6.3968338 23.5219623,5.77949571 23.3656856,5.26960932 C22.7880204,3.37952692 21.5079818,1.82667448 19.7627813,0.899652591 C18.0177827,-0.0285144339 16.0154402,-0.220410986 14.1248862,0.356580673 C10.2228742,1.55005325 8.01905852,5.69489638 9.21138596,9.59670651 C9.36692136,10.1041007 9.6579876,10.6430675 10.0403947,11.196369 C9.40294591,10.9812455 8.80370145,10.8507871 8.27338223,10.8417001 C4.19350083,10.7705309 0.816638586,14.0313823 0.744795872,18.1117353 C0.717741062,19.7316573 1.21391599,21.2401619 2.07884376,22.4754068 C3.39294359,24.3507024 5.55534329,25.5968808 8.01503297,25.6391765 C8.54535219,25.6482635 9.14799849,25.5384516 9.79232859,25.3462538 C9.39134786,25.8859905 9.08204129,26.414735 8.9092004,26.9161799 C8.10815356,29.2426717 8.53797723,31.7000054 9.85187515,33.5764461 C10.7168029,34.811691 11.965575,35.7952289 13.4967874,36.322033 C17.3549631,37.6505575 21.5743179,35.5914767 22.9021688,31.7337725 C23.0750097,31.2323275 23.1566991,30.6250741 23.173243,29.95202 C23.5623854,30.5006054 23.9697696,30.9591293 24.3928963,31.2781502 C25.9718913,32.4680977 27.9188405,32.9707967 29.8765262,32.6961032 C31.8353571,32.4216117 33.5686332,31.4006783 34.7579072,29.8221549 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M15.9075765,12.2952448 C15.5759513,11.2095302 16.1865359,10.0602994 17.2722506,9.72867419 C18.3579653,9.397049 19.507196,10.0076336 19.8388212,11.0933483 C20.1704464,12.1790629 19.5086475,17.0438945 19.5086475,17.0438945 C19.5086475,17.0438945 16.2392017,13.3809595 15.9075765,12.2952448 Z M12.715973,20.5454914 C11.5807004,20.5253744 10.676544,19.5896134 10.696661,18.4543409 C10.716778,17.3190683 11.652539,16.4149119 12.7878115,16.4350289 C13.9230841,16.4551458 18.3455041,18.5880611 18.3455041,18.5880611 C18.3455041,18.5880611 13.850774,20.5649348 12.715973,20.5454914 Z M21.3364561,17.6731778 C21.3364561,17.6731778 23.8099641,13.4318389 24.7401021,12.7805492 C25.6702401,12.1292596 26.9516432,12.3552055 27.6029329,13.2853435 C28.2542225,14.2154816 28.0282766,15.4968846 27.0981386,16.1481743 C26.1680005,16.799464 21.3364561,17.6731778 21.3364561,17.6731778 Z M16.9633787,27.4041412 C15.889691,27.0347589 15.3196031,25.8650807 15.6889854,24.7913931 C16.0583677,23.7177054 19.4542528,20.1715184 19.4542528,20.1715184 C19.4542528,20.1715184 19.9459808,25.0567338 19.5765985,26.1304214 C19.2067446,27.2034356 18.0370664,27.7735236 16.9633787,27.4041412 Z M24.5332739,24.6140173 C23.6264583,23.9310553 21.3026416,19.6059836 21.3026416,19.6059836 C21.3026416,19.6059836 26.1004365,20.6479665 27.0072521,21.3309285 C27.9140676,22.0138905 28.095241,23.30332 27.4118074,24.209462 C26.7288453,25.1162776 25.4394159,25.297451 24.5332739,24.6140173 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g transform=\"translate(48.000000, 0.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FF7398\"\n\t\t\t\t\t\t\t\tfill-rule=\"nonzero\"\n\t\t\t\t\t\t\t\td=\"M54.1379237,31.5464048 C55.9625462,24.5630399 48.1438056,19.13187 45.1845324,17.3616591 C45.6989766,14.4276922 46.8574047,4.80065356 40.7169237,1.24584505 C34.6121663,-2.28828261 26.9236153,3.44959091 24.6013353,5.39402404 C24.4009276,5.26871855 24.1656352,5.12587117 23.8977086,4.97076479 C20.8314374,3.19565841 13.1300975,-0.380512394 7.84990403,4.73636964 C2.20473848,10.2044755 5.53732179,18.7392794 6.80518652,21.4340926 C4.64577053,23.4449497 -1.57937327,30.0260297 0.986877047,37.024011 C1.69277097,38.9530347 2.99822799,40.4795811 4.86875265,41.5624535 C8.89955964,43.8959428 14.4760657,43.5196765 16.591707,43.2691852 C17.5849083,45.1496134 20.4220029,49.9813784 24.4796026,52.3303784 C26.1496784,53.2972082 27.8550402,53.7431811 29.5502657,53.6552686 C36.4552712,53.2971895 39.4664791,43.6601819 40.2201879,40.7426742 C43.0812084,40.3465884 52.3062726,38.5442744 54.1379237,31.5464048 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tfill=\"#FFFFFF\"\n\t\t\t\t\t\t\t\td=\"M27.7643057,25.6030632 C27.7643057,25.6030632 31.4492792,33.7908502 28.1176886,34.3138653 C24.7835165,34.8339614 26.6574825,25.7216143 26.6574825,25.7216143 C26.6574825,25.7216143 19.5457139,31.7290717 18.5074329,28.7503567 C17.4680864,25.7710249 26.208593,24.7024398 26.208593,24.7024398 C26.208593,24.7024398 18.2208741,20.0098596 20.8149072,17.8660564 C23.4089403,15.7222531 27.0309781,23.9576566 27.0309781,23.9576566 C27.0309781,23.9576566 28.975509,15.0385915 31.8514465,16.7035111 C34.727384,18.3684307 27.9942413,24.5153028 27.9942413,24.5153028 C27.9942413,24.5153028 36.8711392,23.5256765 36.3635103,26.8673556 C35.8586276,30.2092 27.7643057,25.6030632 27.7643057,25.6030632 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</g>";
 	},
 
 	attrs: {
@@ -1749,7 +1944,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 45 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1786,7 +1981,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 46 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1813,7 +2008,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 47 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1845,7 +2040,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 48 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1877,7 +2072,528 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 49 */
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	mask1: (0, _common.uid)("mask-"),
+	mask3: (0, _common.uid)("mask-"),
+	path2: (0, _common.uid)("path-"),
+	path3: (0, _common.uid)("path-"),
+	path4: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path3 + "\"\n\t\t\td=\"M156,180.610951 C173.530782,172.282984 186.048193,155.114792 187.791419,134.867187 C193.569129,134.002364 198,129.018625 198,123 L198,110 C198,104.054007 193.675427,99.1180731 188,98.1659169 L188,92 C188,61.072054 162.927946,36 132,36 C101.072054,36 76,61.072054 76,92 L76,92 L76,98.1659169 C70.3245733,99.1180731 66,104.054007 66,110 L66,123 C66,129.018625 70.4308707,134.002364 76.2085808,134.867187 C77.9518066,155.114792 90.4692178,172.282984 108,180.610951 L108,199 L104,199 L104,199 C64.235498,199 32,231.235498 32,271 L32,280 L232,280 L232,271 C232,231.235498 199.764502,199 160,199 L156,199 L156,180.610951 Z M0,5.68434189e-14 L264,5.68434189e-14 L264,280 L0,280 L0,5.68434189e-14 Z\"\n\t\t\t/>\n\t\t<rect id=\"" + id.path4 + "\" x=\"0\" y=\"0\" width=\"112\" height=\"150\" rx=\"56\"/>\n\t\t<mask id=\"" + id.mask1 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path4 + "\"/>\n\t\t</mask>\n\t\t<mask id=\"" + id.mask3 + "\" fill=\"white\">\n\t\t\t<use xlink:href=\"#" + id.path3 + "\"/>\n\t\t</mask>\n\t\t<path\n\t\t\tid=\"" + id.path2 + "\"\n\t\t\td=\"M90.8779151,52.3613196 C113.02785,65.2272934 140.816672,65.2272934 174.244382,52.3613196 C188.77455,44.5891967 199.330608,29.0424257 182.951044,8.96303524 C180.782417,6.30455678 172.244382,15.6755614 155.351199,16.6504878 C138.458015,17.6254143 142.079654,13.3498661 124.102817,16.0739248 C106.12598,18.7979835 108.111968,33.37843 96.3814191,36.8768239 C84.6508698,40.3752178 86.5778198,49.8635735 90.8779151,52.3613196 Z\"\n\t\t\tfill-rule=\"evenodd\"/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g  stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask})\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(1.000000, 0.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\td=\"M116.179148,40 L146,40 C171.405098,40 192,60.5949015 192,86 L192,154.108712 C192,180.650314 210.758775,204.349179 222.609956,226.05167 C234.461138,247.754161 215.254522,268.242596 195.770735,276.769484 C190.902336,278.900091 185.645645,280 180.331438,280 L135.26309,280 C78.9108161,280 70.2166412,216.309596 67.6972794,146.504423 L70.2166412,84.1431398 C71.212998,59.4805095 91.4964003,40 116.179148,40 Z\"\n\t\t\t\t\t\t\t\tfill=\"" + color + "\"\n\t\t\t\t\t\t\t\tmask=\"url(#" + id.mask3 + ")\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<g stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(77.000000, 36.000000)\">\n\t\t\t\t\t\t\t<path\n\t\t\t\t\t\t\t\tmask=\"url(#" + id.mask1 + ")\"\n\t\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\t\td=\"M98.8014742,19.9396383 C107.026909,29.4843994 112,41.9114359 112,55.5 L112,65.5 L112,61.5 C112,45.7605792 105.327989,31.5794902 94.657974,21.6307409 C63.9198041,32.6768506 38.0141969,32.8027026 16.9411526,22.0082968 C6.50516181,31.936614 -1.90326939e-15,45.958626 0,61.5 L0,61.5 L0,65.5 L0,55.5 C-1.66642407e-15,41.8926148 4.98687681,29.4499771 13.2327229,19.8999944 C9.3991564,16.860899 8.25944611,8.18718262 19.4671989,4.87682391 C31.3115751,1.37843003 29.3063159,-13.2020165 47.4575903,-15.9260752 C65.6088648,-18.6501339 63.9714902,-11.3745857 81.028596,-12.3495122 C98.0857017,-13.3244386 103.635746,-29.1131795 106.849606,-25.0739991 C119.588767,-9.06341321 116.420993,9.34036319 98.8014742,19.9396383 Z\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path2 + "\"/>\n\t\t\t\t\t\t<use fill=\"#FFFFFF\" fill-opacity=\"0.15\" xlink:href=\"#" + id.path2 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M133.506381,81.3351151 C137.363649,83.3307002 140,87.3574737 140,92 L140,105 C140,111.018625 135.569129,116.002364 129.791419,116.867187 C128.048193,137.114792 115.530782,154.282984 98,162.610951 L98,162.610951 L98,181 L102,181 C119.490913,181 135.525121,187.236892 148,197.608051 L148,74 C148,53.5654643 139.717268,35.0654643 126.325902,21.6740982 C112.934536,8.28273213 94.4345357,-3.55271368e-15 74,0 C33.1309285,7.10542736e-15 -7.10542736e-15,33.1309285 0,74 L0,257.716445 C13.5691766,255.775526 24,244.105888 24,230 L24,184.423101 C30.9346808,182.200199 38.3271796,181 46,181 L50,181 L50,162.610951 C38.7726252,157.277407 29.6015372,148.317951 24,137.245847 L24,75.2659587 C33.1467898,72.2910056 42.777598,68.0170651 52.3415164,62.4953343 C67.7445474,53.6023901 80.4313947,42.9409152 89.0661426,32.3970356 C90.8310687,37.5951441 93.1752556,42.8009742 96.1104311,47.8848473 C104.877881,63.0705152 117.224186,74.2337047 130,79.9170491 L130,80.1659169 C130.400422,80.233095 130.794121,80.3201038 131.18005,80.4258987 C131.954509,80.7493055 132.730185,81.0524853 133.506381,81.3351151 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(59.000000, 18.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tfill-opacity=\"0.24\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\td=\"M192.506381,99.3351151 C197.3745,101.107702 202.263079,102.071957 207,102.148232 L207,102.148232 L207,92 C207,71.5654643 198.717268,53.0654643 185.325902,39.6740982 C198.717268,53.0654643 207,71.5654643 207,92 L207,215.608051 C194.525121,205.236892 178.490913,199 161,199 L157,199 L157,180.610951 L157,180.610951 C174.530782,172.282984 187.048193,155.114792 188.791419,134.867187 C194.569129,134.002364 199,129.018625 199,123 L199,110 C199,105.357474 196.363649,101.3307 192.506381,99.3351151 Z M190.18005,98.4258987 C189.794121,98.3201038 189.400422,98.233095 189,98.1659169 L189,97.9170491 C189.392974,98.0918644 189.786355,98.2614951 190.18005,98.4258987 Z M83,155.245847 C88.6015372,166.317951 97.7726252,175.277407 109,180.610951 L109,199 L105,199 C97.3271796,199 89.9346808,200.200199 83,202.423101 L83,155.245847 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M21,157.540812 L21,69.046252 C21,65.5140485 21.3981158,62.0748299 22.1519234,58.7710202 C25.205041,38.7314193 36.7752683,22.8108863 50,13 C69.9046441,-1.75961713 103.441939,-6.01828252 115.047069,11.5221046 C123.698343,7.68103538 136.519049,11.1821114 146,20 C155.565156,29.4150438 163.19967,50.1973768 158.657409,67.2035172 C158.762104,68.4691962 158.815476,69.7490355 158.815476,71.0408963 L158.815476,92.8921195 C157.934142,87.9183006 153.988995,84.0029116 149,83.1659169 L149,83 C142.963851,61.4642087 125.229516,51.5800472 114.429684,41.777113 C97.5353566,60.6732583 44.8226408,60.7398069 27,98 L27,108 C27,114.018625 31.4308707,119.002364 37.2085808,119.867187 C38.9518066,140.114792 51.4692178,157.282984 69,165.610951 L69,166 C71.9303712,209.855112 62.358462,264.797432 0,248 C13.6057325,240.037752 20.8081123,189.055563 21,157.540812 Z M117,165.610951 C134.530782,157.282984 147.048193,140.114792 148.791419,119.867187 C153.87876,119.105701 157.921895,115.150816 158.815476,110.107881 L158.815476,111.47039 L158.815476,111.47039 C158.815476,127.298552 162.572711,142.900645 169.7782,156.993609 L196.726668,209.701177 C203.689761,223.320048 201.645562,239.173573 192.790715,250.468968 C189.966212,213.288807 158.90349,184 121,184 L121,184 L117,184 L117,165.610951 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(40.000000, 15.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\td=\"M67,113 C84.8226408,80.6646674 137.535357,80.6069148 154.429684,64.2083647 C165.207546,72.6982916 182.891727,79.2665518 188.963018,97.8687161 C182.891727,76.423995 165.207546,66.5601054 154.429684,56.777113 C137.535357,75.6732583 84.8226408,75.7398069 67,113 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M8.46130289,88.6935361 C8.16088005,89.7438903 8,90.8531574 8,92 L8,105 C8,111.018625 12.4308707,116.002364 18.2085808,116.867187 C19.9518066,137.114792 32.4692178,154.282984 50,162.610951 L50,181 L46,181 L46,181 C30.3810228,181 15.9236322,185.973344 4.12503673,194.422823 C1.45272918,186.776619 1.52589027e-14,178.557961 1.42108547e-14,170 L0,74 L0,74 C-5.00501776e-15,33.1309285 33.1309285,7.50752664e-15 74,0 L74,0 L74,0 C114.869071,-7.50752664e-15 148,33.1309285 148,74 L148,170 C148,178.557961 146.547271,186.776619 143.874963,194.422823 C132.076368,185.973344 117.618977,181 102,181 L102,181 L98,181 L98,162.610951 C115.530782,154.282984 128.048193,137.114792 129.791419,116.867187 C135.569129,116.002364 140,111.018625 140,105 L140,92 C140,90.3107559 139.650957,88.7030352 139.021057,87.2450254 C126.064756,85.0568849 111.478699,79.7686298 97.1489304,71.4953343 C85.0171781,64.4910638 74.6464677,56.2579416 66.6695083,47.752196 C70.0963393,55.6604321 74.2459335,62.5880409 79.118291,68.5350224 C66.4431108,63.0120855 57.8126345,54.1324394 53.2268621,41.8960843 C52.8490267,42.8180234 52.455505,43.738913 52.0461952,44.6582378 C42.206947,66.7575512 25.5911314,82.6819966 8.46130289,88.6935361 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\" transform=\"translate(59.000000, 18.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\td=\"M59,102.418954 L59,108.837908 C78.9453743,105.750496 99.5895621,88.3902571 111.046195,62.6582378 C111.455505,61.738913 111.849027,60.8180234 112.226862,59.8960843 C116.231662,70.5822127 123.321236,78.70828 133.495584,84.2742862 C134.956498,86.4697241 136.497401,88.5566361 138.118291,90.5350224 C125.443111,85.0120855 116.812635,76.1324394 112.226862,63.8960843 C111.849027,64.8180234 111.455505,65.738913 111.046195,66.6582378 C99.5895621,92.3902571 78.9453743,109.750496 59,112.837908 L59,102.418954 Z M207,101.140388 L207,110.280776 C192.046922,109.412723 173.901259,103.744646 156.14893,93.4953343 C145.87623,87.5643877 136.866205,80.7523483 129.502994,73.639773 C128.137922,71.1289501 126.860094,68.4997578 125.669508,65.752196 C133.646468,74.2579416 144.017178,82.4910638 156.14893,89.4953343 C173.901259,99.7446457 192.046922,105.412723 207,106.280776 L207,101.140388 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M185.831676,73.928751 C187.588868,74.9173665 188.980206,84.8279256 189.047535,88.6176558 C189.08965,90.9562115 189.127358,99.8740101 186.654049,99.1031293 C185.901013,98.868423 184.751682,94.1472484 184.58821,91.3840965 C184.424737,88.6209446 182.855069,79.2200034 180.446757,74.8947261 C179.896491,73.9063366 178.320781,72.1708928 179.001547,71.3348066 C179.846064,70.2980597 180.666198,70.8995898 181.697184,71.3146953 C182.8124,71.7641482 185.6344,73.8180261 185.831676,73.928751 Z M186.636742,70.9565876 C185.890663,71.9188016 180.795829,69.217693 178.671174,68.0439722 C160.825581,58.1840558 157.361562,55.0486831 129.245707,55.4578453 C101.129853,55.8670074 81.8674779,69.0400225 80.7839818,70.3874406 C80.0301584,71.3248831 79.0677773,73.8279219 78.2764086,80.8005402 C77.48504,87.7731584 78.4952061,100.277789 75.6304859,100.262618 C73.1915094,100.249702 72.6608912,76.4770353 73.7137309,67.0463924 C73.8753757,65.5984852 74.4983655,63.0083957 74.0474223,61.7058802 C73.6532986,60.5682485 71.7253768,60.5705662 72.0331217,58.6750651 C72.3829065,56.5173393 74.5584694,57.5890837 75.5060085,56.5574014 C77.3005851,54.602966 74.5321945,54.1404306 74.0730403,52.4306721 C73.3905494,49.8892108 75.3628102,49.2336489 77.1396512,48.4310821 C79.1060001,47.5437559 78.8504766,48.3231462 80.4463492,46.5849138 C78.3147968,45.0224912 77.543628,42.8939014 80.4624425,41.7519655 C81.7019616,41.2669159 84.9268789,41.9089031 85.8980654,41.1801698 C86.1512899,40.9901231 86.251463,39.9008308 86.4074703,39.6780059 C87.9583471,37.4593592 87.5757186,35.8532324 87.4183976,33.3624282 C87.2889936,31.3242265 87.3064008,29.4532263 89.7466834,29.2496048 C91.3750712,29.1138571 92.6993269,30.4441843 94.1582415,30.835866 C95.7767762,31.2705896 95.1688403,31.5877757 96.4369334,30.7150174 C98.6630755,29.1817309 97.1479982,26.1942888 98.913344,24.4120212 C101.335891,21.9662454 102.923881,25.5513084 104.868882,25.8218105 C109.09126,26.4101607 107.736132,22.1218586 110.235861,20.5504965 C113.223647,18.6738677 113.512672,22.8012592 115.378847,22.948264 C116.996068,23.0750722 119.907657,19.9545311 121.317306,19.3731338 C125.499944,17.6471518 127.572378,22.5039387 131.554013,21.8844657 C134.443268,21.434843 135.223305,21.067662 137.830761,22.7115333 C140.361692,24.3070651 140.96306,23.1664535 143.828996,23.1436082 C145.853806,23.128378 147.093982,24.8202575 148.787729,24.9967295 C149.632467,25.085131 150.441078,24.2050888 151.347562,24.2603811 C154.58496,24.4567186 154.789576,28.6430444 157.361562,29.7955753 C159.711524,30.8487786 162.474332,29.3691289 164.806559,29.0953159 C170.497048,28.4275036 166.60015,33.7425217 166.760755,36.914713 C168.994451,37.4358517 171.261648,35.3509661 173.485163,35.7347015 C176.986623,36.3392753 175.664995,39.9680424 174.853429,42.4144804 C177.279589,42.3707762 183.612828,39.6776748 185.184725,43.1220237 C185.995306,44.8980006 184.106797,47.2689496 184.13767,49.0743937 C184.181023,51.615855 186.048513,53.7186196 186.709327,56.1240021 C187.601032,59.3710203 188.871834,68.0740038 186.636742,70.9565876 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(1.000000, 0.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M153.503392,98.8736491 C157.89934,100.654655 161,104.965228 161,110 L161,123 C161,128.28759 157.580126,132.776426 152.8316,134.375285 C151.985668,145.321578 147.992514,155.385777 141.755762,163.66426 C141.964657,164.471736 142.166135,165.290125 142.311896,166.167999 C142.862922,169.494538 142.191903,172.260864 143.956619,175.261034 C144.414366,176.040649 145.140008,176.50834 145.478876,177.405464 C146.012313,178.819858 145.247,181.999219 147.428222,182 C150.534993,182.00039 148.803043,176.034013 148.024863,174.616105 C146.500469,171.843533 145.563369,171.165421 145.642135,167.571852 C147.387236,168.73171 153.172487,170.947581 155.089787,169.887664 C159.522305,167.44029 148.428013,164.951924 147.651918,164.434653 C149.356221,162.768846 151.308063,161.884996 152.848916,159.689035 C154.108583,157.895569 155.254913,155.292428 157.398137,155.187802 C158.584855,155.129634 162.056295,158.072417 163.10825,156.053694 C164.07308,154.203231 161.993578,153.931908 161.181077,153.276828 C159.678802,152.06661 159.340419,153.270972 159.706723,151.14333 C160.792178,152.307873 162.495834,151.571982 162.95061,150.127527 C163.441226,148.569468 161.823998,148.10412 161.853937,147.113692 C161.842192,147.500572 162.687735,141.999153 162.554381,142.176001 C163.413669,141.041128 166.462257,141.392482 167.966582,141.555666 C170.263178,141.804346 170.13091,141.873446 171.222117,143.992109 C172.103838,145.707106 174.419542,149.169502 174.928748,144.633135 C175.050449,143.548232 174.059985,141.228907 173.478827,140.295477 C172.851533,139.287873 170.962455,138.651922 170.567003,137.868403 C169.622984,135.99803 172.731819,131.833707 172.206,129.014288 C173.298856,129.431618 176.063377,135.941423 177.404406,130.612948 C178.111059,127.812658 170.89879,121.667871 173.890225,120.718825 C176.178665,119.993084 178.501504,122.944066 179.140297,124.762907 C179.612624,126.110544 179.400215,129.001405 180.207508,130.116368 C183.243976,134.318949 183.618438,127.375418 183.364612,125.543693 C182.806036,121.517569 181.381252,118.556438 177.742225,117.034295 C179.037272,115.426656 177.396605,114.146948 176.467109,113.140514 C177.994834,111.484467 187.90383,113.244749 185.67495,108.813788 C185.137049,107.742159 183.193837,107.552037 182.208315,107.158911 C179.717195,106.166532 177.22313,104.1482 175.950562,101.597371 C177.79234,101.136708 183.230278,102.394554 182.515816,98.6011044 C181.952817,95.619282 177.112955,96.5335826 175.237767,96.9915137 C176.930155,95.9749301 180.211017,96.8166176 180.67198,94.0499017 C181.203002,90.8666365 177.383839,90.9736042 175.591269,91.6482034 C175.17003,88.2904324 181.122531,85.8176826 182.804663,83.2477249 C183.373237,82.3806618 184.275583,82.0835727 183.551013,80.6153042 C182.244616,77.9719526 178.870779,81.7013778 177.758771,82.7050785 C178.635221,81.0771393 181.079608,74.3018671 180.708517,72.5829664 C180.162561,70.057123 178.355898,69.967723 176.919931,72.0153348 C175.988608,73.3450137 175.729666,76.7176196 175.238294,78.4419859 C173.199533,76.9046179 173.095791,78.6883239 172.991008,76.2507095 C172.923099,74.6707886 174.992708,71.5499862 175.522623,70.0032488 C175.978715,68.6739603 177.190719,66.2433729 176.465593,64.9570277 C174.690293,61.8139729 172.993447,66.1289878 172.525841,67.608968 C171.737261,64.1977131 174.740084,61.5524095 175.629329,58.1778516 C176.170088,56.1298495 177.605245,50.5995409 175.118415,49.6165311 C171.724815,48.2755308 172.918922,54.5725714 172.440664,56.6162793 C172.07606,58.1758997 171.519076,60.6935447 170.302082,61.4622287 C170.125896,61.5734908 167.481496,61.8046035 167.354151,61.6554733 C165.620359,59.6336275 170.392027,55.207741 170.637754,53.3037939 C170.861461,51.5731813 170.198398,50.4792998 168.576831,50.3754553 C167.767833,50.323533 166.456472,51.5751333 166.081721,51.4935411 C164.602506,51.1718572 166.529338,44.4051737 166.669221,42.5269926 C166.819045,40.5238856 166.575417,35.355081 163.186097,37.7423348 C163.413049,35.0454993 163.549887,32.5063826 163.920134,29.8505384 C164.114962,28.45176 165.31836,27.2060156 163.546466,26.0840259 C161.389659,24.7192116 160.195301,27.5757179 159.703512,29.2516754 C158.858129,32.1374612 160.604934,36.6265913 156.546177,36.7183337 C151.880955,36.8237399 155.102123,31.9875502 155.331481,28.8503513 C155.459059,27.1091981 154.318536,22.4287754 152.06891,25.5866651 C151.173373,26.8456828 151.481865,31.2813291 150.985494,32.7702884 C149.878539,32.2772219 151.717562,28.2546115 150.755804,27.2056252 C148.695236,24.958913 146.966535,28.2315783 145.655991,28.8975889 C145.57044,27.4527441 145.468923,26.0067281 145.407913,24.5603216 C145.315305,22.3600662 146.663012,17.7307849 145.2945,16.2125461 C142.95772,13.6238495 141.471891,16.6443209 140.789049,18.7364375 C140.175628,20.6196938 140.091904,22.4795265 137.555716,22.7360147 C137.763741,20.0192692 135.29832,14.3004008 136.520803,12.0087933 C137.073558,10.9742516 138.200031,11.7078002 138.699701,10.5498943 C139.521287,8.64672801 138.176249,7.83939509 136.714154,7.77771298 C129.921887,7.49233563 135.152043,16.9117402 132.745372,19.2693241 C131.646423,18.2285361 132.817064,17.1557359 131.680174,15.6730229 C130.456777,14.0782671 128.507084,14.2133431 126.762486,14.9351799 C126.706116,13.3220757 129.125524,2.01512054 123.682122,7.11833905 C122.329503,8.38945896 122.708203,10.5112454 121.988704,12.004499 C121.293397,13.448563 119.599928,15.6019713 118.647561,16.7751026 C118.138071,14.7079712 118.919891,12.1450405 119.467423,10.1091405 C119.848493,8.69357518 122.399415,4.30399525 121.855094,2.8653967 C120.275192,-1.30204956 115.532497,5.5840942 114.282756,6.69671451 C112.701004,8.10642397 106.402711,12.7415612 104.381766,11.3369268 C103.680648,10.8501066 104.312204,9.04610014 103.355021,8.20948774 C102.885296,7.799575 100.877713,7.60828238 100.304676,7.66059506 C100.663044,6.16656069 99.9590183,4.23411488 98.2500992,4.75060494 C96.1010516,5.40060944 97.031157,8.58855944 95.6691727,9.75271164 C93.1402627,11.9174413 90.1353523,7.6410754 87.4245062,7.76092608 C87.8388134,6.00571874 90.9097688,-0.301081675 86.0261697,1.61691959 C84.7804466,2.10647253 83.8958015,4.9680539 83.5854252,6.15758165 C82.7941498,9.19327834 83.364323,9.74958849 80.0771587,10.6065013 C80.3338947,8.84621888 79.876509,6.65923677 80.7256589,5.08595261 C81.4218191,3.79726501 85.0314735,0.441445987 81.1879964,0.0233349851 C76.4475113,-0.492764683 76.9137424,7.69455926 76.3331882,10.4628367 C72.1267344,7.91396017 69.3589223,11.5606221 66.8533479,14.7153886 C67.3001674,13.2963097 68.4061862,-0.841776108 63.8882057,3.47753307 C62.5963925,4.71468878 64.0256621,6.54407081 63.9388761,7.95573223 C63.8604755,9.23622158 63.4388415,10.377731 62.9428241,11.5742858 C62.1474037,13.4950198 61.2224184,15.460649 59.9693808,17.0979577 C58.3962141,19.1568908 58.9543722,19.318904 57.1484939,17.9212967 C54.7243438,16.0478003 53.5723002,11.2974971 53.6920659,8.39570525 C53.781581,6.23526987 54.8879763,1.84842269 51.3078111,2.86461591 C47.8009276,3.86128948 49.6590375,10.8387852 50.0116201,13.3177814 C50.3931233,16.0052474 50.6468605,18.7543956 50.1948883,21.4906608 C47.2109167,18.4409099 46.7758614,24.7926055 46.1779169,25.8763368 C45.1988562,27.6534061 43.310101,28.5232019 41.8428337,29.7357629 C41.0431153,26.9417195 44.2482173,24.5790605 43.6123112,22.3561622 C42.4186453,18.1910583 39.0417626,24.0719399 38.2998862,25.2263323 C37.6814572,26.1886512 35.6651905,31.6682087 34.9351609,32.1593232 C33.9115906,32.848367 27.3301947,29.6315279 26.6642795,29.0186108 C25.4417603,27.8938883 25.8867201,24.7465391 24.3487748,24.0297774 C19.6293173,21.8322547 22.4173261,29.7638712 23.3441752,31.4035222 C25.7628153,35.687696 26.8597232,40.8604044 26.2928172,45.9077967 C25.4350389,45.6056325 24.378271,44.5964663 23.8253733,43.8305151 C22.7491426,42.3411654 23.1404237,39.9656235 22.017351,38.8436337 C18.7294809,35.5639414 18.3438318,41.7216116 18.6111593,43.6353185 C19.1118632,47.2226407 20.9020846,48.3856217 22.3890054,51.3693961 C23.7571524,54.1197154 21.943774,57.4376663 21.5613192,60.4944442 C18.1321771,57.1944514 3.36588279,59.9510171 7.16521769,64.996067 C9.14262534,67.628878 11.4834592,62.6185731 13.763287,62.7450604 C17.8464603,62.9714884 19.9981829,68.0411331 19.730271,71.5921487 C19.2330959,69.6940575 17.308498,67.8307112 15.9842104,70.148475 C15.0865685,71.7213688 16.6185854,74.4088349 17.3583008,75.9707976 C16.4523462,75.5265303 11.9860935,73.4504198 11.1123314,73.8095815 C7.67255627,75.2239756 12.4125819,77.9610216 13.6493116,78.5079623 C17.8734551,80.3759933 20.5363542,82.427509 21.8496116,87.4998864 C19.4819334,86.7425238 19.8941915,85.6220957 18.2972545,84.4567723 C16.830792,83.3870952 16.5566308,83.9387206 15.2071591,83.5889284 C12.8451619,82.9775728 9.76564295,82.1620417 7.09694168,83.2707581 C5.12707484,84.0898028 1.809527,86.5809011 1.19123199,88.9213077 C0.433581882,91.7946008 2.03522104,92.5273687 4.0949367,91.063785 C6.54565844,89.3249741 6.99233616,85.9593953 10.6783285,86.1030599 C12.4468385,86.1721595 14.198865,87.0989527 15.3182307,88.4286316 C16.1532654,89.4217916 16.6409799,90.859219 17.4378821,91.9242113 C18.1406712,92.8638875 20.0019971,94.1826354 20.3954288,95.1781378 C21.8129983,98.7732678 19.1191629,101.97332 17.3124291,104.492136 C16.8931801,103.937778 13.8353612,102.734196 13.2017458,102.613565 C10.2619363,102.05257 9.16499332,103.411918 11.003339,106.125931 C11.5823428,106.981673 12.8005957,107.342006 13.4385893,108.120059 C14.1501828,108.989074 14.5506213,110.319534 15.2570206,111.263504 C16.6502186,113.127241 18.3720966,114.086046 20.0353361,115.585546 C19.4216552,115.995069 19.4893606,114.962089 18.9332619,115.176024 C18.5290809,115.331791 17.8260425,115.020647 17.3157029,115.190078 C16.4875948,115.464915 16.5976214,116.907417 16.0678004,117.11862 C12.7691062,118.433464 9.44069672,113.504361 6.48191847,113.343909 C4.86832034,113.256461 3.50714906,114.33785 4.28187338,116.365942 C4.82030298,117.777604 7.1521321,118.543555 8.31806645,119.133048 C11.5636759,120.776994 14.7956022,122.001266 18.2658233,120.739516 C21.0634173,123.177911 24.4247131,124.380712 27.9404633,124.415457 C25.9286815,125.412912 23.9404919,126.650458 23.2377959,129.136091 C22.0492883,127.906352 19.1297602,122.18397 17.6048295,126.674272 C16.5600021,129.760719 21.328009,133.54519 23.5253695,134.93577 C20.9696368,135.690791 18.8477815,135.842653 16.2480678,135.542832 C14.8906605,135.386674 11.9114372,133.569004 13.0097195,137.290621 C14.1918233,141.306595 21.2508358,139.501808 23.4900552,138.806518 C23.573221,137.609182 12.720439,150.91495 20.3316507,148.295803 C22.5082405,147.54781 22.7169752,143.295258 25.7496614,142.923213 C29.2527527,142.493 29.604919,146.000291 31.6318019,148.569078 C32.6420388,149.851129 37.301235,152.734182 37.0806939,153.833919 C36.8900419,154.785698 34.3317238,155.329905 33.7876434,156.661927 C33.1549566,158.211397 33.4406255,159.407952 34.3203529,160.740363 C35.8579788,163.072962 38.6803216,163.431343 40.9122645,164.344472 C44.0760798,165.639406 45.222862,167.210738 46.6413081,170.561482 C44.1404008,170.681333 37.0221866,177.920783 41.3837473,179.20908 C43.008912,179.689263 42.7562908,178.242857 43.4326768,177.443722 C43.7062927,176.928403 43.9803807,176.413865 44.2542196,175.898937 C44.712395,174.701211 45.2188422,174.627817 45.7732734,175.678365 C45.8972683,175.647914 47.3835007,176.067196 47.7210266,176.087887 C49.4285338,176.192512 50.5714284,174.896017 51.9872076,174.195261 C53.0103456,173.688921 54.0114437,173.77676 54.7822568,172.609485 C54.6931475,172.74417 55.3356677,170.098476 55.3468697,170.07271 C55.6226004,169.435623 56.3317095,169.525891 56.6573761,168.839152 C47.908417,159.753669 42.1996805,147.719969 41.1683996,134.375285 C36.4198742,132.776426 33,128.28759 33,123 L33,110 C33,104.965228 36.1006595,100.654655 40.4966083,98.8736491 C41.0282518,99.2483349 41.7670825,98.8748923 42,98.0318338 C41.5372601,96.526107 45.2959449,70.1780326 55,63.1563695 C58.618222,60.7183684 78.0082164,60.5372207 97.3126144,60.5504522 C116.408606,60.5635409 135.42084,60.7446886 139,63.1563695 C148.704055,70.1780326 152.46274,96.526107 152,98.0318338 C152.232917,98.8748923 152.971748,99.2483349 153.503392,98.8736491 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(36.000000, 0.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M90.9102919,55.3613196 L175.085702,55.3613196 C193.333279,44.8338001 196.759397,26.1510357 183.849606,9.92600089 C180.635746,5.88682054 175.085702,21.6755614 158.028596,22.6504878 C140.97149,23.6254143 142.608865,16.3498661 124.45759,19.0739248 C106.306316,21.7979835 108.311575,36.37843 96.4671989,39.8768239 C88.5709482,42.2090865 86.7186458,47.370585 90.9102919,55.3613196 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	mask1: (0, _common.uid)("mask-"),
+	mask2: (0, _common.uid)("mask-"),
+	mask3: (0, _common.uid)("mask-"),
+	path1: (0, _common.uid)("path-"),
+	path2: (0, _common.uid)("path-"),
+	path3: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M175.126419,166.897818 C175.841424,169.13759 176.874789,171.230601 178.55519,172.685954 C180.17619,174.090053 183.068114,173.745469 185.098621,173.802748 C186.770693,173.850632 188.444623,173.856087 190.114529,173.783655 C190.95366,173.747287 191.327571,174.79771 190.648775,175.281705 C190.518773,175.374442 190.388771,175.462634 190.25846,175.543856 C189.20761,176.198779 188.11838,176.802787 187.008721,177.356184 C184.485135,178.614206 181.821334,179.600077 179.02722,180.090436 C177.110792,180.426519 175.211229,180.489668 173.372596,180.266511 C173.858877,180.986862 174.419563,181.642356 175.071506,182.207788 C176.801481,183.708407 179.887821,183.340135 182.054832,183.401352 C183.839313,183.452528 185.625776,183.458358 187.407944,183.380946 C188.303488,183.342078 188.702535,184.464709 187.978106,184.981974 C187.839364,185.081086 187.700623,185.175341 187.561551,185.262145 C186.440057,185.962089 185.2776,186.607617 184.093342,187.199055 C181.400104,188.543555 178.557223,189.597195 175.57527,190.121262 C170.075488,191.087126 164.705859,189.943766 160.380755,186.413279 C159.16361,185.419765 158.027363,184.287616 157,183.053001 L157,180.610951 C163.949635,177.309539 170.111406,172.618864 175.126419,166.897818 Z M81.3150549,151.593977 C80.572738,153.13892 79.8051751,154.672522 79.0058562,156.190972 C74.2106831,165.300379 68.2421528,176.792949 56.4993303,177.596328 C55.4105393,177.670743 54.9804404,178.942941 55.8287461,179.588187 C66.9485528,188.041497 92.2609618,193.18734 101.273548,191.569729 C104.095212,191.063278 106.638877,190.402091 109,189.610443 L109,180.610951 C96.5625107,174.702544 86.6484598,164.344483 81.3150549,151.593977 Z M195.90592,68.6796644 C196.081329,74.1868816 195.28885,79.9070851 194.184533,85.2955724 C193.189889,90.1482867 189.869671,93.9714569 188.837367,98.7289227 C184.809898,85.0481908 169.433037,80.4838679 160.242068,71.1548033 C162.238626,74.9478777 165.29094,78.1026546 167.294435,81.8328914 C158.047309,76.1675881 149.087576,67.953725 145.262273,57.5379012 C144.554691,62.9359795 142.545911,67.9275978 139.15401,72.2035294 C136.142657,76.0002417 131.572444,80.0744315 126.858864,81.5445 C129.286511,76.0372828 131.361358,70.327001 133.266412,64.6190342 C131.249704,67.2357231 124.568637,78.352682 122.891185,81.1086057 C121.234875,83.8298033 119.37772,86.426318 117.383805,88.9120401 C116.450603,90.0751967 115.455298,91.1993278 114.453055,92.302954 C113.869349,92.9458816 113.274082,93.578226 112.665931,94.1980029 C112.450882,94.4169423 110.823641,96.2071517 111.753871,95.0036468 C109.537639,97.8062025 106.276221,99.9826977 103.44325,102.112561 C100.59079,104.256976 97.4833088,106.08125 94.2522818,107.589351 C87.0932166,110.931649 79.7402436,112.148383 71.9327267,110.752066 C73.127556,111.05104 75.6533133,109.906073 76.8887739,109.570058 C78.6980301,109.07761 80.3625987,108.452872 82.0017312,107.546357 C85.2753717,105.735312 88.3514706,103.576015 91.1778346,101.127995 C88.4707222,102.280238 86.2726593,104.461694 83.513684,105.671152 C81.2270908,106.673576 78.9669245,107.196782 76.4817987,107.437218 C71.0203357,107.966046 64.4865987,106.716901 59.7607964,103.849523 C54.2686121,100.517478 51.2186099,94.7989286 49.7717335,88.7129442 C48.0913088,81.6460323 49.1355043,73.6726057 53.0992189,67.6388757 C53.2336661,69.781637 57.5349852,70.703365 61.0154166,70.1662691 C70.6728211,68.675365 76.4180436,32.1184491 101.441738,25.5998777 C121.403017,20.3995724 135.651446,29.4743102 136.862131,30.2568033 C138.299428,31.1854765 138.85043,30.796545 140.483286,30.4052984 C146.829392,28.8846292 153.741035,28.1960616 160.187893,29.4782789 C166.528383,30.7396605 172.606255,34.0244119 177.74696,37.856181 C187.273882,44.9574883 195.508524,56.4379129 195.90592,68.6796644 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t<path\n\t\t\t\t\t\t\tstroke=\"none\"\n\t\t\t\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\t\t\t\tfill=\"#000000\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\td=\"M175.126419,166.897818 C175.841424,169.13759 176.874789,171.230601 178.55519,172.685954 C180.17619,174.090053 183.068114,173.745469 185.098621,173.802748 C186.770693,173.850632 188.444623,173.856087 190.114529,173.783655 C190.95366,173.747287 191.327571,174.79771 190.648775,175.281705 C190.518773,175.374442 190.388771,175.462634 190.25846,175.543856 C189.20761,176.198779 188.11838,176.802787 187.008721,177.356184 C184.485135,178.614206 181.821334,179.600077 179.02722,180.090436 C177.110792,180.426519 175.211229,180.489668 173.372596,180.266511 C173.858877,180.986862 174.419563,181.642356 175.071506,182.207788 C176.801481,183.708407 179.887821,183.340135 182.054832,183.401352 C183.839313,183.452528 185.625776,183.458358 187.407944,183.380946 C188.303488,183.342078 188.702535,184.464709 187.978106,184.981974 C187.839364,185.081086 187.700623,185.175341 187.561551,185.262145 C186.440057,185.962089 185.2776,186.607617 184.093342,187.199055 C181.400104,188.543555 178.557223,189.597195 175.57527,190.121262 C170.075488,191.087126 164.705859,189.943766 160.380755,186.413279 C159.16361,185.419765 158.027363,184.287616 157,183.053001 L157,180.610951 C163.949635,177.309539 170.111406,172.618864 175.126419,166.897818 Z M81.3150549,151.593977 C80.572738,153.13892 79.8051751,154.672522 79.0058562,156.190972 C74.2106831,165.300379 68.2421528,176.792949 56.4993303,177.596328 C55.4105393,177.670743 54.9804404,178.942941 55.8287461,179.588187 C66.9485528,188.041497 92.2609618,193.18734 101.273548,191.569729 C104.095212,191.063278 106.638877,190.402091 109,189.610443 L109,180.610951 C96.5625107,174.702544 86.6484598,164.344483 81.3150549,151.593977 Z\"\n\t\t\t\t\t\t\t/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M198.74696,37.856181 C193.606255,34.0244119 187.528383,30.7396605 181.187893,29.4782789 C174.741035,28.1960616 170.829392,27.8846292 164.483286,29.4052984 C162.85043,29.796545 162.299428,30.1854765 160.862131,29.2568033 C159.651446,28.4743102 151.200134,19.7668788 125.441738,24.5998777 C99.4069464,29.4847361 91.6728211,68.675365 82.0154166,70.1662691 C78.5349852,70.703365 74.2336661,69.781637 74.0992189,67.6388757 C70.1355043,73.6726057 69.0913088,81.6460323 70.7717335,88.7129442 C72.2186099,94.7989286 75.2686121,100.517478 80.7607964,103.849523 C85.4865987,106.716901 92.0203357,107.966046 97.4817987,107.437218 C99.9669245,107.196782 102.227091,106.673576 104.513684,105.671152 C107.272659,104.461694 109.470722,102.280238 112.177835,101.127995 C109.351471,103.576015 106.275372,105.735312 103.001731,107.546357 C101.362599,108.452872 99.6980301,109.07761 97.8887739,109.570058 C96.6533133,109.906073 94.127556,111.05104 92.9327267,110.752066 C100.740244,112.148383 108.093217,110.931649 115.252282,107.589351 C118.483309,106.08125 121.59079,104.256976 124.44325,102.112561 C127.276221,99.9826977 130.537639,97.8062025 132.753871,95.0036468 C131.823641,96.2071517 133.450882,94.4169423 133.665931,94.1980029 C134.274082,93.578226 134.869349,92.9458816 135.453055,92.302954 C136.455298,91.1993278 137.450603,90.0751967 138.383805,88.9120401 C140.37772,86.426318 142.234875,83.8298033 143.891185,81.1086057 C145.568637,78.352682 152.249704,67.2357231 154.266412,64.6190342 C152.361358,70.327001 150.286511,76.0372828 147.858864,81.5445 C152.572444,80.0744315 157.142657,76.0002417 160.15401,72.2035294 C163.545911,67.9275978 165.554691,62.9359795 166.262273,57.5379012 C170.087576,67.953725 179.047309,76.1675881 188.294435,81.8328914 C186.29094,78.1026546 183.238626,74.9478777 181.242068,71.1548033 C190.433037,80.4838679 205.809898,85.0481908 209.837367,98.7289227 C210.869671,93.9714569 214.189889,90.1482867 215.184533,85.2955724 C216.28885,79.9070851 217.081329,74.1868816 216.90592,68.6796644 C216.508524,56.4379129 208.273882,44.9574883 198.74696,37.856181 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" transform=\"translate(143.465161, 67.234158) scale(-1, 1) translate(-143.465161, -67.234158) \" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M94.2519269,52.0221149 C94.3749353,51.9677149 94.0696712,51.9468149 93.3361345,51.9595149 C94.2276637,51.9577149 94.5329279,51.9785149 94.2519269,52.0221149 M86.1169775,36.3015924 C86.1148422,36.2819924 86.1337548,36.4526924 86.1169775,36.3015924 M193.765056,70.7656665 C193.500946,67.448734 193.03295,64.1518864 192.246676,60.9110823 C191.622233,58.3353492 190.769007,55.8775343 189.760006,53.4200433 C189.150703,51.9353766 187.727538,49.8961062 187.560324,48.2944933 C187.395466,46.7168527 188.626521,44.969138 188.889285,43.1323368 C189.144311,41.3447761 189.100909,39.4652134 188.734183,37.6938503 C187.901144,33.6710288 185.140271,29.9300447 180.877167,28.8814158 C179.925362,28.6471994 177.913417,28.9358396 177.240862,28.3815597 C176.469729,27.7459682 175.932761,25.5806808 175.234637,24.7121687 C173.244224,22.2362125 170.13984,20.6417265 166.865887,21.1976261 C164.454917,21.606776 165.839391,22.1053363 164.032005,20.6864317 C163.027041,19.8976114 162.276095,18.6931622 161.300066,17.8392279 C159.832826,16.5563826 158.149588,15.4581893 156.408146,14.556958 C151.851325,12.19892 146.654249,10.4848961 141.564162,9.64942693 C132.278934,8.12523827 122.368926,9.45408458 113.368668,11.8688141 C108.890239,13.0703477 104.381531,14.5951842 100.222053,16.6117782 C98.4385542,17.4764029 97.4090304,18.1936301 95.5494951,18.4200717 C92.6207355,18.7767416 90.1404579,18.7589243 87.3661268,20.0009517 C78.8298269,23.8229236 74.9849256,32.6897818 78.3066539,41.1750259 C78.974835,42.8815988 79.8795374,44.3801954 81.1267416,45.7586062 C82.6474761,47.4392631 83.1975648,47.1085093 81.8877817,49.0411999 C79.9289949,51.9311653 78.2777195,55.0129095 76.9332826,58.2128958 C73.4043038,66.6145606 72.8138416,76.0771643 73.043634,85.0373203 C73.1240445,88.1741362 73.2586228,91.3495022 73.753198,94.4561907 C73.966841,95.8009106 74.0267283,98.3293468 75.0353925,99.3271154 C75.5471264,99.8331265 76.2762042,100.115288 77.0035997,99.9137903 C78.7130802,99.4401742 78.1253096,98.1787097 78.1650102,97.0076274 C78.364859,91.1240324 78.0950295,85.9191145 79.4943071,80.1064647 C80.5278683,75.8118486 82.2504702,71.9114806 84.4827873,68.0713675 C87.3213795,63.1871608 90.3857268,58.8977279 94.2895061,54.7155226 C95.2073299,53.7320079 95.4078515,53.3150832 96.6385698,53.243814 C97.5705244,53.1900382 98.9338023,53.8282213 99.8398505,54.0491558 C101.837665,54.5360539 103.83918,55.0174448 105.873331,55.3452831 C109.613261,55.9481556 113.316519,55.9886494 117.090094,55.8704074 C124.516459,55.6381346 131.974787,55.1172217 139.175061,53.2470535 C143.956964,52.00535 148.196516,49.7762443 152.776887,48.1422364 C152.858644,48.1130808 154.006596,47.2951049 154.207791,47.3284719 C154.488723,47.3747968 156.184746,49.1542588 156.471061,49.3784327 C158.696649,51.1238798 161.137899,51.8566566 163.541467,53.2081794 C166.504881,54.8745825 163.634999,52.4899804 165.269452,54.5668292 C165.745859,55.1716454 165.989782,56.2931632 166.371984,56.9783192 C167.587899,59.1610999 169.279548,61.0795367 171.302932,62.6017816 C173.258018,64.0725184 176.196198,64.7829426 177.193087,66.697168 C177.961865,68.1740599 178.220929,70.1812592 178.841334,71.7579279 C180.468722,75.8931602 182.617937,79.7494709 184.767152,83.6443317 C186.498502,86.7830913 188.392354,89.5250111 188.584801,93.1117947 C188.651754,94.3603012 187.463764,101.849397 190.357534,99.5716982 C190.786502,99.2341415 191.711391,95.415733 191.901483,94.7678314 C192.672616,92.135083 192.94682,89.3866841 193.29605,86.6816947 C193.990474,81.3021672 194.218584,76.1837441 193.765056,70.7656665\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M180.14998,39.9204083 C177.390206,37.1003988 174.185913,34.7068297 171.069252,32.3065503 C170.381566,31.777442 169.682843,31.2610833 169.010544,30.7118441 C168.857687,30.5870323 167.291999,29.4657388 167.104691,29.0530544 C166.653816,28.0602634 166.915042,28.8332916 166.977255,27.6485857 C167.055857,26.150508 170.11064,21.9193194 167.831176,20.9490079 C166.828413,20.522232 165.039628,21.6579526 164.077671,22.0330592 C162.196235,22.7671676 160.291721,23.3932399 158.346734,23.9330847 C159.278588,22.0763407 161.055333,18.3594977 157.71591,19.3543018 C155.114345,20.1293431 152.690052,22.1219709 150.075777,23.0594018 C150.940735,21.6415124 154.399901,17.2479341 151.274209,17.0023366 C150.301549,16.925839 147.471201,18.7503735 146.423952,19.1395717 C143.287223,20.3054888 140.083264,21.0590571 136.789999,21.6525844 C125.59203,23.6707114 112.497238,23.0953019 102.1368,28.1934632 C94.1494796,32.1236942 86.262502,38.2220278 81.648386,45.987539 C77.2011742,53.472559 75.537818,61.6641751 74.6069673,70.2412987 C73.9239644,76.535909 73.8684412,83.0425652 74.1878671,89.3599905 C74.2922241,91.4297869 74.5250203,100.970847 77.5319724,98.0813859 C79.0300967,96.641688 79.019059,90.8282073 79.3963495,88.8604076 C80.1472513,84.9452748 80.870057,81.0126951 82.122006,77.2227096 C84.3282191,70.5439339 86.9307879,63.4296587 92.4269209,58.8297383 C95.9539853,55.8782066 98.4307906,51.8889248 101.806002,48.9112229 C103.322188,47.5738572 102.165231,47.7130963 104.602902,47.888571 C106.240504,48.006337 107.885464,48.0512961 109.52641,48.0942421 C113.322394,48.1928837 117.124399,48.16772 120.921387,48.1811407 C128.56821,48.208653 136.179243,48.316689 143.818708,47.9164188 C147.213653,47.7385955 150.617965,47.6423024 154.00388,47.3282597 C155.895349,47.152785 159.251496,45.9405668 160.808488,46.8669256 C162.233362,47.7144383 163.71309,50.4817719 164.736257,51.615144 C167.153525,54.2935659 170.035717,56.3392052 172.862385,58.5354911 C178.756547,63.114945 181.732392,68.8666908 183.522515,76.023241 C185.305949,83.1532854 184.805905,89.76815 187.013456,96.78479 C187.401784,98.0184813 188.428965,100.14498 189.695296,98.2389151 C189.930434,97.8849461 189.869559,95.9390277 189.869559,94.819339 C189.869559,90.2995934 191.014141,86.9083772 190.999758,82.3591197 C190.943566,68.5271489 190.49637,50.4908308 180.14998,39.9204083 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M167.308863,35.006118 C147.121091,23.3065109 127.128954,25.2219854 112.036894,29.0299707 C96.9448338,32.8379559 88.0168242,43.6513048 80.3566792,59.6480618 C76.5956048,67.5028569 74.3660182,76.7914798 74.0230569,85.4813651 C73.8884429,88.8932666 74.3484305,92.415154 75.267729,95.7003546 C75.6049405,96.9061873 77.4232441,101.086987 77.9224658,97.70885 C78.0885348,96.584253 77.4804043,95.0327505 77.4215529,93.8376154 C77.3444374,92.2693977 77.4273028,90.6807875 77.5341822,89.1149098 C77.7340739,86.1874141 78.2559568,83.3154127 79.1847257,80.524647 C80.5119249,76.5367405 82.2013644,72.212859 84.7874413,68.8480942 C91.1883705,60.5205939 102.268658,60.045883 111.066257,55.4635848 C110.302881,56.8686624 107.359637,59.1432635 108.379389,60.7268592 C109.083576,61.8207003 111.749474,61.4890712 113.022219,61.4539693 C116.370996,61.3623702 119.734993,60.7796791 123.042844,60.306974 C128.255923,59.5618115 133.140585,58.0517626 138.046555,56.2181078 C142.06299,54.7164165 146.650012,53.3257139 149.66868,50.1404701 C154.539813,55.1881187 160.809849,59.9345599 167.070414,63.1428706 C172.68835,66.0222267 181.748751,67.461069 185.182761,73.3006826 C189.2479,80.2147477 187.37751,88.7073939 188.619138,96.2008069 C189.091302,99.05041 190.164155,98.986558 190.751315,96.4378281 C191.748406,92.1082634 192.219217,87.6102098 191.901961,83.1592929 C191.183568,73.1114668 187.496636,46.7057251 167.308863,35.006118 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M183.679824,38.9488198 C189.086072,33.9985622 190.387393,23.9615454 187.317704,17.4493246 C183.549263,9.45385312 175.901319,8.45217737 168.572342,11.9686703 C161.664469,15.2835661 155.515175,16.3878671 147.950196,14.7817319 C140.691624,13.2406923 133.805566,10.5226172 126.303388,10.0762471 C113.978028,9.34292483 102.003367,13.914565 93.6031232,23.1292512 C92.0003538,24.8871655 90.7089493,26.8971594 89.4882796,28.9343872 C88.5115454,30.5644351 87.4105298,32.3133822 86.9950459,34.1921885 C86.7973853,35.0855929 87.165272,37.2898774 86.7203704,38.0218712 C86.2391099,38.8123183 84.4244668,39.5373375 83.6510124,40.1238625 C82.0842713,41.3125222 80.7267597,42.6539573 79.4713836,44.1710842 C76.8052796,47.3926541 75.3376994,50.7577001 74.1034777,54.7428152 C70.0005333,67.9877849 69.6528094,83.7412616 74.9569218,96.7467724 C75.6639385,98.4811062 77.8550622,102.098564 79.1431613,98.3847912 C79.3976741,97.6508047 78.8086588,95.1907873 78.8099809,94.4501584 C78.8146084,91.7300906 80.3160587,73.7213568 86.857084,63.6330196 C88.9862338,60.3491948 98.8298903,48.0522456 100.840541,47.9536058 C101.9058,49.6464245 112.720532,60.4624529 140.783385,59.1948919 C153.445253,58.6229725 163.18265,52.9341181 165.520833,50.4680909 C166.549375,56.0008881 178.51323,64.2839965 180.33625,67.6921976 C185.602529,77.5376948 186.770677,97.9957204 188.780988,97.9573368 C190.791299,97.9189532 192.234429,92.7197798 192.647929,91.7270713 C195.719601,84.351669 196.242509,75.0948338 195.914948,67.1684434 C195.487565,56.9663626 191.276535,45.9419513 183.679824,38.9488198 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<use stroke=\"none\" fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M6,28 C0.923687084,28.0709555 0,26.9937684 0,23 C1.30010922e-16,17.3439836 4.0408529,6.77808536 8,2 C9.17612094,-0.170695788 11.6189856,-1.43187215 11,3 C8.3404922,11.4766099 11.4173429,27.914487 6,28 Z M120,28 C114.582657,27.914487 117.659508,11.4766099 115,3 C114.381014,-1.43187215 116.823879,-0.170695788 118,2 C121.959147,6.77808536 126,17.3439836 126,23 C126,26.9937684 125.076313,28.0709555 120,28 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(70.000000, 74.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: [""],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<defs>\n\t\t\t\t\t<path\n\t\t\t\t\t\td=\"M82.0179468,24.3784638 C74.9860629,23.6847351 66.6573358,23.2514721 58.3126144,23.245568 C39.0082164,23.2319099 19.618222,25.4833872 16,28 C6.29594493,35.2480719 2.53726005,62.445722 3,64 C2.67275588,65.2226722 1.34685629,65.488448 1,64 C0.280821545,53.7019177 1,1.72563718 58,1 C115,0.274362825 115.719178,53.7019177 115,64 C114.653144,65.488448 113.327244,65.2226722 113,64 C113.46274,62.445722 109.704055,35.2480719 100,28 C98.2407122,26.7763475 92.7526689,25.6101897 85.3587425,24.7390449 L89,16 L82.0179468,24.3784638 Z\"\n\t\t\t\t\t\tid=\"" + id.path1 + "\"/>\n\t\t\t\t</defs>\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(75.000000, 34.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path1: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n\t\t\tid=\"" + id.path1 + "\"\n\t\t\td=\"M1,64 C1.34685629,65.488448 2.67275588,65.2226722 3,64 C2.53726005,62.445722 6.29594493,35.2480719 16,28 C19.618222,25.4833872 39.0082164,23.2319099 58.3126144,23.245568 C77.4086061,23.2590787 96.4208396,25.5105561 100,28 C109.704055,35.2480719 113.46274,62.445722 113,64 C113.327244,65.2226722 114.653144,65.488448 115,64 C115.719178,53.7019177 115,0.274362825 58,1 C1,1.72563718 0.280821545,53.7019177 1,64 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\">\n\t\t\t\t<g mask=\"url(#frameMask)\">\n\t\t\t\t\t<g transform=\"translate(-1.000000, 0.000000)\">\n\t\t\t\t\t\t<g stroke-width=\"1\" fill-rule=\"evenodd\" transform=\"translate(75.000000, 34.000000)\">\n\t\t\t\t\t\t\t<use fill=\"" + color + "\" xlink:href=\"#" + id.path1 + "\"/>\n\t\t\t\t\t\t</g>\n\t\t\t\t\t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t";
+	},
+
+	attrs: {
+		color: _colors.hairColors
+	}
+});
+
+/***/ }),
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1896,7 +2612,7 @@ exports.default = new _common.AvatarPart({
 		var maskID = _ref.maskID,
 		    color = _ref.color;
 
-		return "\n\t\t<g transform=\"translate(32.000000, 36.000000)\">\n\t\t\t<g\n\t\t\t\tclass=\"skin\"\n\t\t\t\tmask=\"url(#" + maskID + ")\"\n\t\t\t\tfill=\"" + color + "\">\n\t\t\t\t<g transform=\"translate(-32.000000, 0.000000)\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"264\" height=\"244\" />\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<path\n\t\t\t\tclass=\"neck-shadow\"\n\t\t\t\tfill-opacity=\"0.100000001\"\n\t\t\t\tfill=\"#000000\"\n\t\t\t\tmask=\"url(#" + maskID + ")\"\n\t\t\t\td=\"M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z\"\n\t\t\t/>\n\t\t</g>";
+		return "\n\t\t<g transform=\"translate(32.000000, 36.000000)\">\n\t\t\t<g\n\t\t\t\t\n\t\t\t\tmask=\"url(#" + maskID + ")\"\n\t\t\t\tfill=\"" + color + "\">\n\t\t\t\t<g transform=\"translate(-32.000000, 0.000000)\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"264\" height=\"244\" />\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<path\n\t\t\t\t\n\t\t\t\tfill-opacity=\"0.100000001\"\n\t\t\t\tfill=\"#000000\"\n\t\t\t\tmask=\"url(#" + maskID + ")\"\n\t\t\t\td=\"M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z\"\n\t\t\t/>\n\t\t</g>";
 	},
 
 	attrs: {

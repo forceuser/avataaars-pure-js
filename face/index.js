@@ -1,13 +1,13 @@
-import {AvatarPart, uid} from "../common";
+import {AvatarPart} from "../common";
 import eyebrow from "./eyebrow/index";
 import eyes from "./eyes/index";
 import mouth from "./mouth/index";
 import nose from "./nose/index";
 
 export default new AvatarPart({
-	render () {
+	render ({eyebrow, eyes, mouth, nose}) {
 		return `
-		<g transform="translate(76.000000, 82.000000)" fill="#000000">
+		<g class="face" transform="translate(76.000000, 82.000000)" fill="#000000">
 			${this.include(eyebrow)}
 			${this.include(eyes)}
 			${this.include(mouth)}

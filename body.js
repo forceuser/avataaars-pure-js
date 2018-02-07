@@ -6,7 +6,7 @@ export default new AvatarPart({
 		return `
 		<g transform="translate(32.000000, 36.000000)">
 			<g
-				class="skin"
+				
 				mask="url(#${maskID})"
 				fill="${color}">
 				<g transform="translate(-32.000000, 0.000000)">
@@ -14,7 +14,7 @@ export default new AvatarPart({
 				</g>
 			</g>
 			<path
-				class="neck-shadow"
+				
 				fill-opacity="0.100000001"
 				fill="#000000"
 				mask="url(#${maskID})"

@@ -22,8 +22,9 @@ export class AvatarPart {
 		}
 		return this.data.render;
 	}
-	include (part, options) {
+	include (part) {
 		if (part) {
+			this.data.defs = this.data.defs || [];
 			this.data.defs.push(...(part.data.defs || []));
 			return part.render();
 		}

@@ -17,11 +17,11 @@ export default class Surprised extends React.Component {
 
   render () {
     return (
-      <g id="Eyes/Surprised-😳" transform="translate(0.000000, 8.000000)">
-        <circle id="The-White-Stuff" fill="#FFFFFF" cx="30" cy="22" r="14" />
-        <circle id="Eye-Ball" fill="#FFFFFF" cx="82" cy="22" r="14" />
+      <g  transform="translate(0.000000, 8.000000)">
+        <circle  fill="#FFFFFF" cx="30" cy="22" r="14" />
+        <circle  fill="#FFFFFF" cx="82" cy="22" r="14" />
         <circle
-          id="Eye"
+          
           fill-opacity="0.699999988"
           fill="#000000"
           cx="30"
@@ -29,7 +29,7 @@ export default class Surprised extends React.Component {
           r="6"
         />
         <circle
-          id="Eye"
+          
           fill-opacity="0.699999988"
           fill="#000000"
           cx="82"

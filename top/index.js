@@ -18,6 +18,23 @@ import longHairFroBand from "./long-hair-fro-band";
 import longHairFro from "./long-hair-fro";
 import longHairMiaWallace from "./long-hair-mia-wallace";
 import longHairNotTooLong from "./long-hair-not-too-long";
+import longHairShavedSides from "./long-hair-shaved-sides";
+import longHairStraight01 from "./long-hair-straight-01";
+import longHairStraight02 from "./long-hair-straight-02";
+import longHairStraightStrand from "./long-hair-straight-strand";
+import shortHairDreads01 from "./short-hair-dreads-01";
+import shortHairDreads02 from "./short-hair-dreads-02";
+import shortHairFrizzle from "./short-hair-frizzle";
+import shortHairShaggyMullet from "./short-hair-shaggy-mullet";
+import shortHairShaggy from "./short-hair-shaggy";
+import shortHairShortCurly from "./short-hair-short-curly";
+import shortHairShortFlat from "./short-hair-short-flat";
+import shortHairShortRound from "./short-hair-short-round";
+import shortHairShortWaved from "./short-hair-short-waved";
+import shortHairSides from "./short-hair-sides";
+import shortHairTheCaesarSidePart from "./short-hair-the-caesar-side-part";
+import shortHairTheCaesar from "./short-hair-the-caesar";
+
 
 export default {
 	blank,
@@ -39,4 +56,20 @@ export default {
 	longHairFro,
 	longHairMiaWallace,
 	longHairNotTooLong,
+	longHairShavedSides,
+	longHairStraight01,
+	longHairStraight02,
+	longHairStraightStrand,
+	shortHairDreads01,
+	shortHairDreads02,
+	shortHairFrizzle,
+	shortHairShaggyMullet,
+	shortHairShaggy,
+	shortHairShortCurly,
+	shortHairShortFlat,
+	shortHairShortRound,
+	shortHairShortWaved,
+	shortHairSides,
+	shortHairTheCaesarSidePart,
+	shortHairTheCaesar,
 };
