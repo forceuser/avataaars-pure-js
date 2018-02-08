@@ -20,7 +20,28 @@
 	<body>
 		<script>
 			const c = document.createElement("div");
-			c.innerHTML = Avataaar.render();
+
+			const avatar = Avataaar.avatar;
+			function render () {
+				return avatar
+					.set({
+						body: avatar.attr("body").set({color: avatar.attr("body").attr("color").brown}),
+						face: avatar.attr("face").set({
+							eyebrow: avatar.attr("face").attr("eyebrow").raisedExcited,
+							eyes: avatar.attr("face").attr("eyes").squint,
+							nose: avatar.attr("face").attr("nose").general,
+							mouth: avatar.attr("face").attr("mouth").vomit,
+						}),
+						clothe: avatar.attr("clothe").shirtCrewNeck.set({color: avatar.attr("clothe").shirtCrewNeck.attr("color").green}),
+						// facialHair: facialHair.beardLight.set({color: hairColors.brownDark}),
+						// accessory: avatar.attr("accessory").kurt.set({color: fabricColors.yellow}),
+						top: avatar.attr("top").shortHairShaggy.set({color: avatar.attr("top").shortHairShaggy.attr("color").brown}),
+						avatarStyle: "circle",
+					})
+					.render();
+			}
+
+			c.innerHTML = render();
 			document.body.appendChild(c.children[0]);
 		</script>
 	</body>

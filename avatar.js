@@ -1,10 +1,10 @@
 import {AvatarPart} from "./common";
 import clothes from "./clothes/index";
 import accessories from "./accessories/index";
-import face from "./face/index";
+import facePart from "./face/index";
 import facialHair from "./facial-hair/index";
 import top from "./top/index";
-import body from "./body";
+import bodyPart from "./body";
 
 const id = {
 	bodyMask: "bodyMask",
@@ -34,8 +34,8 @@ export default new AvatarPart({
 			</g>`;
 	},
 	defs: [
-		`<rect  x="0" y="0" width="264" height="280"/>`,
-		`<mask  fill="white">
+		`<rect id="framePath" x="0" y="0" width="264" height="280"/>`,
+		`<mask id="frameMask" fill="white">
 			<use xlink:href="#framePath"/>
 		</mask>`,
 		`<path
@@ -58,7 +58,7 @@ export default new AvatarPart({
 			<use xlink:href="#${id.contentPath}" />
 		</mask>`,
 	],
-	render ({defs, clothe, accessory, top, skin, facialHair, avatarStyle, circle}) {
+	render ({defs, clothe, face = facePart, accessory, body = bodyPart, top, skin, facialHair, avatarStyle, circle}) {
 		return `
 		<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
@@ -69,11 +69,10 @@ export default new AvatarPart({
 				  	<g transform="translate(825.000000, 1100.000000)">
 						${avatarStyle === "circle" ? circle() : ""}
 						<g
-
 							stroke-width="1"
 							fill-rule="evenodd"
 							mask="${avatarStyle === "circle" ? `url(#${id.contentMask})` : ""}">
-							${this.include(body.set({maskID: id.bodyMask, color: skin}))}
+							${this.include(body.set({maskID: id.bodyMask}))}
 							${this.include(clothe)}
 							${this.include(face)}
 							${this.include(facialHair)}
@@ -86,10 +85,12 @@ export default new AvatarPart({
 		</svg>`.replace("%defs%", defs.join("\n"));
 	},
 	attrs: {
-		skin: body.attr("color"),
+		skin: bodyPart.attr("color"),
 		clothe: clothes,
 		accessory: accessories,
+		face: facePart,
 		facialHair,
+		body: bodyPart,
 		top,
 		avatarStyle: ["none", "circle"],
 	},
