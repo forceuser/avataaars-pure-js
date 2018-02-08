@@ -60,7 +60,7 @@ export default new AvatarPart({
 	],
 	render ({defs, clothe, face = facePart, accessory, body = bodyPart, top, facialHair, avatarStyle, circle}) {
 		return `
-		<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<svg viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
 				%defs%
 			</defs>
