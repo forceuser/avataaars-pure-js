@@ -40,6 +40,6 @@ export default new AvatarPart({
 		`;
 	},
 	attrs: {
-		colors: fabricColors,
+		color: fabricColors,
 	},
 });

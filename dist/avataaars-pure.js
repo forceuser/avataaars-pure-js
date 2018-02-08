@@ -802,7 +802,7 @@ exports.default = new _common.AvatarPart({
 	},
 
 	attrs: {
-		colors: _colors.fabricColors
+		color: _colors.fabricColors
 	}
 });
 
