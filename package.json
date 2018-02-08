@@ -2,7 +2,7 @@
   "name": "avataaars-pure-js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/avataaars-pure.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "http-server -a localhost -p 8061",
