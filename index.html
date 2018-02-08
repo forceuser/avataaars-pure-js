@@ -4,8 +4,28 @@
 	<head>
 		<title>active-view demo</title>
 		<style>
+		*,
+		*:after,
+		*:before {
+			box-sizing: border-box;
+			background: none;
+			color: inherit;
+			font: inherit;
+			padding: 0;
+			margin: 0;
+			outline: none;
+			border: none;
+			box-shadow: none;
+			vertical-align: top;
+			min-height: 0;
+			min-width: 0;
+			list-style: none;
+			text-decoration: none;
+		}
+
 			svg {
 				display: inline-block;
+				width: 300px;
 			}
 
 			body {
@@ -21,11 +41,18 @@
 	<body>
 		<script>
 			const c = document.createElement("div");
-
+			const params = window.location.search.substring(1).split("&").reduce((res, i) => {
+				if (i.split("=")[0]) {
+					res[i.split("=")[0]] = i.split("=")[1];
+				}
+				return res;
+			}, {});
+			console.log("params", params);
 			const avatar = Avataaar.avatar;
 			const random = Avataaar.random;
-			const gender = "F";
-			const refferer = "sdasdasd";
+			const gender = params.gender || ["F", "M"][random.getRandomInt(0, 1)];
+			const norestriction = "norestriction" in params;
+			const refferer = params.ref || random.getRandomInt(1, 10000000);
 
 			function hash (val) {
 				val = val != null ? val.toString() : val;
@@ -50,6 +77,10 @@
 					const keys = Object.keys(collection);
 
 					return collection[keys[h % keys.length]];
+				}
+
+				if (norestriction) {
+					return randomVal(values);
 				}
 
 				if (path === "avatarStyle") {
