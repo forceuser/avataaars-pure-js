@@ -58,7 +58,7 @@ export default new AvatarPart({
 			<use xlink:href="#${id.contentPath}" />
 		</mask>`,
 	],
-	render ({defs, clothe, face = facePart, accessory, body = bodyPart, top, skin, facialHair, avatarStyle, circle}) {
+	render ({defs, clothe, face = facePart, accessory, body = bodyPart, top, facialHair, avatarStyle, circle}) {
 		return `
 		<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
@@ -74,10 +74,10 @@ export default new AvatarPart({
 							mask="${avatarStyle === "circle" ? `url(#${id.contentMask})` : ""}">
 							${this.include(body.set({maskID: id.bodyMask}))}
 							${this.include(clothe)}
+							${this.include(top)}
 							${this.include(face)}
 							${this.include(facialHair)}
 							${this.include(accessory)}
-							${this.include(top)}
 						</g>
 				  	</g>
 				</g>
@@ -85,7 +85,6 @@ export default new AvatarPart({
 		</svg>`.replace("%defs%", defs.join("\n"));
 	},
 	attrs: {
-		skin: bodyPart.attr("color"),
 		clothe: clothes,
 		accessory: accessories,
 		face: facePart,

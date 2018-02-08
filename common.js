@@ -6,7 +6,7 @@ export class AvatarPart {
 	}
 	set (...args) {
 		if (typeof args[0] === "string") {
-			this.data[args[0]] = this.data[args[1]];
+			this.data[args[0]] = args[1];
 		}
 		else {
 			this.data = Object.assign(this.data, args[0]);

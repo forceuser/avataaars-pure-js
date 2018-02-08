@@ -110,7 +110,7 @@ var AvatarPart = exports.AvatarPart = function () {
 			}
 
 			if (typeof args[0] === "string") {
-				this.data[args[0]] = this.data[args[1]];
+				this.data[args[0]] = args[1];
 			} else {
 				this.data = Object.assign(this.data, args[0]);
 			}
@@ -233,7 +233,10 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.avatar = undefined;
-exports.render = render;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.random = random;
 
 var _colors = __webpack_require__(1);
 
@@ -244,21 +247,52 @@ var _avatar2 = _interopRequireDefault(_avatar);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.avatar = _avatar2.default;
-function render() {
-	return _avatar2.default.set({
-		body: _avatar2.default.attr("body").set({ color: _avatar2.default.attr("body").attr("color").brown }),
-		face: _avatar2.default.attr("face").set({
-			eyebrow: _avatar2.default.attr("face").attr("eyebrow").raisedExcited,
-			eyes: _avatar2.default.attr("face").attr("eyes").squint,
-			nose: _avatar2.default.attr("face").attr("nose").general,
-			mouth: _avatar2.default.attr("face").attr("mouth").concerned
-		}),
-		clothe: _avatar2.default.attr("clothe").shirtCrewNeck.set({ color: _avatar2.default.attr("clothe").attr("color").green }),
-		// facialHair: facialHair.beardLight.set({color: hairColors.brownDark}),
-		// accessory: avatar.attr("accessory").kurt.set({color: fabricColors.yellow}),
-		top: _avatar2.default.attr("top").hijab.set({ color: _avatar2.default.attr("top").attr("color").blue03 }),
-		avatarStyle: "circle"
-	}).render();
+
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomVal(collection) {
+	if (Array.isArray(collection)) {
+		return collection[getRandomInt(0, collection.length - 1)];
+	} else {
+		var keys = Object.keys(collection);
+		return collection[keys[getRandomInt(0, keys.length - 1)]];
+	}
+}
+
+random.getRandomInt = getRandomInt;
+random.randomVal = randomVal;
+
+function random(target, part) {
+	var selectFunc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : randomVal;
+
+	if (target instanceof _avatar2.default.constructor) {
+		if (part) {
+			part.target.set(part.key, target);
+		}
+		var attrs = target.attr() || {};
+		var keys = Object.keys(attrs);
+		keys.forEach(function (key) {
+			random(attrs[key], {
+				key: key,
+				target: target,
+				path: part ? part.key + "." + key : key
+			}, selectFunc);
+		});
+	} else if ((typeof target === "undefined" ? "undefined" : _typeof(target)) === "object") {
+		var _keys = Object.keys(target);
+		var key = selectFunc(_keys, part, target);
+		random(target[key], Object.assign({}, part, {
+			path: part.path + "." + key
+		}), selectFunc);
+	} else {
+		if (part) {
+			part.target.set(part.key, target);
+		}
+	}
+	return target;
 }
 
 /***/ }),
@@ -324,16 +358,14 @@ exports.default = new _common.AvatarPart({
 		    _ref$body = _ref.body,
 		    body = _ref$body === undefined ? _body2.default : _ref$body,
 		    top = _ref.top,
-		    skin = _ref.skin,
 		    facialHair = _ref.facialHair,
 		    avatarStyle = _ref.avatarStyle,
 		    circle = _ref.circle;
 
-		return ("\n\t\t<svg width=\"264px\" height=\"280px\" viewBox=\"0 0 264 280\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n\t\t\t<defs>\n\t\t\t\t%defs%\n\t\t\t</defs>\n\t\t\t<g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n\t\t\t\t<g transform=\"translate(-825.000000, -1100.000000)\">\n\t\t\t\t  \t<g transform=\"translate(825.000000, 1100.000000)\">\n\t\t\t\t\t\t" + (avatarStyle === "circle" ? circle() : "") + "\n\t\t\t\t\t\t<g\n\t\t\t\t\t\t\tstroke-width=\"1\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"" + (avatarStyle === "circle" ? "url(#" + id.contentMask + ")" : "") + "\">\n\t\t\t\t\t\t\t" + this.include(body.set({ maskID: id.bodyMask })) + "\n\t\t\t\t\t\t\t" + this.include(clothe) + "\n\t\t\t\t\t\t\t" + this.include(face) + "\n\t\t\t\t\t\t\t" + this.include(facialHair) + "\n\t\t\t\t\t\t\t" + this.include(accessory) + "\n\t\t\t\t\t\t\t" + this.include(top) + "\n\t\t\t\t\t\t</g>\n\t\t\t\t  \t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</svg>").replace("%defs%", defs.join("\n"));
+		return ("\n\t\t<svg width=\"264px\" height=\"280px\" viewBox=\"0 0 264 280\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n\t\t\t<defs>\n\t\t\t\t%defs%\n\t\t\t</defs>\n\t\t\t<g stroke=\"none\" stroke-width=\"1\" fill=\"none\" fill-rule=\"evenodd\">\n\t\t\t\t<g transform=\"translate(-825.000000, -1100.000000)\">\n\t\t\t\t  \t<g transform=\"translate(825.000000, 1100.000000)\">\n\t\t\t\t\t\t" + (avatarStyle === "circle" ? circle() : "") + "\n\t\t\t\t\t\t<g\n\t\t\t\t\t\t\tstroke-width=\"1\"\n\t\t\t\t\t\t\tfill-rule=\"evenodd\"\n\t\t\t\t\t\t\tmask=\"" + (avatarStyle === "circle" ? "url(#" + id.contentMask + ")" : "") + "\">\n\t\t\t\t\t\t\t" + this.include(body.set({ maskID: id.bodyMask })) + "\n\t\t\t\t\t\t\t" + this.include(clothe) + "\n\t\t\t\t\t\t\t" + this.include(top) + "\n\t\t\t\t\t\t\t" + this.include(face) + "\n\t\t\t\t\t\t\t" + this.include(facialHair) + "\n\t\t\t\t\t\t\t" + this.include(accessory) + "\n\t\t\t\t\t\t</g>\n\t\t\t\t  \t</g>\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t</svg>").replace("%defs%", defs.join("\n"));
 	},
 
 	attrs: {
-		skin: _body2.default.attr("color"),
 		clothe: _index2.default,
 		accessory: _index4.default,
 		face: _index6.default,
