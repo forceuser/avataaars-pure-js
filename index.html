@@ -91,11 +91,11 @@
 				if (path === "body.color") {
 					return randomVal(["pale", "light", "brown"]);
 				}
-				if (path === "face.eyes") {
+				if (path === "eyes") {
 					return randomVal(values.filter(val => !["cry", "dizzy", "hearts"].includes(val)));
 				}
 
-				if (path === "face.mouth") {
+				if (path === "mouth") {
 					return randomVal(values.filter(val => !["vomit", "sad", "disbelief", "grimace", "concerned", "serious", "screamOpen", "eating"].includes(val)));
 				}
 				if (path === "facialHair") {
@@ -112,7 +112,7 @@
 					}
 
 				}
-				if (path === "face.eyebrow") {
+				if (path === "eyebrow") {
 					values = values.filter(val => !["unibrowNatural"].includes(val) && !val.startsWith("sad"));
 					if (gender === "F") {
 						return randomVal(values.filter(val => !["unibrowNatural"].includes(val)));

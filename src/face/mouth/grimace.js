@@ -1,11 +1,11 @@
-import {AvatarPart, uid} from "../../common";
+import {FacePart, uid} from "../../common";
 
 const id = {
 	path1: uid("path-"),
 	mask1: uid("mask-"),
 };
 
-export default new AvatarPart({
+export default new FacePart({
 	defs: [
 		`<rect id="${id.path1}" x="24" y="9" width="60" height="22" rx="11"/>`,
 		`<mask id="${id.mask1}" fill="white">

@@ -23,6 +23,7 @@ export default new AvatarPart({
 			</g>
 		`;
 	},
+	zIndex: 10,
 	attrs: {
 		color: hairColors,
 	},

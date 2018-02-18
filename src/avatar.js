@@ -4,6 +4,10 @@ import accessories from "./accessories/index";
 import facePart from "./face/index";
 import facialHair from "./facial-hair/index";
 import top from "./top/index";
+import eyebrow from "./face/eyebrow/index";
+import eyes from "./face/eyes/index";
+import mouth from "./face/mouth/index";
+import nose from "./face/nose/index";
 import bodyPart from "./body";
 
 const id = {
@@ -58,7 +62,7 @@ export default new AvatarPart({
 			<use xlink:href="#${id.contentPath}" />
 		</mask>`,
 	],
-	render ({defs, clothe, face = facePart, accessory, body = bodyPart, top, facialHair, avatarStyle, circle}) {
+	render ({defs, clothe, eyebrow, eyes, mouth, nose, accessory, body = bodyPart, top, facialHair, avatarStyle, circle}) {
 		return `
 		<svg viewBox="0 0 264 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<defs>
@@ -72,12 +76,17 @@ export default new AvatarPart({
 							stroke-width="1"
 							fill-rule="evenodd"
 							mask="${avatarStyle === "circle" ? `url(#${id.contentMask})` : ""}">
-							${this.include(body.set({maskID: id.bodyMask}))}
-							${this.include(clothe)}
-							${this.include(top)}
-							${this.include(face)}
-							${this.include(facialHair)}
-							${this.include(accessory)}
+	${this.include([
+		body,
+		clothe,
+		eyebrow,
+		top,
+		eyes,
+		mouth,
+		facialHair,
+		nose,
+		accessory,
+	])}
 						</g>
 				  	</g>
 				</g>
@@ -87,7 +96,10 @@ export default new AvatarPart({
 	attrs: {
 		clothe: clothes,
 		accessory: accessories,
-		face: facePart,
+		eyebrow,
+		eyes,
+		mouth,
+		nose,
 		facialHair,
 		body: bodyPart,
 		top,

@@ -1,6 +1,6 @@
-import {AvatarPart} from "../../common";
+import {FacePart} from "../../common";
 
-export default new AvatarPart({
+export default new FacePart({
 	defs: [
 
 	],
