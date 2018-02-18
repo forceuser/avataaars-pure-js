@@ -1,5 +1,4 @@
 import {AvatarPart, uid} from "../common";
-import makeColor from "../make-color";
 import {fabricColors} from "../colors";
 
 const id = {

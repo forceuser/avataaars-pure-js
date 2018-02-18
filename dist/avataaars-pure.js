@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -214,22 +214,6 @@ var skinColors = exports.skinColors = {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-function makeColor(color, maskId) {
-    return "\n        <g mask=\"url(#" + maskId + ")\" fill-rule=\"evenodd\" fill=\"" + color + "\">\n            <rect x=\"0\" y=\"0\" width=\"264\" height=\"280\"/>\n        </g>\n    ";
-}
-
-exports.default = makeColor;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.avatar = undefined;
@@ -240,7 +224,7 @@ exports.random = random;
 
 var _colors = __webpack_require__(1);
 
-var _avatar = __webpack_require__(4);
+var _avatar = __webpack_require__(3);
 
 var _avatar2 = _interopRequireDefault(_avatar);
 
@@ -296,7 +280,7 @@ function random(target, part) {
 }
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -308,27 +292,27 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _index = __webpack_require__(5);
+var _index = __webpack_require__(4);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(14);
+var _index3 = __webpack_require__(13);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(23);
+var _index5 = __webpack_require__(22);
 
 var _index6 = _interopRequireDefault(_index5);
 
-var _index7 = __webpack_require__(66);
+var _index7 = __webpack_require__(65);
 
 var _index8 = _interopRequireDefault(_index7);
 
-var _index9 = __webpack_require__(73);
+var _index9 = __webpack_require__(72);
 
 var _index10 = _interopRequireDefault(_index9);
 
-var _body = __webpack_require__(109);
+var _body = __webpack_require__(108);
 
 var _body2 = _interopRequireDefault(_body);
 
@@ -377,7 +361,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -387,35 +371,35 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _blazerShirt = __webpack_require__(6);
+var _blazerShirt = __webpack_require__(5);
 
 var _blazerShirt2 = _interopRequireDefault(_blazerShirt);
 
-var _blazerSweater = __webpack_require__(7);
+var _blazerSweater = __webpack_require__(6);
 
 var _blazerSweater2 = _interopRequireDefault(_blazerSweater);
 
-var _collarSweater = __webpack_require__(8);
+var _collarSweater = __webpack_require__(7);
 
 var _collarSweater2 = _interopRequireDefault(_collarSweater);
 
-var _hoodie = __webpack_require__(9);
+var _hoodie = __webpack_require__(8);
 
 var _hoodie2 = _interopRequireDefault(_hoodie);
 
-var _overall = __webpack_require__(10);
+var _overall = __webpack_require__(9);
 
 var _overall2 = _interopRequireDefault(_overall);
 
-var _shirtCrewNeck = __webpack_require__(11);
+var _shirtCrewNeck = __webpack_require__(10);
 
 var _shirtCrewNeck2 = _interopRequireDefault(_shirtCrewNeck);
 
-var _shirtScoopNeck = __webpack_require__(12);
+var _shirtScoopNeck = __webpack_require__(11);
 
 var _shirtScoopNeck2 = _interopRequireDefault(_shirtScoopNeck);
 
-var _shirtVNeck = __webpack_require__(13);
+var _shirtVNeck = __webpack_require__(12);
 
 var _shirtVNeck2 = _interopRequireDefault(_shirtVNeck);
 
@@ -433,7 +417,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -458,7 +442,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -483,6 +467,36 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M105.192402,29.0517235 L104,29.0517235 L104,29.0517235 C64.235498,29.0517235 32,61.2872215 32,101.051724 L32,110 L232,110 L232,101.051724 C232,61.2872215 199.764502,29.0517235 160,29.0517235 L160,29.0517235 L158.807598,29.0517235 C158.934638,30.0353144 159,31.0364513 159,32.0517235 C159,45.8588423 146.911688,57.0517235 132,57.0517235 C117.088312,57.0517235 105,45.8588423 105,32.0517235 C105,31.0364513 105.065362,30.0353144 105.192402,29.0517235 Z\"/>\n        "],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\t                d=\"M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z\"\n\t                fill=\"#F2F2F2\"\n\t                fill-rule=\"evenodd\"/>\n\t        </g>\n\t    ";
+	},
+
+	attrs: { "color": _colors.fabricColors }
+});
+
+/***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -495,24 +509,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
 var _colors = __webpack_require__(1);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var id = {
-	path: (0, _common.uid)("path-")
+	path: (0, _common.uid)("path-"),
+	mask: (0, _common.uid)("mask-")
 };
 
 exports.default = new _common.AvatarPart({
-	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M105.192402,29.0517235 L104,29.0517235 L104,29.0517235 C64.235498,29.0517235 32,61.2872215 32,101.051724 L32,110 L232,110 L232,101.051724 C232,61.2872215 199.764502,29.0517235 160,29.0517235 L160,29.0517235 L158.807598,29.0517235 C158.934638,30.0353144 159,31.0364513 159,32.0517235 C159,45.8588423 146.911688,57.0517235 132,57.0517235 C117.088312,57.0517235 105,45.8588423 105,32.0517235 C105,31.0364513 105.065362,30.0353144 105.192402,29.0517235 Z\"/>\n        "],
+	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M108,13.0708856 C90.0813006,15.075938 76.2798424,20.5518341 76.004203,34.6449676 C50.1464329,45.5680933 32,71.1646257 32,100.999485 L32,100.999485 L32,110 L232,110 L232,100.999485 C232,71.1646257 213.853567,45.5680933 187.995797,34.6449832 C187.720158,20.5518341 173.918699,15.075938 156,13.0708856 L156,32 L156,32 C156,45.254834 145.254834,56 132,56 L132,56 C118.745166,56 108,45.254834 108,32 L108,13.0708856 Z\"/>\n        ", "<mask id=\"" + id.mask + "\" fill=\"white\">\n            <use xlink:href=\"#" + id.path + "\"/>\n        </mask>"],
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\t                d=\"M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z\"\n\t                fill=\"#F2F2F2\"\n\t                fill-rule=\"evenodd\"/>\n\t        </g>\n\t    ";
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\n\t                d=\"M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z\"\n\t                fill=\"#F4F4F4\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t            <path\n\n\t                d=\"M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z\"\n\t                fill-opacity=\"0.16\"\n\t                fill=\"#000000\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t        </g>\n\t    ";
 	},
 
 	attrs: { "color": _colors.fabricColors }
@@ -531,25 +540,18 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
 var _colors = __webpack_require__(1);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 var id = {
-	path: (0, _common.uid)("path-"),
-	mask: (0, _common.uid)("mask-")
+	path: (0, _common.uid)("path-")
 };
 
 exports.default = new _common.AvatarPart({
-	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M108,13.0708856 C90.0813006,15.075938 76.2798424,20.5518341 76.004203,34.6449676 C50.1464329,45.5680933 32,71.1646257 32,100.999485 L32,100.999485 L32,110 L232,110 L232,100.999485 C232,71.1646257 213.853567,45.5680933 187.995797,34.6449832 C187.720158,20.5518341 173.918699,15.075938 156,13.0708856 L156,32 L156,32 C156,45.254834 145.254834,56 132,56 L132,56 C118.745166,56 108,45.254834 108,32 L108,13.0708856 Z\"/>\n        ", "<mask id=\"" + id.mask + "\" fill=\"white\">\n            <use xlink:href=\"#" + id.path + "\"/>\n        </mask>"],
+	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M94,29.6883435 L94,74 L170,74 L170,29.6883435 C179.362956,30.9893126 188.149952,34.0907916 196.00002,38.6318143 L196,110 L187,110 L77,110 L68,110 L68,38.6318027 C75.8500482,34.0907916 84.6370437,30.9893126 94,29.6883435 Z\"\n\t\t\t/>"],
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <path\n\t                \n\t                d=\"M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z\"\n\t                fill=\"#F4F4F4\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t            <path\n\n\t                d=\"M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z\"\n\t                fill-opacity=\"0.16\"\n\t                fill=\"#000000\"\n\t                fill-rule=\"evenodd\"\n\t                mask=\"url(#" + id.mask + ")\"/>\n\t        </g>\n\t    ";
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <circle fill=\"#F4F4F4\" fill-rule=\"evenodd\" cx=\"81\" cy=\"83\" r=\"5\"/>\n\t            <circle fill=\"#F4F4F4\" fill-rule=\"evenodd\" cx=\"183\" cy=\"83\" r=\"5\"/>\n\t        </g>\n\t    ";
 	},
 
 	attrs: { "color": _colors.fabricColors }
@@ -568,49 +570,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
 var _colors = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var id = {
-	path: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M94,29.6883435 L94,74 L170,74 L170,29.6883435 C179.362956,30.9893126 188.149952,34.0907916 196.00002,38.6318143 L196,110 L187,110 L77,110 L68,110 L68,38.6318027 C75.8500482,34.0907916 84.6370437,30.9893126 94,29.6883435 Z\"\n\t\t\t/>"],
-	render: function render(_ref) {
-		var color = _ref.color;
-
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t            <circle fill=\"#F4F4F4\" fill-rule=\"evenodd\" cx=\"81\" cy=\"83\" r=\"5\"/>\n\t            <circle fill=\"#F4F4F4\" fill-rule=\"evenodd\" cx=\"183\" cy=\"83\" r=\"5\"/>\n\t        </g>\n\t    ";
-	},
-
-	attrs: { "color": _colors.fabricColors }
-});
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _common = __webpack_require__(0);
-
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
-var _colors = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var id = {
 	path: (0, _common.uid)("path-"),
@@ -629,6 +589,36 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _common = __webpack_require__(0);
+
+var _colors = __webpack_require__(1);
+
+var id = {
+	path: (0, _common.uid)("path-")
+};
+
+exports.default = new _common.AvatarPart({
+	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M181.544255,32.3304167 C210.784209,41.4878872 232,68.7921987 232,101.051724 L232,110 L32,110 L32,101.051724 C32,68.3969699 53.7388273,40.8195914 83.5340368,32.0020332 C83.182234,33.4201865 83,34.8712315 83,36.3476251 C83,52.6289957 105.161905,65.8276544 132.5,65.8276544 C159.838095,65.8276544 182,52.6289957 182,36.3476251 C182,34.9849859 181.844766,33.6439396 181.544255,32.3304167 Z\"\n\t\t\t/>"],
+	render: function render(_ref) {
+		var color = _ref.color;
+
+		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t        </g>\n\t    ";
+	},
+
+	attrs: { "color": _colors.fabricColors }
+});
+
+/***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -641,20 +631,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
 var _colors = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var id = {
 	path: (0, _common.uid)("path-")
 };
 
 exports.default = new _common.AvatarPart({
-	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M181.544255,32.3304167 C210.784209,41.4878872 232,68.7921987 232,101.051724 L232,110 L32,110 L32,101.051724 C32,68.3969699 53.7388273,40.8195914 83.5340368,32.0020332 C83.182234,33.4201865 83,34.8712315 83,36.3476251 C83,52.6289957 105.161905,65.8276544 132.5,65.8276544 C159.838095,65.8276544 182,52.6289957 182,36.3476251 C182,34.9849859 181.844766,33.6439396 181.544255,32.3304167 Z\"\n\t\t\t/>"],
+	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M171.319631,29.9364358 C205.706337,35.3665707 232,65.13854 232,101.051724 L232,110 L32,110 L32,101.051724 C32,65.1380521 58.2943778,35.3657617 92.6817711,29.9362145 C93.5835973,35.0053598 96.116393,39.8238432 100.236125,43.5389794 L100.236125,43.5389794 L129.321203,69.7676333 C130.843316,71.1402598 133.156684,71.1402598 134.678797,69.7676333 L134.678797,69.7676333 L163.763875,43.5389794 C164.189462,43.1551884 164.601167,42.7562772 164.998197,42.3430127 C168.414164,38.7873666 170.517305,34.4520434 171.319628,29.9364354 Z\"\n\t\t\t/>"],
 	render: function render(_ref) {
 		var color = _ref.color;
 
@@ -675,71 +659,35 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _common = __webpack_require__(0);
-
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
-var _colors = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var id = {
-	path: (0, _common.uid)("path-")
-};
-
-exports.default = new _common.AvatarPart({
-	defs: ["<path\n            id=\"" + id.path + "\"\n            d=\"M171.319631,29.9364358 C205.706337,35.3665707 232,65.13854 232,101.051724 L232,110 L32,110 L32,101.051724 C32,65.1380521 58.2943778,35.3657617 92.6817711,29.9362145 C93.5835973,35.0053598 96.116393,39.8238432 100.236125,43.5389794 L100.236125,43.5389794 L129.321203,69.7676333 C130.843316,71.1402598 133.156684,71.1402598 134.678797,69.7676333 L134.678797,69.7676333 L163.763875,43.5389794 C164.189462,43.1551884 164.601167,42.7562772 164.998197,42.3430127 C168.414164,38.7873666 170.517305,34.4520434 171.319628,29.9364354 Z\"\n\t\t\t/>"],
-	render: function render(_ref) {
-		var color = _ref.color;
-
-		return "\n\t        <g transform=\"translate(0.000000, 170.000000)\">\n\t            <use fill=\"" + color + "\" fill-rule=\"evenodd\" xlink:href=\"#" + id.path + "\"/>\n\t        </g>\n\t    ";
-	},
-
-	attrs: { "color": _colors.fabricColors }
-});
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _blank = __webpack_require__(15);
+var _blank = __webpack_require__(14);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _eyepatch = __webpack_require__(16);
+var _eyepatch = __webpack_require__(15);
 
 var _eyepatch2 = _interopRequireDefault(_eyepatch);
 
-var _kurt = __webpack_require__(17);
+var _kurt = __webpack_require__(16);
 
 var _kurt2 = _interopRequireDefault(_kurt);
 
-var _prescription = __webpack_require__(18);
+var _prescription = __webpack_require__(17);
 
 var _prescription2 = _interopRequireDefault(_prescription);
 
-var _prescription3 = __webpack_require__(19);
+var _prescription3 = __webpack_require__(18);
 
 var _prescription4 = _interopRequireDefault(_prescription3);
 
-var _round = __webpack_require__(20);
+var _round = __webpack_require__(19);
 
 var _round2 = _interopRequireDefault(_round);
 
-var _sunglasses = __webpack_require__(21);
+var _sunglasses = __webpack_require__(20);
 
 var _sunglasses2 = _interopRequireDefault(_sunglasses);
 
-var _wayfarers = __webpack_require__(22);
+var _wayfarers = __webpack_require__(21);
 
 var _wayfarers2 = _interopRequireDefault(_wayfarers);
 
@@ -757,7 +705,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -779,7 +727,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -806,7 +754,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -839,7 +787,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,7 +813,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -891,7 +839,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -918,7 +866,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -948,7 +896,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -977,7 +925,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -989,19 +937,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _common = __webpack_require__(0);
 
-var _index = __webpack_require__(24);
+var _index = __webpack_require__(23);
 
 var _index2 = _interopRequireDefault(_index);
 
-var _index3 = __webpack_require__(38);
+var _index3 = __webpack_require__(37);
 
 var _index4 = _interopRequireDefault(_index3);
 
-var _index5 = __webpack_require__(51);
+var _index5 = __webpack_require__(50);
 
 var _index6 = _interopRequireDefault(_index5);
 
-var _index7 = __webpack_require__(64);
+var _index7 = __webpack_require__(63);
 
 var _index8 = _interopRequireDefault(_index7);
 
@@ -1026,7 +974,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1036,55 +984,55 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _angryNatural = __webpack_require__(25);
+var _angryNatural = __webpack_require__(24);
 
 var _angryNatural2 = _interopRequireDefault(_angryNatural);
 
-var _angry = __webpack_require__(26);
+var _angry = __webpack_require__(25);
 
 var _angry2 = _interopRequireDefault(_angry);
 
-var _basicNatural = __webpack_require__(27);
+var _basicNatural = __webpack_require__(26);
 
 var _basicNatural2 = _interopRequireDefault(_basicNatural);
 
-var _basic = __webpack_require__(28);
+var _basic = __webpack_require__(27);
 
 var _basic2 = _interopRequireDefault(_basic);
 
-var _flatNatural = __webpack_require__(29);
+var _flatNatural = __webpack_require__(28);
 
 var _flatNatural2 = _interopRequireDefault(_flatNatural);
 
-var _frownNatural = __webpack_require__(30);
+var _frownNatural = __webpack_require__(29);
 
 var _frownNatural2 = _interopRequireDefault(_frownNatural);
 
-var _raisedExcitedNatural = __webpack_require__(31);
+var _raisedExcitedNatural = __webpack_require__(30);
 
 var _raisedExcitedNatural2 = _interopRequireDefault(_raisedExcitedNatural);
 
-var _raisedExcited = __webpack_require__(32);
+var _raisedExcited = __webpack_require__(31);
 
 var _raisedExcited2 = _interopRequireDefault(_raisedExcited);
 
-var _sadConcernedNatural = __webpack_require__(33);
+var _sadConcernedNatural = __webpack_require__(32);
 
 var _sadConcernedNatural2 = _interopRequireDefault(_sadConcernedNatural);
 
-var _sadConcerned = __webpack_require__(34);
+var _sadConcerned = __webpack_require__(33);
 
 var _sadConcerned2 = _interopRequireDefault(_sadConcerned);
 
-var _unibrowNatural = __webpack_require__(35);
+var _unibrowNatural = __webpack_require__(34);
 
 var _unibrowNatural2 = _interopRequireDefault(_unibrowNatural);
 
-var _upDownNatural = __webpack_require__(36);
+var _upDownNatural = __webpack_require__(35);
 
 var _upDownNatural2 = _interopRequireDefault(_upDownNatural);
 
-var _upDown = __webpack_require__(37);
+var _upDown = __webpack_require__(36);
 
 var _upDown2 = _interopRequireDefault(_upDown);
 
@@ -1107,7 +1055,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1126,7 +1074,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1145,7 +1093,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1164,7 +1112,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1183,7 +1131,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1202,7 +1150,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1221,7 +1169,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1240,7 +1188,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1259,7 +1207,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1278,7 +1226,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1297,7 +1245,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1316,7 +1264,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1335,7 +1283,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1354,7 +1302,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1364,51 +1312,51 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _basic = __webpack_require__(39);
+var _basic = __webpack_require__(38);
 
 var _basic2 = _interopRequireDefault(_basic);
 
-var _close = __webpack_require__(40);
+var _close = __webpack_require__(39);
 
 var _close2 = _interopRequireDefault(_close);
 
-var _cry = __webpack_require__(41);
+var _cry = __webpack_require__(40);
 
 var _cry2 = _interopRequireDefault(_cry);
 
-var _dizzy = __webpack_require__(42);
+var _dizzy = __webpack_require__(41);
 
 var _dizzy2 = _interopRequireDefault(_dizzy);
 
-var _eyeRoll = __webpack_require__(43);
+var _eyeRoll = __webpack_require__(42);
 
 var _eyeRoll2 = _interopRequireDefault(_eyeRoll);
 
-var _happy = __webpack_require__(44);
+var _happy = __webpack_require__(43);
 
 var _happy2 = _interopRequireDefault(_happy);
 
-var _hearts = __webpack_require__(45);
+var _hearts = __webpack_require__(44);
 
 var _hearts2 = _interopRequireDefault(_hearts);
 
-var _side = __webpack_require__(46);
+var _side = __webpack_require__(45);
 
 var _side2 = _interopRequireDefault(_side);
 
-var _squint = __webpack_require__(47);
+var _squint = __webpack_require__(46);
 
 var _squint2 = _interopRequireDefault(_squint);
 
-var _surprised = __webpack_require__(48);
+var _surprised = __webpack_require__(47);
 
 var _surprised2 = _interopRequireDefault(_surprised);
 
-var _winkWacky = __webpack_require__(49);
+var _winkWacky = __webpack_require__(48);
 
 var _winkWacky2 = _interopRequireDefault(_winkWacky);
 
-var _wink = __webpack_require__(50);
+var _wink = __webpack_require__(49);
 
 var _wink2 = _interopRequireDefault(_wink);
 
@@ -1430,7 +1378,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1449,7 +1397,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1468,7 +1416,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1487,7 +1435,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1506,7 +1454,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1525,7 +1473,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1544,7 +1492,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1563,7 +1511,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1582,7 +1530,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1609,7 +1557,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1628,7 +1576,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1647,7 +1595,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1666,7 +1614,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1676,51 +1624,51 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _basic = __webpack_require__(52);
+var _basic = __webpack_require__(51);
 
 var _basic2 = _interopRequireDefault(_basic);
 
-var _concerned = __webpack_require__(53);
+var _concerned = __webpack_require__(52);
 
 var _concerned2 = _interopRequireDefault(_concerned);
 
-var _disbelief = __webpack_require__(54);
+var _disbelief = __webpack_require__(53);
 
 var _disbelief2 = _interopRequireDefault(_disbelief);
 
-var _eating = __webpack_require__(55);
+var _eating = __webpack_require__(54);
 
 var _eating2 = _interopRequireDefault(_eating);
 
-var _grimace = __webpack_require__(56);
+var _grimace = __webpack_require__(55);
 
 var _grimace2 = _interopRequireDefault(_grimace);
 
-var _sad = __webpack_require__(57);
+var _sad = __webpack_require__(56);
 
 var _sad2 = _interopRequireDefault(_sad);
 
-var _screamOpen = __webpack_require__(58);
+var _screamOpen = __webpack_require__(57);
 
 var _screamOpen2 = _interopRequireDefault(_screamOpen);
 
-var _serious = __webpack_require__(59);
+var _serious = __webpack_require__(58);
 
 var _serious2 = _interopRequireDefault(_serious);
 
-var _smile = __webpack_require__(60);
+var _smile = __webpack_require__(59);
 
 var _smile2 = _interopRequireDefault(_smile);
 
-var _tongue = __webpack_require__(61);
+var _tongue = __webpack_require__(60);
 
 var _tongue2 = _interopRequireDefault(_tongue);
 
-var _twinkle = __webpack_require__(62);
+var _twinkle = __webpack_require__(61);
 
 var _twinkle2 = _interopRequireDefault(_twinkle);
 
-var _vomit = __webpack_require__(63);
+var _vomit = __webpack_require__(62);
 
 var _vomit2 = _interopRequireDefault(_vomit);
 
@@ -1742,7 +1690,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1762,7 +1710,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1787,7 +1735,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1807,7 +1755,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1827,7 +1775,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1852,7 +1800,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1872,7 +1820,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1897,7 +1845,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1917,7 +1865,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1942,7 +1890,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1967,7 +1915,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1987,7 +1935,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2014,7 +1962,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2024,7 +1972,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _general = __webpack_require__(65);
+var _general = __webpack_require__(64);
 
 var _general2 = _interopRequireDefault(_general);
 
@@ -2035,7 +1983,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2055,7 +2003,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2065,27 +2013,27 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _beardLight = __webpack_require__(67);
+var _beardLight = __webpack_require__(66);
 
 var _beardLight2 = _interopRequireDefault(_beardLight);
 
-var _beardMagestic = __webpack_require__(68);
+var _beardMagestic = __webpack_require__(67);
 
 var _beardMagestic2 = _interopRequireDefault(_beardMagestic);
 
-var _beardMedium = __webpack_require__(69);
+var _beardMedium = __webpack_require__(68);
 
 var _beardMedium2 = _interopRequireDefault(_beardMedium);
 
-var _blank = __webpack_require__(70);
+var _blank = __webpack_require__(69);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _moustacheFancy = __webpack_require__(71);
+var _moustacheFancy = __webpack_require__(70);
 
 var _moustacheFancy2 = _interopRequireDefault(_moustacheFancy);
 
-var _moustacheMagnum = __webpack_require__(72);
+var _moustacheMagnum = __webpack_require__(71);
 
 var _moustacheMagnum2 = _interopRequireDefault(_moustacheMagnum);
 
@@ -2101,7 +2049,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2114,12 +2062,6 @@ Object.defineProperty(exports, "__esModule", {
 var _common = __webpack_require__(0);
 
 var _colors = __webpack_require__(1);
-
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var id = {
 	path: (0, _common.uid)("path-")
@@ -2139,7 +2081,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2152,12 +2094,6 @@ Object.defineProperty(exports, "__esModule", {
 var _common = __webpack_require__(0);
 
 var _colors = __webpack_require__(1);
-
-var _makeColor = __webpack_require__(2);
-
-var _makeColor2 = _interopRequireDefault(_makeColor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var id = {
 	path: (0, _common.uid)("path-")
@@ -2177,7 +2113,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2209,7 +2145,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2231,7 +2167,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2263,7 +2199,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2295,7 +2231,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2305,143 +2241,143 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _hat = __webpack_require__(74);
+var _hat = __webpack_require__(73);
 
 var _hat2 = _interopRequireDefault(_hat);
 
-var _hijab = __webpack_require__(75);
+var _hijab = __webpack_require__(74);
 
 var _hijab2 = _interopRequireDefault(_hijab);
 
-var _blank = __webpack_require__(76);
+var _blank = __webpack_require__(75);
 
 var _blank2 = _interopRequireDefault(_blank);
 
-var _turban = __webpack_require__(77);
+var _turban = __webpack_require__(76);
 
 var _turban2 = _interopRequireDefault(_turban);
 
-var _winterHat = __webpack_require__(78);
+var _winterHat = __webpack_require__(77);
 
 var _winterHat2 = _interopRequireDefault(_winterHat);
 
-var _winterHat3 = __webpack_require__(79);
+var _winterHat3 = __webpack_require__(78);
 
 var _winterHat4 = _interopRequireDefault(_winterHat3);
 
-var _winterHat5 = __webpack_require__(80);
+var _winterHat5 = __webpack_require__(79);
 
 var _winterHat6 = _interopRequireDefault(_winterHat5);
 
-var _winterHat7 = __webpack_require__(81);
+var _winterHat7 = __webpack_require__(80);
 
 var _winterHat8 = _interopRequireDefault(_winterHat7);
 
-var _longHairBig = __webpack_require__(82);
+var _longHairBig = __webpack_require__(81);
 
 var _longHairBig2 = _interopRequireDefault(_longHairBig);
 
-var _longHairBob = __webpack_require__(83);
+var _longHairBob = __webpack_require__(82);
 
 var _longHairBob2 = _interopRequireDefault(_longHairBob);
 
-var _longHairBun = __webpack_require__(84);
+var _longHairBun = __webpack_require__(83);
 
 var _longHairBun2 = _interopRequireDefault(_longHairBun);
 
-var _longHairCurly = __webpack_require__(85);
+var _longHairCurly = __webpack_require__(84);
 
 var _longHairCurly2 = _interopRequireDefault(_longHairCurly);
 
-var _longHairCurvy = __webpack_require__(86);
+var _longHairCurvy = __webpack_require__(85);
 
 var _longHairCurvy2 = _interopRequireDefault(_longHairCurvy);
 
-var _longHairDreads = __webpack_require__(87);
+var _longHairDreads = __webpack_require__(86);
 
 var _longHairDreads2 = _interopRequireDefault(_longHairDreads);
 
-var _longHairFrida = __webpack_require__(88);
+var _longHairFrida = __webpack_require__(87);
 
 var _longHairFrida2 = _interopRequireDefault(_longHairFrida);
 
-var _longHairFroBand = __webpack_require__(89);
+var _longHairFroBand = __webpack_require__(88);
 
 var _longHairFroBand2 = _interopRequireDefault(_longHairFroBand);
 
-var _longHairFro = __webpack_require__(90);
+var _longHairFro = __webpack_require__(89);
 
 var _longHairFro2 = _interopRequireDefault(_longHairFro);
 
-var _longHairMiaWallace = __webpack_require__(91);
+var _longHairMiaWallace = __webpack_require__(90);
 
 var _longHairMiaWallace2 = _interopRequireDefault(_longHairMiaWallace);
 
-var _longHairNotTooLong = __webpack_require__(92);
+var _longHairNotTooLong = __webpack_require__(91);
 
 var _longHairNotTooLong2 = _interopRequireDefault(_longHairNotTooLong);
 
-var _longHairShavedSides = __webpack_require__(93);
+var _longHairShavedSides = __webpack_require__(92);
 
 var _longHairShavedSides2 = _interopRequireDefault(_longHairShavedSides);
 
-var _longHairStraight = __webpack_require__(94);
+var _longHairStraight = __webpack_require__(93);
 
 var _longHairStraight2 = _interopRequireDefault(_longHairStraight);
 
-var _longHairStraight3 = __webpack_require__(95);
+var _longHairStraight3 = __webpack_require__(94);
 
 var _longHairStraight4 = _interopRequireDefault(_longHairStraight3);
 
-var _longHairStraightStrand = __webpack_require__(96);
+var _longHairStraightStrand = __webpack_require__(95);
 
 var _longHairStraightStrand2 = _interopRequireDefault(_longHairStraightStrand);
 
-var _shortHairDreads = __webpack_require__(97);
+var _shortHairDreads = __webpack_require__(96);
 
 var _shortHairDreads2 = _interopRequireDefault(_shortHairDreads);
 
-var _shortHairDreads3 = __webpack_require__(98);
+var _shortHairDreads3 = __webpack_require__(97);
 
 var _shortHairDreads4 = _interopRequireDefault(_shortHairDreads3);
 
-var _shortHairFrizzle = __webpack_require__(99);
+var _shortHairFrizzle = __webpack_require__(98);
 
 var _shortHairFrizzle2 = _interopRequireDefault(_shortHairFrizzle);
 
-var _shortHairShaggyMullet = __webpack_require__(100);
+var _shortHairShaggyMullet = __webpack_require__(99);
 
 var _shortHairShaggyMullet2 = _interopRequireDefault(_shortHairShaggyMullet);
 
-var _shortHairShaggy = __webpack_require__(101);
+var _shortHairShaggy = __webpack_require__(100);
 
 var _shortHairShaggy2 = _interopRequireDefault(_shortHairShaggy);
 
-var _shortHairShortCurly = __webpack_require__(102);
+var _shortHairShortCurly = __webpack_require__(101);
 
 var _shortHairShortCurly2 = _interopRequireDefault(_shortHairShortCurly);
 
-var _shortHairShortFlat = __webpack_require__(103);
+var _shortHairShortFlat = __webpack_require__(102);
 
 var _shortHairShortFlat2 = _interopRequireDefault(_shortHairShortFlat);
 
-var _shortHairShortRound = __webpack_require__(104);
+var _shortHairShortRound = __webpack_require__(103);
 
 var _shortHairShortRound2 = _interopRequireDefault(_shortHairShortRound);
 
-var _shortHairShortWaved = __webpack_require__(105);
+var _shortHairShortWaved = __webpack_require__(104);
 
 var _shortHairShortWaved2 = _interopRequireDefault(_shortHairShortWaved);
 
-var _shortHairSides = __webpack_require__(106);
+var _shortHairSides = __webpack_require__(105);
 
 var _shortHairSides2 = _interopRequireDefault(_shortHairSides);
 
-var _shortHairTheCaesarSidePart = __webpack_require__(107);
+var _shortHairTheCaesarSidePart = __webpack_require__(106);
 
 var _shortHairTheCaesarSidePart2 = _interopRequireDefault(_shortHairTheCaesarSidePart);
 
-var _shortHairTheCaesar = __webpack_require__(108);
+var _shortHairTheCaesar = __webpack_require__(107);
 
 var _shortHairTheCaesar2 = _interopRequireDefault(_shortHairTheCaesar);
 
@@ -2486,7 +2422,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2515,7 +2451,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2550,7 +2486,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2572,7 +2508,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2604,7 +2540,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2641,7 +2577,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2674,7 +2610,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2707,7 +2643,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2742,7 +2678,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2776,7 +2712,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2808,7 +2744,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2840,7 +2776,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2872,7 +2808,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2905,7 +2841,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2938,7 +2874,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2972,7 +2908,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3009,7 +2945,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3036,7 +2972,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3068,7 +3004,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3100,7 +3036,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3136,7 +3072,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3168,7 +3104,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3200,7 +3136,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3232,7 +3168,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3264,7 +3200,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3296,7 +3232,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3328,7 +3264,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3365,7 +3301,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3397,7 +3333,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3429,7 +3365,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 103 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3461,7 +3397,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 104 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3493,7 +3429,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 105 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3525,7 +3461,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 106 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3557,7 +3493,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 107 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3589,7 +3525,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3621,7 +3557,7 @@ exports.default = new _common.AvatarPart({
 });
 
 /***/ }),
-/* 109 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

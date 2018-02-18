@@ -52,6 +52,7 @@
 			const random = Avataaar.random;
 			const gender = params.gender || ["F", "M"][random.getRandomInt(0, 1)];
 			const norestriction = "norestriction" in params;
+			const randomize = "randomize" in params;
 			const refferer = params.ref || random.getRandomInt(1, 10000000);
 
 			function hash (val) {
@@ -95,7 +96,7 @@
 				}
 
 				if (path === "face.mouth") {
-					return randomVal(values.filter(val => !["vomit", "sad", "disbelief", "grimace", "concerned", "serious", "screamOpen"].includes(val)));
+					return randomVal(values.filter(val => !["vomit", "sad", "disbelief", "grimace", "concerned", "serious", "screamOpen", "eating"].includes(val)));
 				}
 				if (path === "facialHair") {
 					if (gender === "F") {

@@ -1,12 +1,9 @@
 /* global __dirname */
 const path = require("path");
-const webpack = require("webpack");
-// const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
 	entry: {
-		"avataaars-pure": path.resolve(__dirname, "./index.js"),
-		// "avataaars-pure.min": path.resolve(__dirname, "../index.js"),
+		"avataaars-pure": path.resolve(__dirname, "./src/index.js"),
 	},
 	output: {
 		path: path.resolve(__dirname, "./dist"),

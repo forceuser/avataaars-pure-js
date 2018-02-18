@@ -1,6 +1,5 @@
 import {AvatarPart, uid} from "../common";
 import {hairColors} from "../colors";
-import makeColor from "../make-color";
 
 const id = {
 	path: uid("path-"),
