@@ -1,7 +1,6 @@
 import {AvatarPart} from "./common";
 import clothes from "./clothes/index";
 import accessories from "./accessories/index";
-import facePart from "./face/index";
 import facialHair from "./facial-hair/index";
 import top from "./top/index";
 import eyebrow from "./face/eyebrow/index";

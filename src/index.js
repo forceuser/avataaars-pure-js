@@ -1,4 +1,3 @@
-import {fabricColors, hairColors, skinColors} from "./colors";
 import avatar from "./avatar";
 
 export {avatar};

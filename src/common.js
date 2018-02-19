@@ -46,11 +46,10 @@ export class AvatarPart {
 				.sort((a, b) => {
 					return a.zIndex - b.zIndex;
 				});
-			console.log("result", result);
 
 			return result.reduce((res, part) => {
-					return res + part.content;
-				}, ``);
+				return res + part.content;
+			}, "");
 		}
 		return "";
 	}
