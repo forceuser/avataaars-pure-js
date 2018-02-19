@@ -18,8 +18,8 @@ export default new AvatarPart({
 			</feMerge>
 		</filter>`,
 		`<linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="${id.linearGradient}">
-			<stop stopColor="#FFFFFF" stopOpacity="0.5" offset="0%"/>
-			<stop stopColor="#000000" stopOpacity="0.5" offset="70.5058195%"/>
+			<stop stop-color="#FFFFFF" stop-opacity="0.5" offset="0%"/>
+			<stop stop-color="#000000" stop-opacity="0.5" offset="70.5058195%"/>
 		</linearGradient>`,
 		`<path
 			id="${id.path1}"
