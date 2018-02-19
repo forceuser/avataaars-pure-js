@@ -3594,7 +3594,7 @@ exports.default = new _common.AvatarPart({
 	render: function render(_ref) {
 		var color = _ref.color;
 
-		return "\n\t\t<g transform=\"translate(32.000000, 36.000000)\">\n\t\t\t<g\n\t\t\t\tmask=\"url(#bodyMask)\"\n\t\t\t\tfill=\"" + color + "\">\n\t\t\t\t<g transform=\"translate(-32.000000, 0.000000)\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"264\" height=\"244\" />\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<path\n\t\t\t\tfill-opacity=\"0.25\"\n\t\t\t\tfill=\"#000000\"\n\t\t\t\tmask=\"url(#bodyMask)\"\n\t\t\t\td=\"M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z\"\n\t\t\t/>\n\t\t</g>";
+		return "\n\t\t<g transform=\"translate(32.000000, 36.000000)\">\n\t\t\t<g\n\t\t\t\tmask=\"url(#bodyMask)\"\n\t\t\t\tfill=\"" + color + "\">\n\t\t\t\t<g transform=\"translate(-32.000000, 0.000000)\">\n\t\t\t\t\t<rect x=\"0\" y=\"0\" width=\"264\" height=\"244\" />\n\t\t\t\t</g>\n\t\t\t</g>\n\t\t\t<path\n\t\t\t\tfill-opacity=\"0.16\"\n\t\t\t\tfill=\"#000000\"\n\t\t\t\tmask=\"url(#bodyMask)\"\n\t\t\t\td=\"M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z\"\n\t\t\t/>\n\t\t</g>";
 	},
 
 	attrs: {
